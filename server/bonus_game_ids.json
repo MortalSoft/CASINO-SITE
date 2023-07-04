@@ -1,0 +1,78 @@
+{
+  "n5-5itb1n-2781150360827": {
+    "battle": {
+      "battle_id": 40,
+      "players": [
+        {
+          "userid": "3eed505853aec08ed999bc3a",
+          "username": "ultrainstinctmom",
+          "avatar": "https://cdn.discordapp.com/attachments/923624763472097331/923624817796743178/112.png",
+          "winnings": 17.96,
+          "status": 2,
+          "game_id": "n5-5gkh8t-2781639249627"
+        },
+        {
+          "userid": "3af6fc64abcbe02178b63d38",
+          "username": "jaberz1",
+          "avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg",
+          "winnings": 5.96,
+          "game_id": "n5-5itb1n-2781150360827",
+          "status": 2
+        }
+      ],
+      "amount": 20,
+      "time_start": 1640806399,
+      "game": {
+        "title": "Fruit Party 2",
+        "id": "pragmaticexternal:FruitParty2"
+      },
+      "status": 1
+    },
+    "player": {
+      "userid": "3af6fc64abcbe02178b63d38",
+      "username": "jaberz1",
+      "avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg",
+      "winnings": 5.96,
+      "game_id": "n5-5itb1n-2781150360827",
+      "status": 2
+    }
+  },
+  "n5-5gkh8t-2781639249627": {
+    "battle": {
+      "battle_id": 40,
+      "players": [
+        {
+          "userid": "3eed505853aec08ed999bc3a",
+          "username": "ultrainstinctmom",
+          "avatar": "https://cdn.discordapp.com/attachments/923624763472097331/923624817796743178/112.png",
+          "winnings": 17.96,
+          "status": 2,
+          "game_id": "n5-5gkh8t-2781639249627"
+        },
+        {
+          "userid": "3af6fc64abcbe02178b63d38",
+          "username": "jaberz1",
+          "avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg",
+          "winnings": 5.96,
+          "game_id": "n5-5itb1n-2781150360827",
+          "status": 2
+        }
+      ],
+      "amount": 20,
+      "time_start": 1640806399,
+      "game": {
+        "title": "Fruit Party 2",
+        "id": "pragmaticexternal:FruitParty2"
+      },
+      "status": 1
+    },
+    "player": {
+      "userid": "3eed505853aec08ed999bc3a",
+      "username": "ultrainstinctmom",
+      "avatar": "https://cdn.discordapp.com/attachments/923624763472097331/923624817796743178/112.png",
+      "winnings": 17.96,
+      "status": 2,
+      "game_id": "n5-5gkh8t-2781639249627"
+    }
+  }
+}

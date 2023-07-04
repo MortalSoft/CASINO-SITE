@@ -1,0 +1,422 @@
+.admin {
+  text-align: left;
+  width: 100%;
+  float: left;
+  --roulette-red: #FF2C3F;
+  --roulette-black: #333342;
+  --roulette-green: #27AE60;
+}
+
+.stats-container {
+  width: 100%;
+  float: left;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.statss {
+  float: left;
+  padding: 10px 100px 10px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 300ms;
+  flex-grow: 1;
+  background: var(--site-color-bg-dark);
+  border-radius: 8px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, .18);
+}
+
+.statss h5 {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #8f9bad;
+}
+
+.statss h4 {
+  margin: 5px 0;
+
+}
+
+.statss p {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.statss h4 i,
+.statss h4 p {
+  float: left;
+  line-height: 14px;
+  font-size: 12px;
+  margin: 0 5px 0 0;
+  color: #8f9bad;
+}
+
+.statss h4 i {
+  height: 12px;
+}
+
+.statss .circle {
+  height: calc(99px + 40px);
+  width: calc(99px + 40px);
+  border-radius: 50%;
+  background: var(--site-color-bg-light);
+  position: absolute;
+  top: -20px;
+  right: -60px;
+  transition: all 300ms;
+  transition: transform 300ms;
+}
+
+.statss .circle i {
+  margin-top: 20px;
+  height: 42px;
+  width: 42px;
+  line-height: 42px;
+  margin: 49px 19px;
+  color: #8f9bad;
+  font-size: 24px;
+  text-align: center;
+}
+
+.statss:hover {
+  cursor: pointer;
+}
+
+/*.statss:hover .circle {
+  transform: scale(1.1);
+}*/
+
+.statss:hover {
+  /*transform: scale(1.06);*/
+  transform: translateY(-3px);
+}
+
+.admin h3 {
+  margin: 0 0 10px;
+  float: left;
+  width: 100%;
+}
+
+.admin h3 span {
+  float: left;
+  line-height: 30px;
+}
+
+.admin h3 input {
+  height: 30px;
+  line-height: 30px;
+  background: rgb(36 54 60);
+  border-radius: 6px;
+  padding: 0 12px;
+  margin-left: 15px;
+  float: left;
+}
+
+.users-container {
+  width: 100%;
+  float: left;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 15px;
+}
+
+.users-container .user {
+  background: var(--site-color-bg-dark);
+  float: left;
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+  margin: 10px 0 0;
+}
+
+.users-container .user img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  float: left;
+}
+
+.users-container .user .text {
+  float: left;
+  height: 40px;
+  width: calc(100% - 50px);
+  margin-left: 10px;
+}
+
+.users-container .user .text p {
+  margin: 0;
+}
+
+.users-container .user p.name {
+  color: #8f9bad;
+  font-weight: 600;
+}
+
+.users-container .user p.balance3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.users-container .user i.more {
+  position: absolute;
+  right: 10px;
+  top: 23px;
+  color: #8f9bad;
+}
+
+[data-isprofit="true"],
+[data-isprofit="true"] i,
+[data-isprofit="true"] p {
+  color: var(--roulette-green) !important;
+}
+
+[data-isprofit="false"],
+[data-isprofit="false"] i,
+[data-isprofit="false"] p {
+  color: var(--roulette-red) !important;
+}
+
+.admin-table .txt,
+.admin-table .txt p {
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.admin-table .txt p {
+  margin: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.admin-table .txt span {
+  font-size: 10px;
+  color: #8f9bad;
+  text-align: left;
+  float: left;
+  width: 100%;
+}
+
+button.more {
+  width: 100%;
+  float: left;
+  margin: 20px 0 0;
+  background: var(--site-color-main);
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px 0;
+  font-weight: 600;
+}
+
+button.more:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+button.more[data-disabled="true"] {
+  opacity: .5;
+  cursor: default !important;
+}
+
+div[data-val="0"] {
+  color: #8f9bad !important;
+}
+
+#txn_list button {
+  outline: 0;
+  border-radius: 6px;
+  line-height: 30px;
+  height: 30px;
+  padding: 0 20px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+#txn_list button:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.approve {
+  background: #2ec92e;
+}
+
+.decline {
+  background: #dd3a3a;
+}
+
+.moree {
+  transition: transform 300ms;
+}
+
+.moree:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.infoo .tr {
+  width: 100%;
+  float: left;
+  font-size: 14px;
+}
+
+.infoo .tr div {
+  float: left;
+  color: #8f9bad;
+}
+
+.infoo .tr span {
+  display: block;
+  float: right;
+}
+
+.infoo .trc {
+  background: var(--site-color-bg-body);
+  width: 100%;
+  float: left;
+  height: 200px;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 5px 0 0;
+  overflow: auto;
+}
+
+.infoo[data-show="false"] {
+  display: none;
+}
+
+.infoo[data-show="true"] {
+  display: flex;
+}
+
+.arroww[data-show="true"] {
+  transform: rotate(180deg);
+}
+
+.admin h3 button {
+  background: transparent;
+  outline: 0;
+  border: 0;
+  color: var(--site-color-main);
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.admin h3 button:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.admin .items {
+  width: 100%;
+  float: left;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.admin .item {
+  float: left;
+  background: var(--site-color-bg-dark);
+  border-radius: 6px;
+  padding: 10px;
+  border: 2px solid transparent;
+  width: 100%;
+}
+
+.admin .item:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.admin .item[data-selected="true"] {
+  border: 2px solid green;
+}
+
+.admin .item * {
+  pointer-events: none;
+}
+
+.admin .item .name {
+  width: 100%;
+  height: 21px;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin .item .time {
+  font-size: 12px;
+  opacity: .6;
+  font-weight: 600;
+}
+
+.admin .item .l {
+  float: left;
+  width: calc(100% - 60px - 30px);
+}
+
+.admin .item .price {
+  float: right;
+  width: 60px;
+  font-weight: 600;
+  line-height: 42px;
+  margin: 0 0 0 30px;
+  text-align: right;
+}
+
+h3 .sort {
+  float: right;
+}
+
+h3 .sort p {
+  margin: 0 15px 0 0;
+  color: #8f9bad;
+}
+
+h3 .sort p,
+h3 .sort span {
+  float: left;
+  line-height: 30px;
+  height: 30px;
+  margin-left: 7px;
+  font-size: 14px;
+}
+
+h3 .sort span {
+  font-weight: 600;
+  color: #fff;
+}
+
+h3 .sort span:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+h3 .sort span[data-active="true"] {
+  color: var(--site-color-main);
+}
+
+h3 select {
+  height: 30px;
+  outline: 0;
+  border: 0;
+  border-radius: 6px;
+  background: rgb(36 54 60);
+  color: #fff;
+  padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+}
