@@ -8,8 +8,8 @@
 - INSTALL PM2 (npm install -g pm2)
 - pm2 start server/server.js
 - YOU MUST SETUP COINPAYMENTS AND SLOTHOOK.PHP TO UPDATE YOUR BALANCE
-- TO GET YOUR SLOT API CONTACT ME ON TELEGRAM UNTIL I RELEASE SITE FOR ORDERS
-## TELEGRAM: https://t.me/realrootsec
+- TO GET YOUR SLOT GAMES API ORDER AT https://mortalsoft.online
+## TELEGRAM: https://t.me/mortalsoft
 ## SCREENSHOTS 
 
 ![HOME](https://i.imgur.com/VeJ5IXr.png "HOME")
