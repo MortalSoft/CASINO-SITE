@@ -1,18 +1,23 @@
 <?php
-//SITE
+//**************************************************//
+// FOR CUSTOM GAMBLING SITES CONTACT US ON TELEGRAM //
+//**************************************************//
+// 	 MortalSoft Telegram https://t.me/mortalsoft    //
+//   RENT YOUR SLOTS API https://mortalsoft.online  //
+//**************************************************//
+
 $port = 2053;
 $root = '/';
 $path = $_GET['page'];
 
 $sitename = 'demo.gg';
 $sitekeywords = 'jackpot, coinflip, csgo, cs, go, global, offensive, cs:go, vgo, csgocoinflip, csgocoinflip, csgosite, vgocoinflip, vgocoinflip, vgosite, site, vgokingdom, kingdom, bet, gambling, gamble, fair, best, great, csgoempire, csgoatse, csgo500, crypto, btc, eth, roulette, experience';
-$siteauthor = 'demo.gg';
-$siteurl = "https://demo-bet.cryptospin.win";
+$siteauthor = 'MortalSoft';
+$siteurl = "https://demo.gg";
 $sitedescription = $sitename.' - The world of high stakes';
 
-//MortalSoft API
 $api = "https://api-prod.mortalsoft.online";
-$apiToken = ""; //RENT YOUR SLOTS API https://t.me/realrootsec
+$apiToken = ""; 
 
 global $siteurl, $port, $api, $apiToken;
 

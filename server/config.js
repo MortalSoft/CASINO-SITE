@@ -1,11 +1,12 @@
 const config = {
-	is_prod: true,
+	is_prod: false,
 	
 	config_site: {
-		name: 'demo.GG',
+		name: 'MortalSoft',
 		
-		url: 'https://demo-bet.cryptospin.win',
+		url: 'https://demo.gg',
 		root: '/',
+		
 
 		flood: {
 			time: 1000,
@@ -23,20 +24,20 @@ const config = {
 		},
 		
 		recaptcha: {
-			private_key: '6LeGiaAUAAAAAMgJwehO2-RWoQbIGDjmL8_foI_o'
+			private_key: ''
 		},
 		
 		steam: {
-			apikey: '54F7F20FCBF2669DF84E03BD7813C21A',
+			apikey: '',
 		},
 	
 		server_port: 2053,
 		
 		database: {
-			database : 'DEMO',
+			database : 'demo',
 			host : 'localhost',
-			user : 'demo_usr',
-			password : 'DEMO'
+			user : 'root',
+			password : ''
 		},
 		
 		level: {
@@ -113,8 +114,8 @@ const config = {
 			bots: [{
 				active: false,
 				botname: 'demo.gg',
-				steamid: '76561197963827564',
-				username: 'demo@hotmail.com',
+				steamid: '',
+				username: '',
 				password: '3th3rn3tR-',
 				identity_secret: '',
 				shared_secret: '',
@@ -126,8 +127,8 @@ const config = {
 			
 			prices: {
 				apikey: {
-					key: '7e2eedb8-bfb4-48a7-bb33-1763c562de5e',
-					secret: 'T7S5V3QBMNTRRVZB'
+					key: '',
+					secret: ''
 				},
 				
 				cooldown_load: 1 * 60 * 60
@@ -152,8 +153,8 @@ const config = {
 	
 		coinpayments: {
 			apikey: {
-				public_key: '99ea1fa438462653190231481ca91757aceb636e7aa4fa423fcc8787cb2d5dbb',
-				private_key: '090E7Fab08d17953015f504d5ef0fA10Ac8BD08d58cc7df28A69A731F016e190'
+				public_key: '',
+				private_key: ''
 			},
 			
 			prices: {
@@ -230,11 +231,11 @@ const config = {
 		channels: ['en', 'ro', 'fr', 'ru', 'de'],
 	
 		support: {
-			message: 'If you find bugs contact us as soon as possible to solve them!',
+			message: 'If you find bugs contact us as soon as possible to solve them! With all due respect, the MortalSoft team.',
 			cooldown: 24 * 60 * 60,
 		},
 		
-		greeting: 'Please contact us if you need help. We don\'t resolve issues in the chat. Type /help for chat commands.',
+		greeting: 'Please contact us if you need help. We don\'t resolve issues in the chat. Type /help for chat commands. With all due respect, the MortalSoft team.',
 		
 		message_double_xp: 'Weekly Double XP! Get double XP betting on our games until Sunday at 23:59PM GTM.',
 		
