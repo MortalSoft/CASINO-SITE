@@ -34,10 +34,10 @@ const config = {
 		server_port: 2053,
 		
 		database: {
-			database : 'admin_demo',
+			database : 'demogg',
 			host : 'localhost',
-			user : 'admin_demo',
-			password : 'oulL3iZfU'
+			user : '',
+			password : ''
 		},
 		
 		level: {
