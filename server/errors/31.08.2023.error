@@ -1,0 +1,49 @@
+	12:23:24.2424 
+ ReferenceError: connection is not defined
+    at loadAndEmitNewBets (/home/admin/domains/mortalsoft.online/demo/server/server.js:1415:3)
+    at Timeout._onTimeout (/home/admin/domains/mortalsoft.online/demo/server/server.js:1405:3)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+
+	12:23:29.2929 
+ ReferenceError: connection is not defined
+    at loadAndEmitNewBets (/home/admin/domains/mortalsoft.online/demo/server/server.js:1415:3)
+    at Timeout._onTimeout (/home/admin/domains/mortalsoft.online/demo/server/server.js:1405:3)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+
+	12:23:34.3434 
+ ReferenceError: connection is not defined
+    at loadAndEmitNewBets (/home/admin/domains/mortalsoft.online/demo/server/server.js:1415:3)
+    at Timeout._onTimeout (/home/admin/domains/mortalsoft.online/demo/server/server.js:1405:3)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+
+	12:23:39.3939 
+ ReferenceError: connection is not defined
+    at loadAndEmitNewBets (/home/admin/domains/mortalsoft.online/demo/server/server.js:1415:3)
+    at Timeout._onTimeout (/home/admin/domains/mortalsoft.online/demo/server/server.js:1405:3)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+
+	12:23:44.4444 
+ ReferenceError: connection is not defined
+    at loadAndEmitNewBets (/home/admin/domains/mortalsoft.online/demo/server/server.js:1415:3)
+    at Timeout._onTimeout (/home/admin/domains/mortalsoft.online/demo/server/server.js:1405:3)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+
+	12:23:49.4949 
+ ReferenceError: connection is not defined
+    at loadAndEmitNewBets (/home/admin/domains/mortalsoft.online/demo/server/server.js:1415:3)
+    at Timeout._onTimeout (/home/admin/domains/mortalsoft.online/demo/server/server.js:1405:3)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+
+	12:23:54.5454 
+ ReferenceError: connection is not defined
+    at loadAndEmitNewBets (/home/admin/domains/mortalsoft.online/demo/server/server.js:1415:3)
+    at Timeout._onTimeout (/home/admin/domains/mortalsoft.online/demo/server/server.js:1405:3)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+

@@ -1,0 +1,5813 @@
+[
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414478",
+        "original_action_id": "2_2414478"
+      }
+    ],
+    "game_id": "2-26pv-1712049",
+    "sign": "2362f330bae4188deaa040fdee369973ee5f9f4fa00d21beca59991b43953cfb"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:Avalon",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414479",
+        "original_action_id": "2_2414479"
+      }
+    ],
+    "game_id": "2-26pw-1712050",
+    "sign": "6e4e777b34af2d35ed05763e3b791eeca42642deea3bcafb01e8972990f174d8"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:BlackjackPro",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414480",
+        "original_action_id": "2_2414480"
+      }
+    ],
+    "game_id": "2-26px-1712051",
+    "sign": "e4cbe3ad9db8a6dfa54a5b3684d895db03f71d39acd8cfa60ed6af70fb3ae6c6"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414481",
+        "original_action_id": "2_2414481"
+      }
+    ],
+    "game_id": "2-26pv-1712052",
+    "sign": "e1b087ee0cb5126e31ecf1f42ff6591b080892907ec84fb762440e5418695748"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover20",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414482",
+        "original_action_id": "2_2414482"
+      }
+    ],
+    "game_id": "2-26pz-1712053",
+    "sign": "85282a14e6dd3b12e3025912285ecac5d7ebaa77d112d1297a5530bcc7adb0fc"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954222774975682",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2e4492ac-cf84-4cfa-9aea-cb49f3bee518",
+        "original_action_id": "4b8ece6b-8b73-4af9-80c3-975688c6a550"
+      }
+    ],
+    "sign": "fa38241f5f7e5dfe99ceca2ae0e6cdb2fa3f4f10f7945968d7117342868a1d9e"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954222934549667",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "16f40351-39e4-4af7-944d-c7b48a544c4c",
+        "original_action_id": "36ae951e-eefc-4a10-9bda-cb0944edac7c"
+      }
+    ],
+    "sign": "76bab9da3f78ce8446cbe7e5dd066586f6febe2bba5a9235fbf6ccff27823187"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954222990347101",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "48ea2f16-6acc-4d23-b76f-2a4f416d7308",
+        "original_action_id": "412e7375-53d4-4ac6-83c6-c82306f31faf"
+      }
+    ],
+    "sign": "8a36da0107e70e3a3d1a5f8c37cd8fbd56c44e1557cf9f8062435533eb9dea03"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954223019794236",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "a2dc761b-06ad-4c23-9a55-8b0b197b0046",
+        "original_action_id": "3c110ee7-5ffc-437e-86d8-a329b563958c"
+      }
+    ],
+    "sign": "af6548922191c602a00550d6463a367b7bc834fb0d1debb4f3acf57e49c6f96e"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954223049091061",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "044edb46-0fb3-4376-b98c-feaac6110c16",
+        "original_action_id": "d9282bf2-f95f-4eaf-a6d3-079a21c2a206"
+      },
+      {
+        "action": "rollback",
+        "action_id": "9e1034b2-9e8c-44a5-a4cc-cdbbbc026fd7",
+        "original_action_id": "ba045f9a-ea54-4279-b313-bb06d278a365"
+      }
+    ],
+    "sign": "91136f53913f68dad0c90fc1c8f9ba4217748c362587e40e5ffe2f969c57cd44"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954464981705698",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "0a20530c-a0e3-4ff6-bf6c-dcdef7ebf171",
+        "original_action_id": "369a8227-c1af-42ce-a7eb-0dd0ddd23279"
+      }
+    ],
+    "sign": "9cc3e8d3e05024474cdf52daa203e07c8c65f685ba718396039457aa4475e26d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954465006574698",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "d93d6540-ef7a-4c79-bff5-aa36c73f0644",
+        "original_action_id": "2c15a494-01e7-43fc-bf73-545456407e6f"
+      }
+    ],
+    "sign": "5e6dec655ea7cde28a8dc624a178fee7df5f1dddc21a1d7ec972a0da5e431ec5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954465031202515",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "389c0dfb-cdd3-4606-937a-6de40dea9d78",
+        "original_action_id": "575b28e9-540c-4cb4-8e1e-953c01c57ea3"
+      },
+      {
+        "action": "rollback",
+        "action_id": "b984a957-906f-4d5e-9b7f-fa1fccb80cd7",
+        "original_action_id": "2a0d44b7-2fbe-482d-b882-baa99f71a57b"
+      }
+    ],
+    "sign": "1a09cb752cc379bfb4de1f755d37ba2330e5770fce33637f7d939042396d83fe"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954475436701017",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "02576418-bb04-442f-8202-4f27958668d6",
+        "original_action_id": "c137a559-9b4d-4607-8614-7eff00c57b56"
+      }
+    ],
+    "sign": "c0866784411b03525ccf0fa98d88316ee6db77e2de4ed1abd721093300882612"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954475465570996",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "258ac2a8-37e7-46a2-b7b8-887db27586f1",
+        "original_action_id": "b42371c8-9f40-48c9-ab2a-8e80f49a83dd"
+      }
+    ],
+    "sign": "0c4f8b53e9f7c2b4a4628bef2923e825c0c3a8d2e4457e80958856265b728bad"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954475493634138",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "ede94368-c7d5-45f8-ae49-48d596a262ac",
+        "original_action_id": "386ffd63-8600-4457-97b7-57d8796683e8"
+      },
+      {
+        "action": "rollback",
+        "action_id": "31c1a37f-ac81-45e8-99b2-24660e166668",
+        "original_action_id": "d83b7cd8-38e5-4680-be1b-0366eca6d554"
+      }
+    ],
+    "sign": "534e66a0888edd2e60c0115f49b69d05c6e94a49eca74183b1c0bc905ace50bf"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415090",
+        "original_action_id": "2_2415090"
+      }
+    ],
+    "game_id": "2-26qd-1712645",
+    "sign": "0dca10ebfc4b5c0b1b3cd5a73e4c4f8d3e753525b9775edd1c0572c88666d997"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415089",
+        "original_action_id": "2_2415089"
+      }
+    ],
+    "game_id": "2-26qd-1712644",
+    "sign": "b930bba2b87dfdb7f01d20e9177ae22319e40e40930b4d3225ff7a5f36ce5d8f"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954969889349812",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "e659c842-f3ee-4282-baf1-f2f14f5abb0e",
+        "original_action_id": "2dc4d72f-ae19-4e7a-af7e-d78184e8668e"
+      }
+    ],
+    "sign": "10e7c10cd560946eb9c17600aa558d73e2ec45965b412a4550abfd6ba7dfa60f"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954970058871876",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "8deda7eb-cb5f-4e18-8f31-5e560be6c935",
+        "original_action_id": "e83f046c-9329-4a35-bff2-427dda5008ec"
+      }
+    ],
+    "sign": "e34b4efeb2bfda40862dea08f1d13694c763d778f0295d48423addf42b49a0ea"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954970113934188",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7aad2dd3-0962-4a29-aa82-48ce665d1338",
+        "original_action_id": "4b40f687-b7a4-49ed-a7bd-48d572972e64"
+      }
+    ],
+    "sign": "01561b468ee1c60781c364c7c8c0c75ce97b2ec6eb56a8fa35edda48990566f9"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954970133116946",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "03251c48-4ae3-4851-9f4d-3bd95e63647f",
+        "original_action_id": "20b19509-6005-4dce-ab5a-3ee65a3cc26d"
+      }
+    ],
+    "sign": "f25e443948a2484e28f372239ec33c33e6f019f9d80844e921011b7fa25a96cc"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637954970151882388",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "9bd47e55-34bd-415e-841d-53a7e4b6df01",
+        "original_action_id": "32ba9ba6-5cf7-40f8-a63e-c44d7d98e5a3"
+      },
+      {
+        "action": "rollback",
+        "action_id": "ec7c2f6f-965c-475a-aec7-7485b43b1071",
+        "original_action_id": "85f001cf-3555-42ec-a7e2-b476e9ab3dcf"
+      }
+    ],
+    "sign": "db88f3858c114d94f6b40e561e0cf0bff24deb701cbe9cc4fd7b2681c3c7730a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637955069660279444",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7b48f6cc-0190-4138-aa32-33715f32d3f9",
+        "original_action_id": "272264e1-5eda-4042-a070-ef4619fe5f04"
+      }
+    ],
+    "sign": "394e9814e78f899edffcf36474a5cb29bde098a5309c6938ed86d01c05975431"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637955069839121739",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "f6c8eb04-1b8c-4429-9d62-ca8ab4d128e9",
+        "original_action_id": "0738202e-ce7c-47f6-9e4e-892d4d2f7a79"
+      }
+    ],
+    "sign": "b312f42d1ea0bd8648be43fee1280b749cf7e66ffadfa8caf23a5faf5acefc88"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637955069903085943",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "e4419e63-b302-46db-b0f1-75376ca7d4bb",
+        "original_action_id": "d60fb052-a2ff-4d56-9cc9-33a4ed8673eb"
+      }
+    ],
+    "sign": "1aed57974f90561253c5f189bb7041269d933095ce52bb6751dbe89b85542963"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637955069924682590",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "13f44b55-298c-4034-b0cf-b055acb21438",
+        "original_action_id": "f37eca47-eb30-4d38-a0df-149d5ab9c01b"
+      }
+    ],
+    "sign": "5a6c876fdf5cb1ac2031d7aa74aaaff42ec8e53c83788309bbd63c105fdb8adf"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637955069945098058",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "a535ce68-075e-4260-aa56-06b606760608",
+        "original_action_id": "b6929ca4-3a7e-4220-b72c-af32ff43b598"
+      },
+      {
+        "action": "rollback",
+        "action_id": "67d038be-6d20-46d9-b50c-94f44453f99e",
+        "original_action_id": "2a1db719-652b-4123-a688-02c09bfd1a0c"
+      }
+    ],
+    "sign": "b8e4a6ee475d653c44ce220a259a17be77c588212fa843bfa38749a81fb385c9"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415091",
+        "original_action_id": "2_2415091"
+      }
+    ],
+    "game_id": "2-26qd-1712646",
+    "sign": "b548f41c8797cd4a3135d751801a5d936d26fd4827118c85ad7d593b4ac4b93b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414882",
+        "original_action_id": "2_2414882"
+      }
+    ],
+    "game_id": "2-26py-1712408",
+    "sign": "0a0040fbb8b41090f0fa5c7a11a5b9355c43740327d995247dd2db08550cd082"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414921",
+        "original_action_id": "2_2414921"
+      }
+    ],
+    "game_id": "2-26qd-1712461",
+    "sign": "ce531177d60e8eb4fdbb99477b6056ad66cdd6f267e3ad3372ddc3ec2503b790"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414924",
+        "original_action_id": "2_2414924"
+      },
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414925",
+        "original_action_id": "2_2414925"
+      }
+    ],
+    "game_id": "2-26qh-1712464",
+    "sign": "8adb05044f8f04ac10151e811eff28801de04061d1e644f22b0ddfb33204ded4"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414923",
+        "original_action_id": "2_2414923"
+      }
+    ],
+    "game_id": "2-26qh-1712463",
+    "sign": "535c7f1ebd6a7e3d0a068d169a75d1a9c70673855fe597c3013563f97972c7f7"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414922",
+        "original_action_id": "2_2414922"
+      }
+    ],
+    "game_id": "2-26qd-1712462",
+    "sign": "4eb6b4e7c1d1c9b9426a26b881ba137370b2bef7c4c63b8e334ef6f15c940d63"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637958765152907851",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "37f80cb0-9d16-40df-a99c-cf0f1ed90708",
+        "original_action_id": "028edcf5-bbe8-4775-a3e7-d0e54800208c"
+      }
+    ],
+    "sign": "04f182b8a93ac45623012cb7057b77cfcffa8cd6ecfc9116b1625dc5e2a3d910"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637959555543868468",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "5872293f-ba59-40a2-a872-f224a45001bb",
+        "original_action_id": "a8150085-0104-42b0-a574-6ff813303dc7"
+      }
+    ],
+    "sign": "8cd0656d468fc6c5fd137cd7618924d69813886a1fc727fd01f44dfc38038ab3"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637959636739447367",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "05e214df-e17a-4b87-b235-30b80780ca9a",
+        "original_action_id": "86847c54-3313-45fc-89c0-b11cc14deeec"
+      }
+    ],
+    "sign": "b9cd5b96f542e1ed4fa0f5f403bf7436ad47a30a4f50f3c5bb53867910e839a0"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637959790133126872",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "71987289-5cae-4023-ad1a-7b6e9460509e",
+        "original_action_id": "29fa5c1d-37a7-484b-88d0-e6fcfac8981a"
+      }
+    ],
+    "sign": "c606b2c80e15380d7eb1be18799892cafbb89c7be736cd64ad61ab66fc9b618a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637959880504266973",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "e61b2c69-e99c-4f4e-bc49-0ee6d178da4f",
+        "original_action_id": "54da21e9-10d0-4ae5-9513-cf78b534e9b2"
+      }
+    ],
+    "sign": "22cbba3d6c673e9138f39d2f99b3d7fba24e825bb1202cf8227c6bd5b82c8a93"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960197413902471",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "004b0186-e783-458f-8bf4-eaf96617ec6b",
+        "original_action_id": "68108dfb-a1be-4174-a0d8-b8825d858bcc"
+      }
+    ],
+    "sign": "566eabeeff89ddba9b6cdd42763bfe303c764f84b9397461aed9863f45945af9"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960342360308068",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "c88ae150-ccdb-45d6-89f1-8bfcb43305e4",
+        "original_action_id": "080ad3a7-eb99-44f1-b2bb-755778c499a9"
+      }
+    ],
+    "sign": "f72876ffc318836cd183b7a499cc56a769a7a5d66adcb83953ad39e8d4e3bc6c"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960342565991407",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "c9ebcb4c-b630-4e21-be03-b43a299b49a0",
+        "original_action_id": "7a28cc70-81a3-4589-ba7c-81d26f51a757"
+      }
+    ],
+    "sign": "55e9ec1fa9d88318aac38e541d9bbb71b0448c1d85594dbcfa6f0fcbb62ce891"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960342638020884",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "d8094fd4-f756-4425-8501-7b006131b691",
+        "original_action_id": "3173a571-1fcb-4fa0-9c70-ef2eb27d2d32"
+      }
+    ],
+    "sign": "c591df4cc2f74d9302f501a3dae8b9f96f80a743626f3a91c39dc3e2e13d084b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960352656532480",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "168c61c3-3dd8-4000-be9a-ca1e4c5eac45",
+        "original_action_id": "c1c6d46a-b952-404a-a880-0df7f3eaaa08"
+      }
+    ],
+    "sign": "3ea2e3866bdb2f0d08db6ec8118d2b51b22b8bdcf78d5d3f4463c5863d926f10"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960362677110388",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2343ecf5-37c6-4b19-9715-69bb7598f84b",
+        "original_action_id": "71e7a108-3579-4e89-8bd4-3eb6944ddb20"
+      },
+      {
+        "action": "rollback",
+        "action_id": "61481f2c-c429-4abe-9159-ce91176620f1",
+        "original_action_id": "3ef7078a-b086-4c54-a095-e0f5d8b793bc"
+      }
+    ],
+    "sign": "dfd1587a53813cf75216f566d7015a142dc50498946ad571e251cbd37db4e6a1"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960521319164520",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "d09cb002-be51-4f32-9ded-338dd4d1cb69",
+        "original_action_id": "1e0bbb75-1d6e-4f0e-aa88-04c6e5bac2b2"
+      }
+    ],
+    "sign": "bb4a31a1b3e9dc3d75402cb8f48527020b6dd865d55651a789e955f5ec5d4292"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960640856913973",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "4897844b-dda5-49e6-b7cc-5647dd99f2dd",
+        "original_action_id": "9c592136-f562-463e-9d9e-3893a908cb98"
+      }
+    ],
+    "sign": "150b36ce69ddddb7b6bc3371b5df47fa648d12ef9ee6b86e889e3faeb7d60009"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960645929137593",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2324dfd6-eadb-49cf-841a-ff6da04765d4",
+        "original_action_id": "e21a642e-ea52-4bb1-a56d-63047f335c10"
+      }
+    ],
+    "sign": "14bbd424c8eae2d4a7669d3f07bda9d5c54a54ad94a4a016ad2f91968aa2dc40"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960750890726975",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "e5c8f8d8-035a-4b6f-8abe-4e0ed85046cf",
+        "original_action_id": "cab59962-8f3a-48a5-9212-3e4d23f11022"
+      }
+    ],
+    "sign": "2ef22c358892404c0f9ea8fa7fdfa04868d08b3c5b25bc2c2a66fd2afde02965"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960776746208088",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2e4fb95b-57ae-4e83-ad5c-a82c102b45a7",
+        "original_action_id": "69e9e42f-c63e-4052-afee-f3a8347a3b2b"
+      },
+      {
+        "action": "rollback",
+        "action_id": "87140238-f99f-4e11-9e86-e2232c307a45",
+        "original_action_id": "f308c45a-75c7-44e0-a9fd-1b91fb8eb5f9"
+      }
+    ],
+    "sign": "9e65e2f71614e38cfcead7ecb8fdeffaa563ff9ca9ffe275929f3bbaf340963e"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960790958980820",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "b60a6f41-3b46-40ba-beaa-4c60f4dc6200",
+        "original_action_id": "dead979a-174f-4629-bc50-5a8bc2835c53"
+      }
+    ],
+    "sign": "1d746077752c805cb1d59128795be29466c7485ea6ddb5a4370b4e3a794c7d0c"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637960992905029922",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "e1d3ab4d-98b0-4db6-92bb-4b47b8a198ba",
+        "original_action_id": "d36d9ea9-1187-4f36-b770-62cd332e2238"
+      }
+    ],
+    "sign": "832a32b92a69fbbb71b6c6d7e12ca8e2731362ff09f724e56a8049c77ece7787"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637961455861627054",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "d2954406-5c67-49bc-a80e-e88435a15dc4",
+        "original_action_id": "a2e64048-74f6-47d3-b43d-89399ad1343c"
+      }
+    ],
+    "sign": "addbfebcf9d7dda0c3184022da534144bb2cc2d4173b1f3b0d98597da7da44ac"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415090",
+        "original_action_id": "2_2415090"
+      }
+    ],
+    "game_id": "2-26qd-1712645",
+    "sign": "0dca10ebfc4b5c0b1b3cd5a73e4c4f8d3e753525b9775edd1c0572c88666d997"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415089",
+        "original_action_id": "2_2415089"
+      }
+    ],
+    "game_id": "2-26qd-1712644",
+    "sign": "b930bba2b87dfdb7f01d20e9177ae22319e40e40930b4d3225ff7a5f36ce5d8f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637961703416774634",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "3b2a032e-234a-4965-94dd-77fc2defd9f6",
+        "original_action_id": "974df864-e691-4a07-a220-971d38163382"
+      }
+    ],
+    "sign": "65baf036ba20ed19a3fcfcbba04a68dc7515119fcb47c379c75298860f4eb17b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637961706059506080",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "b1d63d77-14a5-4e04-9b98-4c0cf7a14dd6",
+        "original_action_id": "62413bd6-a78b-468e-bbc1-f06e09634fbd"
+      }
+    ],
+    "sign": "2ebe371bc432eee9a59cb6b2ed8d373fd36f0dbbac9bb33b8f1583df4fc9f14a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637961708348966427",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "71583bb3-ac86-4033-8cad-575d556802e7",
+        "original_action_id": "aab306f2-3a52-465b-8040-d184b64985fd"
+      },
+      {
+        "action": "rollback",
+        "action_id": "541fc245-51b5-4636-8666-7933722563cb",
+        "original_action_id": "ce87413b-6a47-41c5-a6f6-555555a82567"
+      }
+    ],
+    "sign": "1a3e97cdfe22388439f4a9f948c0dc7c5b00dec391d2ea7ab585526ca544e12a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637961711820756949",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "01e88a3d-6db9-44ea-840f-2fd40d945766",
+        "original_action_id": "aca4f599-6e72-44ef-9dd1-cd4bad76e196"
+      }
+    ],
+    "sign": "f8a4357c77f0d268dcdcea0532f5e051542763c7d93f9f99d40de804b8eb86c9"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637961719349952144",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "9344b785-2c30-4b48-8ced-3854ca86fcd8",
+        "original_action_id": "98b44933-79ce-4bcc-a859-56da1c51d5ee"
+      }
+    ],
+    "sign": "9f500402df19683a6bd6e3c0c93b6ac48e50d36f5b16d8a1159332506467a783"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415091",
+        "original_action_id": "2_2415091"
+      }
+    ],
+    "game_id": "2-26qd-1712646",
+    "sign": "b548f41c8797cd4a3135d751801a5d936d26fd4827118c85ad7d593b4ac4b93b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:Avalon",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414479",
+        "original_action_id": "2_2414479"
+      }
+    ],
+    "game_id": "2-26pw-1712050",
+    "sign": "6e4e777b34af2d35ed05763e3b791eeca42642deea3bcafb01e8972990f174d8"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414478",
+        "original_action_id": "2_2414478"
+      }
+    ],
+    "game_id": "2-26pv-1712049",
+    "sign": "2362f330bae4188deaa040fdee369973ee5f9f4fa00d21beca59991b43953cfb"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:BlackjackPro",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414480",
+        "original_action_id": "2_2414480"
+      }
+    ],
+    "game_id": "2-26px-1712051",
+    "sign": "e4cbe3ad9db8a6dfa54a5b3684d895db03f71d39acd8cfa60ed6af70fb3ae6c6"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414481",
+        "original_action_id": "2_2414481"
+      }
+    ],
+    "game_id": "2-26pv-1712052",
+    "sign": "e1b087ee0cb5126e31ecf1f42ff6591b080892907ec84fb762440e5418695748"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover20",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414482",
+        "original_action_id": "2_2414482"
+      }
+    ],
+    "game_id": "2-26pz-1712053",
+    "sign": "85282a14e6dd3b12e3025912285ecac5d7ebaa77d112d1297a5530bcc7adb0fc"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637963956688591700",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "3129d47d-0a97-433a-bd9c-d982806546b3",
+        "original_action_id": "cdc9c188-f1a6-4f6d-9732-f87408abd708"
+      }
+    ],
+    "sign": "9e5c948a5ff441507863174752ac48220234f2cb9853f8c47cc84d4f84d2ae23"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637964077687650843",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "24312f6d-7cc8-4797-b2ef-4362ad9b005f",
+        "original_action_id": "2d675fe9-8938-4c5d-bb62-a0f3786e328e"
+      }
+    ],
+    "sign": "cade4ea85a93c04ace30880795db67288478dcf51cd3a28699ac63b5ae3d8367"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637964079930892050",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "4a557a1b-52a4-4c5d-8db9-ab35bd0a36e4",
+        "original_action_id": "7c9f559e-85e7-4bd8-87b2-d229ac2529bc"
+      }
+    ],
+    "sign": "729dd584190550883c8dbbebd4c6c17a90e267db3de29fe92ff164483f609f20"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637964081764604436",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "51a78999-9e76-4a32-8592-e709b3b7a113",
+        "original_action_id": "994f05b5-b3d7-4408-a581-faf48e8e104b"
+      },
+      {
+        "action": "rollback",
+        "action_id": "f1057526-0f5d-4161-80fd-cdd462eb651f",
+        "original_action_id": "5fefd5a5-d72f-4515-88cc-2a3d2c4df9e8"
+      }
+    ],
+    "sign": "447177956897ee742075708d5f1eef5058025d593d0784666284f0ad83dc14a8"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637964085972154484",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "c445ccd2-d087-43d0-a82a-272671458179",
+        "original_action_id": "344dc679-9a6d-4a8b-af20-0118a88e6d90"
+      },
+      {
+        "action": "rollback",
+        "action_id": "8d8f8d8f-ec77-443a-a6d1-61136e248575",
+        "original_action_id": "e568bcfb-cd54-421a-b051-96ea1e1dc4c9"
+      }
+    ],
+    "sign": "9e9107d43dd8d1dd4755143eb198b7ea5323c0de5180001035ba8a8fb1a59bd1"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637964086015187378",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "0f32b890-67bf-4506-bf30-52837dba5877",
+        "original_action_id": "fb7ba428-837f-4639-85f2-9d9e3121145e"
+      },
+      {
+        "action": "rollback",
+        "action_id": "8c226916-d92e-4ff8-b687-508b7140667a",
+        "original_action_id": "4133071e-5263-4566-8ec5-c6e5548f3d6a"
+      }
+    ],
+    "sign": "e2738bb09c78f362e91c8acb5bc27b2a04e06f7884899ecf858c874d194ef38a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1637964612039984544",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "62af58a0-5d22-43b5-964d-b4ac3da4b2de",
+        "original_action_id": "e22d780d-fa98-46a2-8a32-07ec64314dbb"
+      }
+    ],
+    "sign": "d7383797613b595b952614e1b372fe1357893e83873ff10e11308f0120df6123"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414882",
+        "original_action_id": "2_2414882"
+      }
+    ],
+    "game_id": "2-26py-1712408",
+    "sign": "0a0040fbb8b41090f0fa5c7a11a5b9355c43740327d995247dd2db08550cd082"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414921",
+        "original_action_id": "2_2414921"
+      }
+    ],
+    "game_id": "2-26qd-1712461",
+    "sign": "ce531177d60e8eb4fdbb99477b6056ad66cdd6f267e3ad3372ddc3ec2503b790"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414924",
+        "original_action_id": "2_2414924"
+      },
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414925",
+        "original_action_id": "2_2414925"
+      }
+    ],
+    "game_id": "2-26qh-1712464",
+    "sign": "8adb05044f8f04ac10151e811eff28801de04061d1e644f22b0ddfb33204ded4"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414922",
+        "original_action_id": "2_2414922"
+      }
+    ],
+    "game_id": "2-26qd-1712462",
+    "sign": "4eb6b4e7c1d1c9b9426a26b881ba137370b2bef7c4c63b8e334ef6f15c940d63"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414923",
+        "original_action_id": "2_2414923"
+      }
+    ],
+    "game_id": "2-26qh-1712463",
+    "sign": "535c7f1ebd6a7e3d0a068d169a75d1a9c70673855fe597c3013563f97972c7f7"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415089",
+        "original_action_id": "2_2415089"
+      }
+    ],
+    "game_id": "2-26qd-1712644",
+    "sign": "b930bba2b87dfdb7f01d20e9177ae22319e40e40930b4d3225ff7a5f36ce5d8f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415090",
+        "original_action_id": "2_2415090"
+      }
+    ],
+    "game_id": "2-26qd-1712645",
+    "sign": "0dca10ebfc4b5c0b1b3cd5a73e4c4f8d3e753525b9775edd1c0572c88666d997"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415091",
+        "original_action_id": "2_2415091"
+      }
+    ],
+    "game_id": "2-26qd-1712646",
+    "sign": "b548f41c8797cd4a3135d751801a5d936d26fd4827118c85ad7d593b4ac4b93b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:Avalon",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414479",
+        "original_action_id": "2_2414479"
+      }
+    ],
+    "game_id": "2-26pw-1712050",
+    "sign": "6e4e777b34af2d35ed05763e3b791eeca42642deea3bcafb01e8972990f174d8"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414478",
+        "original_action_id": "2_2414478"
+      }
+    ],
+    "game_id": "2-26pv-1712049",
+    "sign": "2362f330bae4188deaa040fdee369973ee5f9f4fa00d21beca59991b43953cfb"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:BlackjackPro",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414480",
+        "original_action_id": "2_2414480"
+      }
+    ],
+    "game_id": "2-26px-1712051",
+    "sign": "e4cbe3ad9db8a6dfa54a5b3684d895db03f71d39acd8cfa60ed6af70fb3ae6c6"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414481",
+        "original_action_id": "2_2414481"
+      }
+    ],
+    "game_id": "2-26pv-1712052",
+    "sign": "e1b087ee0cb5126e31ecf1f42ff6591b080892907ec84fb762440e5418695748"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover20",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414482",
+        "original_action_id": "2_2414482"
+      }
+    ],
+    "game_id": "2-26pz-1712053",
+    "sign": "85282a14e6dd3b12e3025912285ecac5d7ebaa77d112d1297a5530bcc7adb0fc"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414882",
+        "original_action_id": "2_2414882"
+      }
+    ],
+    "game_id": "2-26py-1712408",
+    "sign": "0a0040fbb8b41090f0fa5c7a11a5b9355c43740327d995247dd2db08550cd082"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414924",
+        "original_action_id": "2_2414924"
+      },
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414925",
+        "original_action_id": "2_2414925"
+      }
+    ],
+    "game_id": "2-26qh-1712464",
+    "sign": "8adb05044f8f04ac10151e811eff28801de04061d1e644f22b0ddfb33204ded4"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414921",
+        "original_action_id": "2_2414921"
+      }
+    ],
+    "game_id": "2-26qd-1712461",
+    "sign": "ce531177d60e8eb4fdbb99477b6056ad66cdd6f267e3ad3372ddc3ec2503b790"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414923",
+        "original_action_id": "2_2414923"
+      }
+    ],
+    "game_id": "2-26qh-1712463",
+    "sign": "535c7f1ebd6a7e3d0a068d169a75d1a9c70673855fe597c3013563f97972c7f7"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414922",
+        "original_action_id": "2_2414922"
+      }
+    ],
+    "game_id": "2-26qd-1712462",
+    "sign": "4eb6b4e7c1d1c9b9426a26b881ba137370b2bef7c4c63b8e334ef6f15c940d63"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415089",
+        "original_action_id": "2_2415089"
+      }
+    ],
+    "game_id": "2-26qd-1712644",
+    "sign": "b930bba2b87dfdb7f01d20e9177ae22319e40e40930b4d3225ff7a5f36ce5d8f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415090",
+        "original_action_id": "2_2415090"
+      }
+    ],
+    "game_id": "2-26qd-1712645",
+    "sign": "0dca10ebfc4b5c0b1b3cd5a73e4c4f8d3e753525b9775edd1c0572c88666d997"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415091",
+        "original_action_id": "2_2415091"
+      }
+    ],
+    "game_id": "2-26qd-1712646",
+    "sign": "b548f41c8797cd4a3135d751801a5d936d26fd4827118c85ad7d593b4ac4b93b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414478",
+        "original_action_id": "2_2414478"
+      }
+    ],
+    "game_id": "2-26pv-1712049",
+    "sign": "2362f330bae4188deaa040fdee369973ee5f9f4fa00d21beca59991b43953cfb"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:Avalon",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414479",
+        "original_action_id": "2_2414479"
+      }
+    ],
+    "game_id": "2-26pw-1712050",
+    "sign": "6e4e777b34af2d35ed05763e3b791eeca42642deea3bcafb01e8972990f174d8"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:BlackjackPro",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414480",
+        "original_action_id": "2_2414480"
+      }
+    ],
+    "game_id": "2-26px-1712051",
+    "sign": "e4cbe3ad9db8a6dfa54a5b3684d895db03f71d39acd8cfa60ed6af70fb3ae6c6"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414481",
+        "original_action_id": "2_2414481"
+      }
+    ],
+    "game_id": "2-26pv-1712052",
+    "sign": "e1b087ee0cb5126e31ecf1f42ff6591b080892907ec84fb762440e5418695748"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover20",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414482",
+        "original_action_id": "2_2414482"
+      }
+    ],
+    "game_id": "2-26pz-1712053",
+    "sign": "85282a14e6dd3b12e3025912285ecac5d7ebaa77d112d1297a5530bcc7adb0fc"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414882",
+        "original_action_id": "2_2414882"
+      }
+    ],
+    "game_id": "2-26py-1712408",
+    "sign": "0a0040fbb8b41090f0fa5c7a11a5b9355c43740327d995247dd2db08550cd082"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414924",
+        "original_action_id": "2_2414924"
+      },
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414925",
+        "original_action_id": "2_2414925"
+      }
+    ],
+    "game_id": "2-26qh-1712464",
+    "sign": "8adb05044f8f04ac10151e811eff28801de04061d1e644f22b0ddfb33204ded4"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414921",
+        "original_action_id": "2_2414921"
+      }
+    ],
+    "game_id": "2-26qd-1712461",
+    "sign": "ce531177d60e8eb4fdbb99477b6056ad66cdd6f267e3ad3372ddc3ec2503b790"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414922",
+        "original_action_id": "2_2414922"
+      }
+    ],
+    "game_id": "2-26qd-1712462",
+    "sign": "4eb6b4e7c1d1c9b9426a26b881ba137370b2bef7c4c63b8e334ef6f15c940d63"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414923",
+        "original_action_id": "2_2414923"
+      }
+    ],
+    "game_id": "2-26qh-1712463",
+    "sign": "535c7f1ebd6a7e3d0a068d169a75d1a9c70673855fe597c3013563f97972c7f7"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415089",
+        "original_action_id": "2_2415089"
+      }
+    ],
+    "game_id": "2-26qd-1712644",
+    "sign": "b930bba2b87dfdb7f01d20e9177ae22319e40e40930b4d3225ff7a5f36ce5d8f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415090",
+        "original_action_id": "2_2415090"
+      }
+    ],
+    "game_id": "2-26qd-1712645",
+    "sign": "0dca10ebfc4b5c0b1b3cd5a73e4c4f8d3e753525b9775edd1c0572c88666d997"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415091",
+        "original_action_id": "2_2415091"
+      }
+    ],
+    "game_id": "2-26qd-1712646",
+    "sign": "b548f41c8797cd4a3135d751801a5d936d26fd4827118c85ad7d593b4ac4b93b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AztecMagicDeluxe",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415394",
+        "original_action_id": "2_2415394"
+      }
+    ],
+    "game_id": "2-26s7-1712919",
+    "sign": "822cc663817eaaebd4f4f384598fd4f416a1f376e87842d0ebe258dea8efebad"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415402",
+        "original_action_id": "2_2415402"
+      }
+    ],
+    "game_id": "2-26qp-1712926",
+    "sign": "20d10dea0fae177612c57cb6e1b0ad8b75f0693b915c48d637423d8f00a4e639"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:HeadsTails",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415406",
+        "original_action_id": "2_2415406"
+      }
+    ],
+    "game_id": "2-26s9-1712930",
+    "sign": "9a0bb5394d23491b3621e30ae8544230ae915b71e0fd74a051bc2bbc0fffaab9"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415407",
+        "original_action_id": "2_2415407"
+      }
+    ],
+    "game_id": "2-26py-1712931",
+    "sign": "4c5dde993ebb8bc55869f3e03cb50a5c0a735343f494064c574471f3e4d4c3fe"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414478",
+        "original_action_id": "2_2414478"
+      }
+    ],
+    "game_id": "2-26pv-1712049",
+    "sign": "2362f330bae4188deaa040fdee369973ee5f9f4fa00d21beca59991b43953cfb"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:Avalon",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414479",
+        "original_action_id": "2_2414479"
+      }
+    ],
+    "game_id": "2-26pw-1712050",
+    "sign": "6e4e777b34af2d35ed05763e3b791eeca42642deea3bcafb01e8972990f174d8"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415430",
+        "original_action_id": "2_2415430"
+      }
+    ],
+    "game_id": "2-26py-1712948",
+    "sign": "51831187608db93c32240ba057b16b67504cc86aff5ff3437503ce8d222468a1"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:FrenchRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415431",
+        "original_action_id": "2_2415431"
+      }
+    ],
+    "game_id": "2-26ta-1712949",
+    "sign": "a9dd58d939b15a798716116a03ea5649dc8bbcd08efc113cf13754ce2b195956"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:HiLoSwitch",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415432",
+        "original_action_id": "2_2415432"
+      }
+    ],
+    "game_id": "2-26td-1712950",
+    "sign": "1880386045b567590264f561766a86b51224af2d326019901ab0a52d431c6cad"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:BlackjackPro",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414480",
+        "original_action_id": "2_2414480"
+      }
+    ],
+    "game_id": "2-26px-1712051",
+    "sign": "e4cbe3ad9db8a6dfa54a5b3684d895db03f71d39acd8cfa60ed6af70fb3ae6c6"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:BlackjackSurrender",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415435",
+        "original_action_id": "2_2415435"
+      }
+    ],
+    "game_id": "2-26tg-1712953",
+    "sign": "fa4d17a74428c595509d46bc10a2721854bc499cbc07f5abcba2521682c6c328"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414481",
+        "original_action_id": "2_2414481"
+      }
+    ],
+    "game_id": "2-26pv-1712052",
+    "sign": "e1b087ee0cb5126e31ecf1f42ff6591b080892907ec84fb762440e5418695748"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover20",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414482",
+        "original_action_id": "2_2414482"
+      }
+    ],
+    "game_id": "2-26pz-1712053",
+    "sign": "85282a14e6dd3b12e3025912285ecac5d7ebaa77d112d1297a5530bcc7adb0fc"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414882",
+        "original_action_id": "2_2414882"
+      }
+    ],
+    "game_id": "2-26py-1712408",
+    "sign": "0a0040fbb8b41090f0fa5c7a11a5b9355c43740327d995247dd2db08550cd082"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414924",
+        "original_action_id": "2_2414924"
+      },
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414925",
+        "original_action_id": "2_2414925"
+      }
+    ],
+    "game_id": "2-26qh-1712464",
+    "sign": "8adb05044f8f04ac10151e811eff28801de04061d1e644f22b0ddfb33204ded4"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414921",
+        "original_action_id": "2_2414921"
+      }
+    ],
+    "game_id": "2-26qd-1712461",
+    "sign": "ce531177d60e8eb4fdbb99477b6056ad66cdd6f267e3ad3372ddc3ec2503b790"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414922",
+        "original_action_id": "2_2414922"
+      }
+    ],
+    "game_id": "2-26qd-1712462",
+    "sign": "4eb6b4e7c1d1c9b9426a26b881ba137370b2bef7c4c63b8e334ef6f15c940d63"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414923",
+        "original_action_id": "2_2414923"
+      }
+    ],
+    "game_id": "2-26qh-1712463",
+    "sign": "535c7f1ebd6a7e3d0a068d169a75d1a9c70673855fe597c3013563f97972c7f7"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415089",
+        "original_action_id": "2_2415089"
+      }
+    ],
+    "game_id": "2-26qd-1712644",
+    "sign": "b930bba2b87dfdb7f01d20e9177ae22319e40e40930b4d3225ff7a5f36ce5d8f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415090",
+        "original_action_id": "2_2415090"
+      }
+    ],
+    "game_id": "2-26qd-1712645",
+    "sign": "0dca10ebfc4b5c0b1b3cd5a73e4c4f8d3e753525b9775edd1c0572c88666d997"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638037606442805242",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "459533d7-702a-4bbd-88f7-22564b888eea",
+        "original_action_id": "6d130c91-b976-4e59-8b75-15c46630e883"
+      }
+    ],
+    "sign": "c120e2bbb5289d6f93501c9910765f836736a7bb173d940ed85746c3a48525e1"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638037616471512780",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "59555638-13a4-486c-8c14-a64f6a53cea6",
+        "original_action_id": "4e86b86b-9b30-45b3-babd-e2867c7ec20a"
+      }
+    ],
+    "sign": "843cfbdfbc592497844c1b4762b98843f1dab841a3f3287b5bbaddf192d9f44f"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638037626506575517",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "b284d715-7041-4eb2-8f8c-73bbb3f733d9",
+        "original_action_id": "90ba5c56-f55a-4e34-9679-9e531f151e8e"
+      },
+      {
+        "action": "rollback",
+        "action_id": "0f207060-5b5e-4624-9c99-652d919fc2fa",
+        "original_action_id": "f95be7c6-ae16-4a90-9a48-fee925ae74bf"
+      }
+    ],
+    "sign": "8b9fc494892ef769fa7977127ca218dbfc6f45ccea0dc3b019b340d84f7b2d36"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415091",
+        "original_action_id": "2_2415091"
+      }
+    ],
+    "game_id": "2-26qd-1712646",
+    "sign": "b548f41c8797cd4a3135d751801a5d936d26fd4827118c85ad7d593b4ac4b93b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415482",
+        "original_action_id": "2_2415482"
+      }
+    ],
+    "game_id": "2-26py-1712981",
+    "sign": "bf0a2c777fcde5af8c56c8be553b663333b120a288096c82b79853117d0e073e"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414478",
+        "original_action_id": "2_2414478"
+      }
+    ],
+    "game_id": "2-26pv-1712049",
+    "sign": "2362f330bae4188deaa040fdee369973ee5f9f4fa00d21beca59991b43953cfb"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:Avalon",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414479",
+        "original_action_id": "2_2414479"
+      }
+    ],
+    "game_id": "2-26pw-1712050",
+    "sign": "6e4e777b34af2d35ed05763e3b791eeca42642deea3bcafb01e8972990f174d8"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:BlackjackPro",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414480",
+        "original_action_id": "2_2414480"
+      }
+    ],
+    "game_id": "2-26px-1712051",
+    "sign": "e4cbe3ad9db8a6dfa54a5b3684d895db03f71d39acd8cfa60ed6af70fb3ae6c6"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414481",
+        "original_action_id": "2_2414481"
+      }
+    ],
+    "game_id": "2-26pv-1712052",
+    "sign": "e1b087ee0cb5126e31ecf1f42ff6591b080892907ec84fb762440e5418695748"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover20",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414482",
+        "original_action_id": "2_2414482"
+      }
+    ],
+    "game_id": "2-26pz-1712053",
+    "sign": "85282a14e6dd3b12e3025912285ecac5d7ebaa77d112d1297a5530bcc7adb0fc"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414882",
+        "original_action_id": "2_2414882"
+      }
+    ],
+    "game_id": "2-26py-1712408",
+    "sign": "0a0040fbb8b41090f0fa5c7a11a5b9355c43740327d995247dd2db08550cd082"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414922",
+        "original_action_id": "2_2414922"
+      }
+    ],
+    "game_id": "2-26qd-1712462",
+    "sign": "4eb6b4e7c1d1c9b9426a26b881ba137370b2bef7c4c63b8e334ef6f15c940d63"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414921",
+        "original_action_id": "2_2414921"
+      }
+    ],
+    "game_id": "2-26qd-1712461",
+    "sign": "ce531177d60e8eb4fdbb99477b6056ad66cdd6f267e3ad3372ddc3ec2503b790"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414924",
+        "original_action_id": "2_2414924"
+      },
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414925",
+        "original_action_id": "2_2414925"
+      }
+    ],
+    "game_id": "2-26qh-1712464",
+    "sign": "8adb05044f8f04ac10151e811eff28801de04061d1e644f22b0ddfb33204ded4"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414923",
+        "original_action_id": "2_2414923"
+      }
+    ],
+    "game_id": "2-26qh-1712463",
+    "sign": "535c7f1ebd6a7e3d0a068d169a75d1a9c70673855fe597c3013563f97972c7f7"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415089",
+        "original_action_id": "2_2415089"
+      }
+    ],
+    "game_id": "2-26qd-1712644",
+    "sign": "b930bba2b87dfdb7f01d20e9177ae22319e40e40930b4d3225ff7a5f36ce5d8f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415090",
+        "original_action_id": "2_2415090"
+      }
+    ],
+    "game_id": "2-26qd-1712645",
+    "sign": "0dca10ebfc4b5c0b1b3cd5a73e4c4f8d3e753525b9775edd1c0572c88666d997"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415091",
+        "original_action_id": "2_2415091"
+      }
+    ],
+    "game_id": "2-26qd-1712646",
+    "sign": "b548f41c8797cd4a3135d751801a5d936d26fd4827118c85ad7d593b4ac4b93b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415615",
+        "original_action_id": "2_2415615"
+      }
+    ],
+    "game_id": "2-26qp-1713062",
+    "sign": "07e7f7be37ff8139a6a4098d996218d139d8da726f0e2eff429a2439070f3ce6"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415616",
+        "original_action_id": "2_2415616"
+      }
+    ],
+    "game_id": "2-26qp-1713063",
+    "sign": "5d5f61dfcf1277b9e1386c770e55dcd4bac002b8c23aac2b2dd9627c750d4902"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638110282702255614",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "1ad936c3-6a86-4e70-8d5c-4cabe17da365",
+        "original_action_id": "afc63868-9c1d-48d0-bbb4-f0d0ca31a23d"
+      }
+    ],
+    "sign": "db4c4edac3795f9f9d7d6514ee86cdd674d227ac2e325d88de403e55d096d4d5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638110282962664767",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "06ef47cb-4e6e-467b-87d8-649bb9165973",
+        "original_action_id": "d9a12932-ff0a-430c-9e5b-34876e5965ff"
+      }
+    ],
+    "sign": "d6a9f3134a5d2f9af82f83adaa3909840c31d4ab05d68dc935dd367117858d16"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638110282962664767",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7f189806-55da-434d-85e9-f0081714b576",
+        "original_action_id": "b37bd9e5-95a1-4505-b957-059c360834d6"
+      }
+    ],
+    "sign": "d8905e7a53e84d555e319a7e633757222563b96f4a5f78e028c3fed3b9b65c85"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638110283092204391",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "96425d4d-789d-4880-8434-045c0d217b6b",
+        "original_action_id": "005f1cf7-98c6-47b0-8029-e2ffcee34484"
+      }
+    ],
+    "sign": "a5e8b2fd7298479ce0ea2bbc13a99c187db8b6b0f216923fab5bf14d2a550a58"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638110283137520824",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "64836e87-8b83-4f6e-bbbf-b2303940081b",
+        "original_action_id": "907cae5d-eb83-4b03-9a76-203bb9319c17"
+      }
+    ],
+    "sign": "90b4ecb352bd232b98e4c3a9691cbf538af2e53042e652b8cf3688cf878cf23c"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638110283201027234",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "c57a1b74-7bcb-442f-a9e0-4ccf9a01cc15",
+        "original_action_id": "74becfcd-55ec-4a84-b070-a19ac710e814"
+      },
+      {
+        "action": "rollback",
+        "action_id": "53297589-7b85-4a19-9d46-f17860b8e0e1",
+        "original_action_id": "b26564a8-890c-4d00-976f-cc9a74f7f334"
+      }
+    ],
+    "sign": "2c8de35173dc4be438b096ba19809f679f2139d179038edc96771d23bbd0a036"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638112703367682214",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "bcc3f8e2-e43c-45a6-8345-e69c25a9d9d3",
+        "original_action_id": "ccad7c4f-2f2e-48c7-851c-10058c04f613"
+      }
+    ],
+    "sign": "e5c2d80f1b3ca4c549d19e7523f77fa3693b1072eea2fe0ae2ddae5143edaa6a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638112703667451424",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "3e251b5e-726a-43ed-9c32-f88b3ff400ed",
+        "original_action_id": "49c2c283-0cce-4d38-9f14-1d41e03e95ae"
+      }
+    ],
+    "sign": "0ff384bb87a1f19ffc6e6acf19792ef94d13f28cd9b93ab4daddea7e2d78dde1"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638112703667451424",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "ca14f6b0-dd8d-476a-aa8f-35326cfed058",
+        "original_action_id": "ae32dc09-12c3-4b0c-bfe7-0f069170cd2b"
+      }
+    ],
+    "sign": "f6279f96e5caac62aea797755376498812ff8bb739080c00870ddd1e230eda7d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638112703802680765",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "cb313596-7963-4da2-bd0d-9996c955e297",
+        "original_action_id": "b14191be-4d44-48e6-a08b-86e65159b099"
+      }
+    ],
+    "sign": "9312cdb8a8965764163d9056cda4dd301fdbf615e647700f3ff02c73024137bd"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638112703855688543",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "5205733d-2c13-4719-a35c-54c77f30192a",
+        "original_action_id": "c17507d7-6205-434d-9e31-9474a430cf24"
+      }
+    ],
+    "sign": "77465cebb3fe2fb68e90fd811f547b776f0790f7f8d5d0aa6b256feebd5bcd35"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638112703913485829",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "ab699cd2-f91d-4d35-b52d-ff54cabf3a86",
+        "original_action_id": "d2bb40dd-0218-4d3f-a0a7-d8137620fcad"
+      },
+      {
+        "action": "rollback",
+        "action_id": "70148f76-5ead-4d2f-91d4-5d885259dcb6",
+        "original_action_id": "9e281c6c-ad3d-4b5b-852f-03fb82274b6a"
+      }
+    ],
+    "sign": "211fb6763fd249178d5777eaae79faae2ed71717674dfcbfdf737aef917f8c13"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638112770403795029",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "76860dcc-dd76-4116-853a-81bfa1c8951a",
+        "original_action_id": "5a78ceba-412a-4ea2-953a-87e40ed86531"
+      },
+      {
+        "action": "rollback",
+        "action_id": "77de6b54-c213-4be5-b049-c59a405e5a9a",
+        "original_action_id": "6ab2584b-8fe3-4ecf-a3f8-d5c6335d68de"
+      }
+    ],
+    "sign": "35bc334edc6f5813d4f9398524d0c6aa978290362595d64e66d9eb165d240b59"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638112986698007181",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "65ea0e70-ca8b-4d0e-b9c3-a1da752e1a77",
+        "original_action_id": "ee8845a9-f3da-4b2c-b98b-fbc0ad5e94ba"
+      },
+      {
+        "action": "rollback",
+        "action_id": "0c78a893-7ea7-4056-bb81-3c432fb668ba",
+        "original_action_id": "b450ef2c-85fa-489e-a949-fd9eebb62960"
+      }
+    ],
+    "sign": "e9de065e5c6d0cbb98f7e80276245df4e693688fbb0408681fab325fdacfaf73"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638113541687422622",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "cbfe9927-b759-4d81-a7d1-c0b862ca354f",
+        "original_action_id": "9b2feb8d-c549-4115-9c97-715cde235fa8"
+      },
+      {
+        "action": "rollback",
+        "action_id": "cbd1d15b-5119-4b53-a223-63c9cb8af883",
+        "original_action_id": "2481abbe-e62b-442f-b649-8c7a8426c4b5"
+      }
+    ],
+    "sign": "2897d3b28f865c1c97d3c2a3e3d15b33cc2773111c4996977add4286e8c6b72d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638113727548097529",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "66129f37-d272-4d76-9f08-c68919e875b9",
+        "original_action_id": "4c774133-4629-4680-8cd1-a0f62e601514"
+      },
+      {
+        "action": "rollback",
+        "action_id": "cdd79061-d29b-48cc-b8b5-c274cd6d985b",
+        "original_action_id": "4af1a2b8-c399-4a1c-8380-2d416b04881a"
+      }
+    ],
+    "sign": "fdac0fef177030b048d4a0d04fe7331f43ed5b0d0c57bd622b8bfaf4d1f0980a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638113853140462434",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "e9fb2834-8768-4133-9977-be2450df398c",
+        "original_action_id": "590467b7-3d39-4a43-aad1-4de9f13b817a"
+      },
+      {
+        "action": "rollback",
+        "action_id": "00941b0b-3d25-45e1-974b-eacaced7026c",
+        "original_action_id": "ffee1ae9-a325-4066-a616-a50bd19471ec"
+      }
+    ],
+    "sign": "d5cfdc3cc557769b45ec6ddae52ea799d016341234034968fdb1f2e3385a01b3"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638113952365229142",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "fd6a806c-d32a-4526-a02e-de9ca23482e3",
+        "original_action_id": "a524f998-1cce-4144-8cab-b797a3bd1f0c"
+      },
+      {
+        "action": "rollback",
+        "action_id": "bc7bc635-d6c5-480b-9eea-9e50be43dc72",
+        "original_action_id": "731b5870-eb1d-4a93-abf0-1ef065bde325"
+      }
+    ],
+    "sign": "f7152faa14acf09a376192471a0d780fe57e7ee4d40f7da580239ea838ebfaf2"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114002266599906",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "78eae250-142e-435a-893d-2ee30f46734b",
+        "original_action_id": "a3ff3c66-5721-4a59-88f1-392ec1a1a3d7"
+      }
+    ],
+    "sign": "6fd96a86c61fdb4302a8693a7475b664758965e0e8e5e9e094429fb98b1576a2"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114002519659021",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "104eb870-e141-457c-a155-017ac4bf7b35",
+        "original_action_id": "307c5a71-3bf3-4904-8bfd-c2f25af3b9ff"
+      }
+    ],
+    "sign": "2d5891811b413570b4decca5fecc22308eb26b4b4876918b7a0d96eaeb1d7059"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114002519659021",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "c5096913-31de-4b54-82dd-ceb0fd80d5af",
+        "original_action_id": "18c4fa78-e30d-4d38-9219-a8954ae4c3a7"
+      }
+    ],
+    "sign": "b784f771091d0e9639acc1afa8a7c778969f82b61edbf9e1b01a4cea03ec79a8"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114002639215258",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "002a089c-0f19-4cc0-b598-0ae613a58444",
+        "original_action_id": "f7aa1aef-0c1a-4cfd-bb66-69ef69b7fd54"
+      }
+    ],
+    "sign": "1a653c4ddd9bb3ccd6f47b68a8416b8c473ae8ca398a00eb86c2ff57deef01e1"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114002687372258",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "4227d649-1cfd-4b7d-a82d-1ee50c5184d0",
+        "original_action_id": "d6892025-0eb9-473c-83ce-ce808fe1764b"
+      }
+    ],
+    "sign": "4895d0046b90b2876e683a6e402f738a2d1eae54651157f177ce4369b994d3f0"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114002740335519",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "6fb16f90-ef1c-40a6-acdf-0a01c0596322",
+        "original_action_id": "aaa5ccb2-7c9a-4b5d-b342-699d5b427f69"
+      },
+      {
+        "action": "rollback",
+        "action_id": "6b13cbcc-03d0-40b2-a531-a7be748a9262",
+        "original_action_id": "7c3e8613-0a88-4f88-a38e-3720fc5a3359"
+      }
+    ],
+    "sign": "981b39cda57610bb63ea996588fbdd0ac07ba77f5452276d4a3d88e5b72e0bde"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114621820199114",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "4c1bfa0c-2c8e-485f-b5fe-78281b7b1000",
+        "original_action_id": "207b1788-0d1d-4549-8e60-ecc18622e5cb"
+      }
+    ],
+    "sign": "a3b7ef6c056415ba98ef8cba8b90c0ffc24c3d9a095be47983800423b8629373"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114622117466670",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "fd198e5e-d039-4772-b389-e47366559edd",
+        "original_action_id": "c450dfe7-58a2-42c4-9f9b-f74cd46eea42"
+      }
+    ],
+    "sign": "d0fb7743cdc6eec74d1c9324d7c4781a77b2c0cf054e14fb3d181e0c68feea28"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114622117466670",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "fbc141ec-6ffb-4b11-b0cc-a3507fc8b1ad",
+        "original_action_id": "0c4f6fb3-460c-4234-88c2-21f9b3b9a8d6"
+      }
+    ],
+    "sign": "0df3761ecbfd2a11a4397898457c20d19b5b741b52bffe7f740320c93df0b8b3"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114622228153482",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "b40f7d7f-2328-4aae-9376-db83fdc9bdb9",
+        "original_action_id": "00ce8153-4e7e-4120-b6f9-f69fd715e9f8"
+      }
+    ],
+    "sign": "ac8b28db9afb1fc11efe245e80d716ea2c67116c1e3cb94bb0dd71b38cf6e8b1"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114622273322186",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "9df26bfb-7f28-429c-8ed2-b315c69f94fa",
+        "original_action_id": "4ffae459-bed4-4595-a66f-52413d192555"
+      }
+    ],
+    "sign": "efe869cbf6e7a42f272af7ab6c321555c223b60a7496c693c6f50a8aefaaa3ad"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638114622316006301",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "9efee56e-01d5-415c-9d70-4ffead557f98",
+        "original_action_id": "2aa3fc83-1d2f-45ed-bfed-e8d998428887"
+      },
+      {
+        "action": "rollback",
+        "action_id": "7d2e9b73-2a70-499c-b8e6-0ef2ef1ecb2b",
+        "original_action_id": "6b255edc-4d38-42f9-96a2-375aacca2488"
+      }
+    ],
+    "sign": "a7f56de0ef89d1170224c6f75ce9a3fd9b1f935c93a3ef05402e843f49fdfc55"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414478",
+        "original_action_id": "2_2414478"
+      }
+    ],
+    "game_id": "2-26pv-1712049",
+    "sign": "2362f330bae4188deaa040fdee369973ee5f9f4fa00d21beca59991b43953cfb"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:Avalon",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414479",
+        "original_action_id": "2_2414479"
+      }
+    ],
+    "game_id": "2-26pw-1712050",
+    "sign": "6e4e777b34af2d35ed05763e3b791eeca42642deea3bcafb01e8972990f174d8"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:BlackjackPro",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414480",
+        "original_action_id": "2_2414480"
+      }
+    ],
+    "game_id": "2-26px-1712051",
+    "sign": "e4cbe3ad9db8a6dfa54a5b3684d895db03f71d39acd8cfa60ed6af70fb3ae6c6"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414481",
+        "original_action_id": "2_2414481"
+      }
+    ],
+    "game_id": "2-26pv-1712052",
+    "sign": "e1b087ee0cb5126e31ecf1f42ff6591b080892907ec84fb762440e5418695748"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover20",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414482",
+        "original_action_id": "2_2414482"
+      }
+    ],
+    "game_id": "2-26pz-1712053",
+    "sign": "85282a14e6dd3b12e3025912285ecac5d7ebaa77d112d1297a5530bcc7adb0fc"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414882",
+        "original_action_id": "2_2414882"
+      }
+    ],
+    "game_id": "2-26py-1712408",
+    "sign": "0a0040fbb8b41090f0fa5c7a11a5b9355c43740327d995247dd2db08550cd082"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414922",
+        "original_action_id": "2_2414922"
+      }
+    ],
+    "game_id": "2-26qd-1712462",
+    "sign": "4eb6b4e7c1d1c9b9426a26b881ba137370b2bef7c4c63b8e334ef6f15c940d63"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414924",
+        "original_action_id": "2_2414924"
+      },
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414925",
+        "original_action_id": "2_2414925"
+      }
+    ],
+    "game_id": "2-26qh-1712464",
+    "sign": "8adb05044f8f04ac10151e811eff28801de04061d1e644f22b0ddfb33204ded4"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414921",
+        "original_action_id": "2_2414921"
+      }
+    ],
+    "game_id": "2-26qd-1712461",
+    "sign": "ce531177d60e8eb4fdbb99477b6056ad66cdd6f267e3ad3372ddc3ec2503b790"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414923",
+        "original_action_id": "2_2414923"
+      }
+    ],
+    "game_id": "2-26qh-1712463",
+    "sign": "535c7f1ebd6a7e3d0a068d169a75d1a9c70673855fe597c3013563f97972c7f7"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415089",
+        "original_action_id": "2_2415089"
+      }
+    ],
+    "game_id": "2-26qd-1712644",
+    "sign": "b930bba2b87dfdb7f01d20e9177ae22319e40e40930b4d3225ff7a5f36ce5d8f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415090",
+        "original_action_id": "2_2415090"
+      }
+    ],
+    "game_id": "2-26qd-1712645",
+    "sign": "0dca10ebfc4b5c0b1b3cd5a73e4c4f8d3e753525b9775edd1c0572c88666d997"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415091",
+        "original_action_id": "2_2415091"
+      }
+    ],
+    "game_id": "2-26qd-1712646",
+    "sign": "b548f41c8797cd4a3135d751801a5d936d26fd4827118c85ad7d593b4ac4b93b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "779226a2616d8a322625d4d6",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638177437025062822",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "0f26b017-321f-450e-8955-9baba301fbfc",
+        "original_action_id": "4a56e91a-b351-41ae-bd80-2753d35a7317"
+      }
+    ],
+    "sign": "5509ba7ada6fa9b10ed8990123dc910d4f85cf34f0f23b5efe6e0af6e4beac5a"
+  },
+  {
+    "user_id": "779226a2616d8a322625d4d6",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638177437342474478",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "34d7a453-6cf6-4246-8be6-d76c5fb01214",
+        "original_action_id": "0bd11224-c098-4c9d-a7de-797758fdf25d"
+      }
+    ],
+    "sign": "3cc37c2f39797e973e42dca33a8aca98c03d81f8706519e7b4ff738f0b711daa"
+  },
+  {
+    "user_id": "779226a2616d8a322625d4d6",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638177437342474478",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "5718c424-a6a0-4376-950d-fc8063fa2288",
+        "original_action_id": "1cc8db0a-6583-41bb-9935-77d0321e7317"
+      }
+    ],
+    "sign": "a76fec51619431da63fef74221f712d5088c4ae1ed9ca8516e1d3c1e10df894a"
+  },
+  {
+    "user_id": "779226a2616d8a322625d4d6",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638177437468503120",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "d29270e9-3349-41a7-827c-591dabccd20c",
+        "original_action_id": "88f183d2-4394-4d98-9d0b-1818be4e21cb"
+      }
+    ],
+    "sign": "f7a35aded5bd2115799a1a3b92bade0fdc2bdefd55c637a4725e71a8d2257090"
+  },
+  {
+    "user_id": "779226a2616d8a322625d4d6",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638177437524578244",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "cfd05a27-b99f-4822-8d70-5a5a6b4aadce",
+        "original_action_id": "5f304055-1f63-4049-83c8-fc13212495db"
+      }
+    ],
+    "sign": "af24050448738da5cfbc54184abdd14743e4aa69e50244f3f3038398201f1a02"
+  },
+  {
+    "user_id": "779226a2616d8a322625d4d6",
+    "currency": "EUR",
+    "game": "acceptance:test",
+    "game_id": "1638177437581791178",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "8e778f6b-f8e0-434e-adea-5d7e121a30ac",
+        "original_action_id": "46c02b37-41c3-44f9-b86e-d005245dc38e"
+      },
+      {
+        "action": "rollback",
+        "action_id": "54387c07-f338-4106-bea8-eb778dfe4724",
+        "original_action_id": "b5c74468-212a-4e2f-9625-289d1d3216e6"
+      }
+    ],
+    "sign": "f2fdebd49ab3c31122917ea009f07474977976662fbc0503c419b767d653fac3"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414478",
+        "original_action_id": "2_2414478"
+      }
+    ],
+    "game_id": "2-26pv-1712049",
+    "sign": "2362f330bae4188deaa040fdee369973ee5f9f4fa00d21beca59991b43953cfb"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:Avalon",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414479",
+        "original_action_id": "2_2414479"
+      }
+    ],
+    "game_id": "2-26pw-1712050",
+    "sign": "6e4e777b34af2d35ed05763e3b791eeca42642deea3bcafb01e8972990f174d8"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:BlackjackPro",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414480",
+        "original_action_id": "2_2414480"
+      }
+    ],
+    "game_id": "2-26px-1712051",
+    "sign": "e4cbe3ad9db8a6dfa54a5b3684d895db03f71d39acd8cfa60ed6af70fb3ae6c6"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414481",
+        "original_action_id": "2_2414481"
+      }
+    ],
+    "game_id": "2-26pv-1712052",
+    "sign": "e1b087ee0cb5126e31ecf1f42ff6591b080892907ec84fb762440e5418695748"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover20",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414482",
+        "original_action_id": "2_2414482"
+      }
+    ],
+    "game_id": "2-26pz-1712053",
+    "sign": "85282a14e6dd3b12e3025912285ecac5d7ebaa77d112d1297a5530bcc7adb0fc"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:AmericanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414882",
+        "original_action_id": "2_2414882"
+      }
+    ],
+    "game_id": "2-26py-1712408",
+    "sign": "0a0040fbb8b41090f0fa5c7a11a5b9355c43740327d995247dd2db08550cd082"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414922",
+        "original_action_id": "2_2414922"
+      }
+    ],
+    "game_id": "2-26qd-1712462",
+    "sign": "4eb6b4e7c1d1c9b9426a26b881ba137370b2bef7c4c63b8e334ef6f15c940d63"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414921",
+        "original_action_id": "2_2414921"
+      }
+    ],
+    "game_id": "2-26qd-1712461",
+    "sign": "ce531177d60e8eb4fdbb99477b6056ad66cdd6f267e3ad3372ddc3ec2503b790"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414924",
+        "original_action_id": "2_2414924"
+      },
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414925",
+        "original_action_id": "2_2414925"
+      }
+    ],
+    "game_id": "2-26qh-1712464",
+    "sign": "8adb05044f8f04ac10151e811eff28801de04061d1e644f22b0ddfb33204ded4"
+  },
+  {
+    "user_id": "b301eab4f4c1525df464d214",
+    "currency": "EUR",
+    "game": "softswiss:AlohaKingElvis",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2414923",
+        "original_action_id": "2_2414923"
+      }
+    ],
+    "game_id": "2-26qh-1712463",
+    "sign": "535c7f1ebd6a7e3d0a068d169a75d1a9c70673855fe597c3013563f97972c7f7"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415089",
+        "original_action_id": "2_2415089"
+      }
+    ],
+    "game_id": "2-26qd-1712644",
+    "sign": "b930bba2b87dfdb7f01d20e9177ae22319e40e40930b4d3225ff7a5f36ce5d8f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415090",
+        "original_action_id": "2_2415090"
+      }
+    ],
+    "game_id": "2-26qd-1712645",
+    "sign": "0dca10ebfc4b5c0b1b3cd5a73e4c4f8d3e753525b9775edd1c0572c88666d997"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415091",
+        "original_action_id": "2_2415091"
+      }
+    ],
+    "game_id": "2-26qd-1712646",
+    "sign": "b548f41c8797cd4a3135d751801a5d936d26fd4827118c85ad7d593b4ac4b93b"
+  },
+  {
+    "user_id": "dbe9594198569990dbde9b4e",
+    "currency": "EUR",
+    "game": "softswiss:EuropeanRoulette",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415108",
+        "original_action_id": "2_2415108"
+      }
+    ],
+    "game_id": "2-26ql-1712659",
+    "sign": "d162928e3687d0c0dac75c5be01f9b4595fec8989846ab16e4fe004d639c6841"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415137",
+        "original_action_id": "2_2415137"
+      }
+    ],
+    "game_id": "2-26qd-1712680",
+    "sign": "80bf3fefd903fe123d112a520e211b16eb9166a8ad448c99207a838e1dd7444a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415136",
+        "original_action_id": "2_2415136"
+      }
+    ],
+    "game_id": "2-26qd-1712679",
+    "sign": "6cf862323d567ac250602c97734d6344c24c5ca4be085a07ff2dbcc88db731f5"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415126",
+        "original_action_id": "2_2415126"
+      }
+    ],
+    "game_id": "2-26qd-1712669",
+    "sign": "e3949645f3cafd34f59d2105ac7f373da36b6513358bd1ee36d4f74b5dcb6c9d"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415147",
+        "original_action_id": "2_2415147"
+      }
+    ],
+    "game_id": "2-26qd-1712690",
+    "sign": "11d3dcc27edadc91bcbe55a8cea9ea10991fb44312d7d304a7c2eb2acd85ffff"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415142",
+        "original_action_id": "2_2415142"
+      }
+    ],
+    "game_id": "2-26qd-1712685",
+    "sign": "239cc6e2d27a89b8aa43e1480c2c0ecb97f21ecbd6d1025cb30e5eb429a50409"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover40",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2_r_2415162",
+        "original_action_id": "2_2415162"
+      }
+    ],
+    "game_id": "2-26qp-1712703",
+    "sign": "60e3e927d9cb84727d6091511d6fd1ebcbd4a2312a7f83a7c6061cc8b979583b"
+  },
+  {
+    "user_id": "316c0262e6d9d2e5875eafff",
+    "currency": "EUR",
+    "game": "evolution:crazytime",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7t_r_D638793667644538435",
+        "original_action_id": "7t_D638793667644538435"
+      }
+    ],
+    "game_id": "7t-5ahhgn-16be8e6449de9c42205d8901",
+    "sign": "ff1624b8785446edd2dd943b78c92c1223f76dd9aff7bad509b45f7ca27edac9"
+  },
+  {
+    "user_id": "61f75fa32a47a7248f3eca97",
+    "currency": "EUR",
+    "game": "evolution:dealnodeal",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7t_r_D637750974312443048",
+        "original_action_id": "7t_D637750974312443048"
+      }
+    ],
+    "game_id": "7t-5cdjf2-16c01f43d6af8f6533420a23",
+    "sign": "ee29e1f858d6f70c6deb5930437136a695bea34fbc415901042734432e359591"
+  },
+  {
+    "user_id": "61f75fa32a47a7248f3eca97",
+    "currency": "EUR",
+    "game": "evolution:dealnodeal",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7t_r_D639729917312918440",
+        "original_action_id": "7t_D639729917312918440"
+      }
+    ],
+    "game_id": "7t-5cdjf2-16c1f3d54e04e24fff27d41c",
+    "sign": "476c75d1175be7dba69d90185a1e27e53c30ee749ac2c20b167a73386993d1e0"
+  },
+  {
+    "user_id": "01ea24ff1c725bc9a2008150",
+    "currency": "EUR",
+    "game": "softswiss:RocketDice",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8410459765",
+        "original_action_id": "hg_8410459765"
+      }
+    ],
+    "game_id": "hg-5f7aq6-6716239593",
+    "sign": "04c11bc91c2fa80bf458c018040fff92c78adec9daf2444f74228138f10a3228"
+  },
+  {
+    "user_id": "01ea24ff1c725bc9a2008150",
+    "currency": "EUR",
+    "game": "softswiss:RocketDice",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8410459765",
+        "original_action_id": "hg_8410459765"
+      }
+    ],
+    "game_id": "hg-5f7aq6-6716239593",
+    "sign": "04c11bc91c2fa80bf458c018040fff92c78adec9daf2444f74228138f10a3228"
+  },
+  {
+    "user_id": "e229fd1d48ced7440169b040",
+    "currency": "EUR",
+    "game": "evolution:crazytime",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7t_r_D639639727174242397",
+        "original_action_id": "7t_D639639727174242397"
+      }
+    ],
+    "game_id": "7t-5f9aim-16c262ffc8123de433f824f1-pxlh3mxc3tdzk4b5",
+    "sign": "4bb292e38e5831ee43a1d637b4a78daea081fe1647c7f90572afe4901a91ca0c"
+  },
+  {
+    "user_id": "9f113190b1012aa97c1c3356",
+    "currency": "EUR",
+    "game": "evolution:crazytime",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7t_r_D639639730861862397",
+        "original_action_id": "7t_D639639730861862397"
+      }
+    ],
+    "game_id": "7t-5ffufi-16c288dbe99a1ffd80331db9-pwqhjtpkaexkyitc",
+    "sign": "9d23a0f9f84a8168e62e867e7fe1421f1e341944351a7710944e0944c85c438d"
+  },
+  {
+    "user_id": "b835d0789ca2e1acf9a9135e",
+    "currency": "EUR",
+    "game": "evolution:dealnodeal",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7t_r_D639729921754604440",
+        "original_action_id": "7t_D639729921754604440"
+      }
+    ],
+    "game_id": "7t-5f5ziz-16c29de046098d1c10a0ade4",
+    "sign": "c5620a7bae603de638836c1264e30dce92042a34b97edfc6965df744431ec0c5"
+  },
+  {
+    "user_id": "3454c4bebcdbf9af3a0ccc8a",
+    "currency": "EUR",
+    "game": "pushgaming:mysterymuseum",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "1nw_r_11009-0104-1166583129-1166583129",
+        "original_action_id": "1nw_11009-0104-1166583129-1166583129"
+      }
+    ],
+    "game_id": "1nw-5g61s8-11009-0104-1166583129",
+    "sign": "338736d959dcc26e5037a409121f6ee59ccd8523ebf5e08c78493d649eac6748"
+  },
+  {
+    "user_id": "3454c4bebcdbf9af3a0ccc8a",
+    "currency": "EUR",
+    "game": "pushgaming:mysterymuseum",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "1nw_r_11009-0104-1166583129-1166583129",
+        "original_action_id": "1nw_11009-0104-1166583129-1166583129"
+      }
+    ],
+    "game_id": "1nw-5g61s8-11009-0104-1166583129",
+    "sign": "338736d959dcc26e5037a409121f6ee59ccd8523ebf5e08c78493d649eac6748"
+  },
+  {
+    "user_id": "bb9f70b44e885e9681f088d7",
+    "currency": "EUR",
+    "game": "pragmaticexternal:GatesOfOlympus1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c507d854926370bce0bc52",
+        "original_action_id": "n5_61c507d854926370bce0bc52"
+      }
+    ],
+    "game_id": "n5-5go17a-2688303743827",
+    "sign": "151b57357c1f4172909e12b7d33457df76dcaff78ad25ad38841c17b2e715375"
+  },
+  {
+    "user_id": "bb9f70b44e885e9681f088d7",
+    "currency": "EUR",
+    "game": "pragmaticexternal:GatesOfOlympus1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c507d854926370bce0bc52",
+        "original_action_id": "n5_61c507d854926370bce0bc52"
+      }
+    ],
+    "game_id": "n5-5go17a-2688303743827",
+    "sign": "151b57357c1f4172909e12b7d33457df76dcaff78ad25ad38841c17b2e715375"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "softswiss:BookOfCats",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8481698706",
+        "original_action_id": "hg_8481698706"
+      }
+    ],
+    "game_id": "hg-5fuxq1-6772424830",
+    "sign": "5b5b6f79cb872212c3faac3de03e9ee3bbb468e22ec43417a07ac361515286a6"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "softswiss:BookOfCats",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8481698706",
+        "original_action_id": "hg_8481698706"
+      }
+    ],
+    "game_id": "hg-5fuxq1-6772424830",
+    "sign": "5b5b6f79cb872212c3faac3de03e9ee3bbb468e22ec43417a07ac361515286a6"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "luckystreak:BlackjackVIP",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "kl_r_61c516c6b841440a60be5c12",
+        "original_action_id": "kl_61c516c6b841440a60be5c12"
+      }
+    ],
+    "game_id": "kl-5gojgk-31040403",
+    "sign": "b029da2b0d0a801b2aaff84488afa5a7baa03ef793ba09aea9dc02cbd6a45b3f"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "luckystreak:BlackjackVIP",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "kl_r_61c5173bb841440a60be5cae",
+        "original_action_id": "kl_61c5173bb841440a60be5cae"
+      }
+    ],
+    "game_id": "kl-5gojgk-31040472",
+    "sign": "31e00b42dbd56ac7950d7af3c6b0e3a07aa528a07097aa409561011f25352067"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "luckystreak:BlackjackVIP",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "kl_r_61c5173bb841440a60be5cae",
+        "original_action_id": "kl_61c5173bb841440a60be5cae"
+      }
+    ],
+    "game_id": "kl-5gojgk-31040472",
+    "sign": "31e00b42dbd56ac7950d7af3c6b0e3a07aa528a07097aa409561011f25352067"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "softswiss:JohnnyCash",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8482248235",
+        "original_action_id": "hg_8482248235"
+      }
+    ],
+    "game_id": "hg-5govh6-6772863239",
+    "sign": "4179cc256ed2e5dadb28c8cfee361dbeb2bfcb9be826cfd6811afcc047096fff"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "softswiss:JohnnyCash",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8482248235",
+        "original_action_id": "hg_8482248235"
+      }
+    ],
+    "game_id": "hg-5govh6-6772863239",
+    "sign": "4179cc256ed2e5dadb28c8cfee361dbeb2bfcb9be826cfd6811afcc047096fff"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c5207454926370bc0b78d6",
+        "original_action_id": "n5_61c5207454926370bc0b78d6"
+      }
+    ],
+    "game_id": "n5-5gjfv8-2689427508227",
+    "sign": "0870762505ab885ab2db9966e8e90da8af1bbfd823820a534641ef0285dc090a"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c5207454926370bc0b78d6",
+        "original_action_id": "n5_61c5207454926370bc0b78d6"
+      }
+    ],
+    "game_id": "n5-5gjfv8-2689427508227",
+    "sign": "0870762505ab885ab2db9966e8e90da8af1bbfd823820a534641ef0285dc090a"
+  },
+  {
+    "user_id": "e229fd1d48ced7440169b040",
+    "currency": "EUR",
+    "game": "evoplay:CycleofLuckBonusBuy",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2m5_r_b_1003349696808",
+        "original_action_id": "2m5_b_1003349696808"
+      }
+    ],
+    "game_id": "2m5-5g0rf4-1003349696808",
+    "sign": "190a2e1f394607c9185c1569e1541f51fcdd07b70f38e65e70262c2bac8b16f5"
+  },
+  {
+    "user_id": "e229fd1d48ced7440169b040",
+    "currency": "EUR",
+    "game": "evoplay:CycleofLuckBonusBuy",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2m5_r_b_1003349700886",
+        "original_action_id": "2m5_b_1003349700886"
+      }
+    ],
+    "game_id": "2m5-5g0rf4-1003349700886",
+    "sign": "1c4ddc07cfdff9e9bb3dd46b63fb0b06968c35751b7313ad67d39282b77f75a2"
+  },
+  {
+    "user_id": "e229fd1d48ced7440169b040",
+    "currency": "EUR",
+    "game": "evoplay:CycleofLuckBonusBuy",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2m5_r_b_1003349705706",
+        "original_action_id": "2m5_b_1003349705706"
+      }
+    ],
+    "game_id": "2m5-5g0rf4-1003349705706",
+    "sign": "d101822f189004096ec6d62596828e263b38058a52b79eb018a93cafe106db95"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "luckystreak:BlackjackVIP",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "kl_r_61c53a9db841440a60be8258",
+        "original_action_id": "kl_61c53a9db841440a60be8258"
+      }
+    ],
+    "game_id": "kl-5gojgk-31044087",
+    "sign": "d1bba2280ce1b34729e0fef7e96aa43dabfaaddaaa0810222022c7dd1b1d8e40"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "luckystreak:BlackjackVIP",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "kl_r_61c53ad5b841440a60be8297",
+        "original_action_id": "kl_61c53ad5b841440a60be8297"
+      }
+    ],
+    "game_id": "kl-5gojgk-31044413",
+    "sign": "a8f9192d9a69a45b620d985076783e9660e2a49e622e0a3ecd393687228d99fa"
+  },
+  {
+    "user_id": "404bea94e97dfa58d9a0d503",
+    "currency": "EUR",
+    "game": "luckystreak:BlackjackVIP",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "kl_r_61c53c4ab841440a60be8456",
+        "original_action_id": "kl_61c53c4ab841440a60be8456"
+      }
+    ],
+    "game_id": "kl-5gojgk-31044567",
+    "sign": "8eb0c8a663fa11aa1d410eba91ef5df1091cae5b3e8d5c26c8389ba83e2f26ef"
+  },
+  {
+    "user_id": "2bdd0447f4c2f4a0a8b9b787",
+    "currency": "EUR",
+    "game": "pushgaming:mysterymuseum",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "1nw_r_11009-0104-1173977340-1173977340",
+        "original_action_id": "1nw_11009-0104-1173977340-1173977340"
+      }
+    ],
+    "game_id": "1nw-5f5nmi-11009-0104-1173977340",
+    "sign": "0dc216093a681a3c5691c5a1362a5e4824ab056b3beb8d454204c2c77e796452"
+  },
+  {
+    "user_id": "2bdd0447f4c2f4a0a8b9b787",
+    "currency": "EUR",
+    "game": "pushgaming:mysterymuseum",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "1nw_r_11009-0104-1173977340-1173977340",
+        "original_action_id": "1nw_11009-0104-1173977340-1173977340"
+      }
+    ],
+    "game_id": "1nw-5f5nmi-11009-0104-1173977340",
+    "sign": "0dc216093a681a3c5691c5a1362a5e4824ab056b3beb8d454204c2c77e796452"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "pragmaticexternal:TheDogHouseMegaways1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c5f2b454926370bc4d3d1f",
+        "original_action_id": "n5_61c5f2b454926370bc4d3d1f"
+      }
+    ],
+    "game_id": "n5-5gjh4u-2697666817827",
+    "sign": "f199f95948e657287d4fb7c906428d5115e66314210c76f5b0d6c910757b5adb"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "pragmaticexternal:TheDogHouseMegaways1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c5f2b454926370bc4d3d1f",
+        "original_action_id": "n5_61c5f2b454926370bc4d3d1f"
+      }
+    ],
+    "game_id": "n5-5gjh4u-2697666817827",
+    "sign": "f199f95948e657287d4fb7c906428d5115e66314210c76f5b0d6c910757b5adb"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "pragmaticexternal:TheDogHouseMegaways1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c5f99661c43765f8353acc",
+        "original_action_id": "n5_61c5f99661c43765f8353acc"
+      }
+    ],
+    "game_id": "n5-5gjh4u-2698065408627",
+    "sign": "249537f14783cc7ca53a4a8f565f58b84519a35d4eb367d1434244e6b6e84b92"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "pragmaticexternal:TheDogHouseMegaways1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c5f99661c43765f8353acc",
+        "original_action_id": "n5_61c5f99661c43765f8353acc"
+      }
+    ],
+    "game_id": "n5-5gjh4u-2698065408627",
+    "sign": "249537f14783cc7ca53a4a8f565f58b84519a35d4eb367d1434244e6b6e84b92"
+  },
+  {
+    "user_id": "2bdd0447f4c2f4a0a8b9b787",
+    "currency": "EUR",
+    "game": "pragmaticexternal:StarlightPrincess",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c6054961c43765f84ef3ac",
+        "original_action_id": "n5_61c6054961c43765f84ef3ac"
+      }
+    ],
+    "game_id": "n5-5eh0an-2698766698227",
+    "sign": "f0278316ea06763e71b25608a98f778a37cfe07a279054ee5afd4ee3ef489095"
+  },
+  {
+    "user_id": "2bdd0447f4c2f4a0a8b9b787",
+    "currency": "EUR",
+    "game": "pragmaticexternal:StarlightPrincess",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c6054961c43765f84ef3ac",
+        "original_action_id": "n5_61c6054961c43765f84ef3ac"
+      }
+    ],
+    "game_id": "n5-5eh0an-2698766698227",
+    "sign": "f0278316ea06763e71b25608a98f778a37cfe07a279054ee5afd4ee3ef489095"
+  },
+  {
+    "user_id": "0f45af7910458451ca38ae54",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c76c8054926370bc050849",
+        "original_action_id": "n5_61c76c8054926370bc050849"
+      }
+    ],
+    "game_id": "n5-59977d-2716314214427",
+    "sign": "cefbe7826b7c7091f9e3970c583c9b679df15400c84e8552632ac9fe807cf3d6"
+  },
+  {
+    "user_id": "0f45af7910458451ca38ae54",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c76c8054926370bc050849",
+        "original_action_id": "n5_61c76c8054926370bc050849"
+      }
+    ],
+    "game_id": "n5-59977d-2716314214427",
+    "sign": "cefbe7826b7c7091f9e3970c583c9b679df15400c84e8552632ac9fe807cf3d6"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "yggdrasil:FrostQueenJackpots",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2m9_r_bethub_gg_2112261617510200005_w2112261617510200004",
+        "original_action_id": "2m9_bethub_gg_2112261617510200005_w2112261617510200004"
+      }
+    ],
+    "game_id": "2m9-5hmmr3-bethub_gg_2112261617510200005",
+    "sign": "e2f8eda8b454cba94ee91c7dbc2bd96bc80739e6fde0ab26531b0115a51fd48c"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8a8f161c43765f8f41476",
+        "original_action_id": "n5_61c8a8f161c43765f8f41476"
+      }
+    ],
+    "game_id": "n5-5dlqgi-2730580791827",
+    "sign": "f37267bd12dc0998b01faf11595f2fe1d4f542a73bc9ca4abe5bbf03c37a2b74"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8a96f61c43765f8f52f48",
+        "original_action_id": "n5_61c8a96f61c43765f8f52f48"
+      }
+    ],
+    "game_id": "n5-5dlqgi-2730610726627",
+    "sign": "547c302b61720c191621591b56f050f55927730102739f6f3266b11e2ed038e9"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8527994991",
+        "original_action_id": "hg_8527994991"
+      }
+    ],
+    "game_id": "hg-57nfjt-6809208962",
+    "sign": "160d43b755746f743d59651c03bcc52567c54df7d7067f4b755ff2c5334200f1"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8aabf54926370bc1ec318",
+        "original_action_id": "n5_61c8aabf54926370bc1ec318"
+      }
+    ],
+    "game_id": "n5-5dlqgi-2730689457027",
+    "sign": "c6881c91734fbf583bb3158f87a5994edd41884fbfe5783a26ced093e8f7cce9"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "softswiss:AllLuckyClover100",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8528044686",
+        "original_action_id": "hg_8528044686"
+      }
+    ],
+    "game_id": "hg-57nfjt-6809248066",
+    "sign": "d248b1d774a12e7148c73394238121e15ba2312c30a1cecb1868898e2c306e89"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8ab8761c43765f8f9cd9e",
+        "original_action_id": "n5_61c8ab8761c43765f8f9cd9e"
+      }
+    ],
+    "game_id": "n5-5dlqgi-2730735682227",
+    "sign": "422bea0e320dfb2581ae642c2e9fc58f7d827c71222ae45a1ffc13014f8c4de7"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8ad0740eb3705a4e3dab7",
+        "original_action_id": "n5_61c8ad0740eb3705a4e3dab7"
+      }
+    ],
+    "game_id": "n5-5hnouw-2730824381027",
+    "sign": "5c264b7d8b6e389888df04785cc7f99fca7f7878124294c2b560c602f6e6c6db"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8ad5261c43765f8fdbd8e",
+        "original_action_id": "n5_61c8ad5261c43765f8fdbd8e"
+      }
+    ],
+    "game_id": "n5-5hnouw-2730841962027",
+    "sign": "335d44cccb62b97d964e4ff323ae06ea65e2e535abd401a01f771ae1d7d52f7a"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8afb454926370bc29651a",
+        "original_action_id": "n5_61c8afb454926370bc29651a"
+      }
+    ],
+    "game_id": "n5-5hnouw-2730977036027",
+    "sign": "3d803102aeb05cf0d642c517f7b70a7dd65f9b57a8ba2a3771f3c2c84fbf4de8"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8afaf61c43765f802b1ea",
+        "original_action_id": "n5_61c8afaf61c43765f802b1ea"
+      }
+    ],
+    "game_id": "n5-5hnouw-2730975816427",
+    "sign": "b29276b704bd101e08352cf5a3ba710c2469df1bae4e65c9e61557b09f448817"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8b21454926370bc2e9cf2",
+        "original_action_id": "n5_61c8b21454926370bc2e9cf2"
+      }
+    ],
+    "game_id": "n5-5hnouw-2731119546427",
+    "sign": "34dea9c50f1698aab9effcd31d2a194d760f9ebcbce31bbb25a9a31d30d148c2"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8b29a4afc2c48887b4192",
+        "original_action_id": "n5_61c8b29a4afc2c48887b4192"
+      }
+    ],
+    "game_id": "n5-5hnouw-2731151432827",
+    "sign": "9b6f801f5502b7127494a03e43b4b6c7d7ee6484c922505f75dec9c4967e34db"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8b29a4afc2c48887b4192",
+        "original_action_id": "n5_61c8b29a4afc2c48887b4192"
+      }
+    ],
+    "game_id": "n5-5hnouw-2731151432827",
+    "sign": "9b6f801f5502b7127494a03e43b4b6c7d7ee6484c922505f75dec9c4967e34db"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8b30140eb3705a4f0b849",
+        "original_action_id": "n5_61c8b30140eb3705a4f0b849"
+      }
+    ],
+    "game_id": "n5-5hnouw-2731174301227",
+    "sign": "862e232c45d2ce4e8a014c1f4fd585b1e53d6fd483c2cc36717b9f386fa85280"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8b29a4afc2c48887b4192",
+        "original_action_id": "n5_61c8b29a4afc2c48887b4192"
+      }
+    ],
+    "game_id": "n5-5hnouw-2731151432827",
+    "sign": "9b6f801f5502b7127494a03e43b4b6c7d7ee6484c922505f75dec9c4967e34db"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8b32c40eb3705a4f11830",
+        "original_action_id": "n5_61c8b32c40eb3705a4f11830"
+      }
+    ],
+    "game_id": "n5-5hnouw-2731184564827",
+    "sign": "9f0f3233344abcbca2537ce8dfcb7fbfd75b0330ec93deab181f01344ac8560b"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SweetBonanza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c8b30140eb3705a4f0b849",
+        "original_action_id": "n5_61c8b30140eb3705a4f0b849"
+      }
+    ],
+    "game_id": "n5-5hnouw-2731174301227",
+    "sign": "862e232c45d2ce4e8a014c1f4fd585b1e53d6fd483c2cc36717b9f386fa85280"
+  },
+  {
+    "user_id": "2bc9ce1ff224a8d1fc73f630",
+    "currency": "EUR",
+    "game": "pragmaticexternal:MasterJoker",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c912634afc2c488847020d",
+        "original_action_id": "n5_61c912634afc2c488847020d"
+      }
+    ],
+    "game_id": "n5-5hqtut-2736689606427",
+    "sign": "87c8e0fd713bb9874eb804b1d454a96555255a9de4eda7f15b03ed3f49a5bd5f"
+  },
+  {
+    "user_id": "2bc9ce1ff224a8d1fc73f630",
+    "currency": "EUR",
+    "game": "pragmaticexternal:MasterJoker",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c912634afc2c488847020d",
+        "original_action_id": "n5_61c912634afc2c488847020d"
+      }
+    ],
+    "game_id": "n5-5hqtut-2736689606427",
+    "sign": "87c8e0fd713bb9874eb804b1d454a96555255a9de4eda7f15b03ed3f49a5bd5f"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9bfa240eb3705a49c1692",
+        "original_action_id": "n5_61c9bfa240eb3705a49c1692"
+      }
+    ],
+    "game_id": "n5-5gjfv8-2742604082027",
+    "sign": "5b05f57972619eb1fa2ca6fa8ba503c73f3eaea92f8bc22ff7126da05543f74d"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9bfa240eb3705a49c1692",
+        "original_action_id": "n5_61c9bfa240eb3705a49c1692"
+      }
+    ],
+    "game_id": "n5-5gjfv8-2742604082027",
+    "sign": "5b05f57972619eb1fa2ca6fa8ba503c73f3eaea92f8bc22ff7126da05543f74d"
+  },
+  {
+    "user_id": "ec1b66c9d1ca32e256662612",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FloatingDragon1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9db3a40eb3705a4d0a842",
+        "original_action_id": "n5_61c9db3a40eb3705a4d0a842"
+      }
+    ],
+    "game_id": "n5-5gqbqy-2744034942827",
+    "sign": "554419c4484c3f508853dff13734ccf70496e44abf32be22473ca3f5781d0961"
+  },
+  {
+    "user_id": "ec1b66c9d1ca32e256662612",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FloatingDragon1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9db3a40eb3705a4d0a842",
+        "original_action_id": "n5_61c9db3a40eb3705a4d0a842"
+      }
+    ],
+    "game_id": "n5-5gqbqy-2744034942827",
+    "sign": "554419c4484c3f508853dff13734ccf70496e44abf32be22473ca3f5781d0961"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SantasWonderland",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9dfad4afc2c4888652c61",
+        "original_action_id": "n5_61c9dfad4afc2c4888652c61"
+      }
+    ],
+    "game_id": "n5-5hxcaq-2744286746027",
+    "sign": "0df5337e2271330059ff167d426e2d05d1de0e8a301c92eb508bfc3074e60baf"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SantasWonderland",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9dfad4afc2c4888652c61",
+        "original_action_id": "n5_61c9dfad4afc2c4888652c61"
+      }
+    ],
+    "game_id": "n5-5hxcaq-2744286746027",
+    "sign": "0df5337e2271330059ff167d426e2d05d1de0e8a301c92eb508bfc3074e60baf"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SantasWonderland",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9e00440eb3705a4da9254",
+        "original_action_id": "n5_61c9e00440eb3705a4da9254"
+      }
+    ],
+    "game_id": "n5-5hxcaq-2744305886627",
+    "sign": "ccb7fad5d83fc4adac3ad210f751a29fbb66d7ee2590c4a559e5858391de1f30"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SantasWonderland",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9e00440eb3705a4da9254",
+        "original_action_id": "n5_61c9e00440eb3705a4da9254"
+      }
+    ],
+    "game_id": "n5-5hxcaq-2744305886627",
+    "sign": "ccb7fad5d83fc4adac3ad210f751a29fbb66d7ee2590c4a559e5858391de1f30"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SantasWonderland",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9e17061c43765f8f6b642",
+        "original_action_id": "n5_61c9e17061c43765f8f6b642"
+      }
+    ],
+    "game_id": "n5-5hxcaq-2744387483027",
+    "sign": "93046af9badb19fe617556b0b10c5b73361fe0c01d78d08f1dde2a0c00dc3f1f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SantasWonderland",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9e17061c43765f8f6b642",
+        "original_action_id": "n5_61c9e17061c43765f8f6b642"
+      }
+    ],
+    "game_id": "n5-5hxcaq-2744387483027",
+    "sign": "93046af9badb19fe617556b0b10c5b73361fe0c01d78d08f1dde2a0c00dc3f1f"
+  },
+  {
+    "user_id": "b38c20cd9c93a81c50b8706f",
+    "currency": "EUR",
+    "game": "pragmaticexternal:SantasWonderland",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9e17061c43765f8f6b642",
+        "original_action_id": "n5_61c9e17061c43765f8f6b642"
+      }
+    ],
+    "game_id": "n5-5hxcaq-2744387483027",
+    "sign": "93046af9badb19fe617556b0b10c5b73361fe0c01d78d08f1dde2a0c00dc3f1f"
+  },
+  {
+    "user_id": "1c2d30d11b9d852c96040ad9",
+    "currency": "EUR",
+    "game": "pragmaticexternal:MasterJoker",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9eec561c43765f812fc79",
+        "original_action_id": "n5_61c9eec561c43765f812fc79"
+      }
+    ],
+    "game_id": "n5-5fyc4l-2745156388027",
+    "sign": "60805901b78a83872dc42b656d3d5feb8b9669ca4cbacb404fc813aa29ded24f"
+  },
+  {
+    "user_id": "1c2d30d11b9d852c96040ad9",
+    "currency": "EUR",
+    "game": "pragmaticexternal:MasterJoker",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61c9eec561c43765f812fc79",
+        "original_action_id": "n5_61c9eec561c43765f812fc79"
+      }
+    ],
+    "game_id": "n5-5fyc4l-2745156388027",
+    "sign": "60805901b78a83872dc42b656d3d5feb8b9669ca4cbacb404fc813aa29ded24f"
+  },
+  {
+    "user_id": "7f3d2447c792551d5fe00eda",
+    "currency": "EUR",
+    "game": "evolution:moneywheel_rng",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7t_r_D639993319605835301",
+        "original_action_id": "7t_D639993319605835301"
+      }
+    ],
+    "game_id": "7t-5fm0uv-16c4b25294c3d0ebe870b34a",
+    "sign": "219d628fd8e4114009d640c3e994a095a785f425e97b9015992af39d012dc0f9"
+  },
+  {
+    "user_id": "6bacab2858866f06b4c2b574",
+    "currency": "EUR",
+    "game": "softswiss:PrincessOfSky",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8589412673",
+        "original_action_id": "hg_8589412673"
+      }
+    ],
+    "game_id": "hg-5ixh14-6857689794",
+    "sign": "851a9b9a9f8848e7ce9f033c64b16695d62170c17f6130d90ef11029ccf1c023"
+  },
+  {
+    "user_id": "6bacab2858866f06b4c2b574",
+    "currency": "EUR",
+    "game": "softswiss:PrincessOfSky",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8589412673",
+        "original_action_id": "hg_8589412673"
+      }
+    ],
+    "game_id": "hg-5ixh14-6857689794",
+    "sign": "851a9b9a9f8848e7ce9f033c64b16695d62170c17f6130d90ef11029ccf1c023"
+  },
+  {
+    "user_id": "3af6fc64abcbe02178b63d38",
+    "currency": "EUR",
+    "game": "pragmaticexternal:WildWestGold",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61cdfe9a4afc2c4888d0817b",
+        "original_action_id": "n5_61cdfe9a4afc2c4888d0817b"
+      }
+    ],
+    "game_id": "n5-5j5djt-2795139733827",
+    "sign": "9873d27b9f86266ed18ee4f2860e2fd1df217ddf6a87b37389eeb6baa29d7bd4"
+  },
+  {
+    "user_id": "6bacab2858866f06b4c2b574",
+    "currency": "EUR",
+    "game": "softswiss:LuckyLadyClover",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8625259784",
+        "original_action_id": "hg_8625259784"
+      }
+    ],
+    "game_id": "hg-5ixerk-6886248884",
+    "sign": "d55c801fb0abf5a14d985899547925eaf0f3c414a1af51d322fc6cf56a53ac51"
+  },
+  {
+    "user_id": "6bacab2858866f06b4c2b574",
+    "currency": "EUR",
+    "game": "softswiss:LuckyLadyClover",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "hg_r_8625259784",
+        "original_action_id": "hg_8625259784"
+      }
+    ],
+    "game_id": "hg-5ixerk-6886248884",
+    "sign": "d55c801fb0abf5a14d985899547925eaf0f3c414a1af51d322fc6cf56a53ac51"
+  },
+  {
+    "user_id": "5646fd55ac91aa0984b0a06e",
+    "currency": "EUR",
+    "game": "pushgaming:fatdrac",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "1nw_r_11020-0104-301254766-301254766",
+        "original_action_id": "1nw_11020-0104-301254766-301254766"
+      }
+    ],
+    "game_id": "1nw-5k7tvr-11020-0104-301254766",
+    "sign": "c9268727631aaa24855aa843ce708b73c76f84ee4ad7bc9e60f8425a0f735b9d"
+  },
+  {
+    "user_id": "5646fd55ac91aa0984b0a06e",
+    "currency": "EUR",
+    "game": "pushgaming:fatdrac",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "1nw_r_11020-0104-301254766-301254766",
+        "original_action_id": "1nw_11020-0104-301254766-301254766"
+      }
+    ],
+    "game_id": "1nw-5k7tvr-11020-0104-301254766",
+    "sign": "c9268727631aaa24855aa843ce708b73c76f84ee4ad7bc9e60f8425a0f735b9d"
+  },
+  {
+    "user_id": "5646fd55ac91aa0984b0a06e",
+    "currency": "EUR",
+    "game": "pushgaming:tikitumble",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "1nw_r_1016-0104-9ebf09b566fa4b739310ff1d227c8110",
+        "original_action_id": "1nw_1016-0104-9ebf09b566fa4b739310ff1d227c8110"
+      }
+    ],
+    "game_id": "1nw-5k8dy7-1016-0104-49976301",
+    "sign": "12734c06e120b37fc44519146c63b0e95cf10d8e9fc6521d5813c5b554a1467a"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "yggdrasil:FrostQueenJackpots",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2m9_r_bethub_gg_2201031327410500031_w2201031327410500030",
+        "original_action_id": "2m9_bethub_gg_2201031327410500031_w2201031327410500030"
+      }
+    ],
+    "game_id": "2m9-5hmmr3-bethub_gg_2201031327410500031",
+    "sign": "75e16cb1acaec67aec02ef170c5f1592fb2f52527a3232c51f843eeab1d77e90"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "yggdrasil:FrostQueenJackpots",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "2m9_r_bethub_gg_2201031328190500019_w2201031328190500018",
+        "original_action_id": "2m9_bethub_gg_2201031328190500019_w2201031328190500018"
+      }
+    ],
+    "game_id": "2m9-5hmmr3-bethub_gg_2201031328190500019",
+    "sign": "d1acda4017b90972eefe523eb0f8ba57cedb1fe0d5ce88de5832a3bffb10d30b"
+  },
+  {
+    "user_id": "7f3d2447c792551d5fe00eda",
+    "currency": "EUR",
+    "game": "evolution:moneywheel_rng",
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "7t_r_D639993577807147565",
+        "original_action_id": "7t_D639993577807147565"
+      }
+    ],
+    "game_id": "7t-5fm0uv-16c6c89b4f8c26abe90c572b",
+    "sign": "4487b9da51f7eaca508bd8fa3c601cb85fb6bfb44d8dbe156e20a530ba21c4b7"
+  },
+  {
+    "user_id": "3eed505853aec08ed999bc3a",
+    "currency": "EUR",
+    "game": "thunderkick:CarnivalQueen_tk",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "jn_r_355955531102",
+        "original_action_id": "jn_355955531102"
+      }
+    ],
+    "game_id": "jn-5gjm6y-177963831302",
+    "sign": "74910cff5f28a2c8be1e5bce9d3d6057c1d1247e94986357bfdf576c0327ef7e"
+  },
+  {
+    "user_id": "07beb1d09a8081b5d332793b",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d3c9864afc2c48882751e4",
+        "original_action_id": "n5_61d3c9864afc2c48882751e4"
+      }
+    ],
+    "game_id": "n5-5dpe92-2866279070627",
+    "sign": "b92ed123b082d4dec2521753b2b6b573f8ea2aad7639488bea431337bc539c2b"
+  },
+  {
+    "user_id": "07beb1d09a8081b5d332793b",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty1",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d3c9864afc2c48882751e4",
+        "original_action_id": "n5_61d3c9864afc2c48882751e4"
+      }
+    ],
+    "game_id": "n5-5dpe92-2866279070627",
+    "sign": "b92ed123b082d4dec2521753b2b6b573f8ea2aad7639488bea431337bc539c2b"
+  },
+  {
+    "user_id": "f2bff036ba525b6a4687406b",
+    "currency": "EUR",
+    "game": "pragmaticexternal:ChristmasBassBananza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d497be40eb3705a4d8b8ec",
+        "original_action_id": "n5_61d497be40eb3705a4d8b8ec"
+      }
+    ],
+    "game_id": "n5-5l0ok2-2874872307827",
+    "sign": "b60d87bb921e94846f016203ad99a324a54ac61327c054f8aef4a2e2ddcd4098"
+  },
+  {
+    "user_id": "f2bff036ba525b6a4687406b",
+    "currency": "EUR",
+    "game": "pragmaticexternal:ChristmasBassBananza",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d497be40eb3705a4d8b8ec",
+        "original_action_id": "n5_61d497be40eb3705a4d8b8ec"
+      }
+    ],
+    "game_id": "n5-5l0ok2-2874872307827",
+    "sign": "b60d87bb921e94846f016203ad99a324a54ac61327c054f8aef4a2e2ddcd4098"
+  },
+  {
+    "user_id": "07beb1d09a8081b5d332793b",
+    "currency": "EUR",
+    "game": "pragmaticexternal:WildWestGold",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d49f6a40eb3705a4eb809c",
+        "original_action_id": "n5_61d49f6a40eb3705a4eb809c"
+      }
+    ],
+    "game_id": "n5-5gpnbz-2875383902827",
+    "sign": "606c99d233cb4e671fa1decc58dd01af2ef3bc33256369c74c8e79c5ddf086a0"
+  },
+  {
+    "user_id": "07beb1d09a8081b5d332793b",
+    "currency": "EUR",
+    "game": "pragmaticexternal:WildWestGold",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d49f6a40eb3705a4eb809c",
+        "original_action_id": "n5_61d49f6a40eb3705a4eb809c"
+      }
+    ],
+    "game_id": "n5-5gpnbz-2875383902827",
+    "sign": "606c99d233cb4e671fa1decc58dd01af2ef3bc33256369c74c8e79c5ddf086a0"
+  },
+  {
+    "user_id": "1254e81a7e9ddc75d3322495",
+    "currency": "EUR",
+    "game": "pragmaticexternal:StarlightPrincess",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d64ce340eb3705a4ddfb62",
+        "original_action_id": "n5_61d64ce340eb3705a4ddfb62"
+      }
+    ],
+    "game_id": "n5-5l3w05-2895997766427",
+    "sign": "13363219a9b786b7accc19ae337b34381291a2602a2e33b8dd805b8b5081dc5e"
+  },
+  {
+    "user_id": "fc9aaa2205d0a899ac0f9bbc",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty2",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d64ce54afc2c48886887f9",
+        "original_action_id": "n5_61d64ce54afc2c48886887f9"
+      }
+    ],
+    "game_id": "n5-5gnsds-2895998106627",
+    "sign": "8ef4c9ae157db627482665a3c38a643904aec08b12716ea7a0928cff53e59a6b"
+  },
+  {
+    "user_id": "1254e81a7e9ddc75d3322495",
+    "currency": "EUR",
+    "game": "nolimit:FireInTheHolexBomb",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "fp_r_W2303577785-1",
+        "original_action_id": "fp_W2303577785-1"
+      }
+    ],
+    "game_id": "fp-5l27e0-2303577785",
+    "sign": "f140e12c20139a2a212ed297e04ab203bff95f8c289e464e2bc7c4a3875297b0"
+  },
+  {
+    "user_id": "fc9aaa2205d0a899ac0f9bbc",
+    "currency": "EUR",
+    "game": "pragmaticexternal:FruitParty2",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d64ce54afc2c48886887f9",
+        "original_action_id": "n5_61d64ce54afc2c48886887f9"
+      }
+    ],
+    "game_id": "n5-5gnsds-2895998106627",
+    "sign": "8ef4c9ae157db627482665a3c38a643904aec08b12716ea7a0928cff53e59a6b"
+  },
+  {
+    "user_id": "1254e81a7e9ddc75d3322495",
+    "currency": "EUR",
+    "game": "pragmaticexternal:StarlightPrincess",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "n5_r_61d64ce340eb3705a4ddfb62",
+        "original_action_id": "n5_61d64ce340eb3705a4ddfb62"
+      }
+    ],
+    "game_id": "n5-5l3w05-2895997766427",
+    "sign": "13363219a9b786b7accc19ae337b34381291a2602a2e33b8dd805b8b5081dc5e"
+  },
+  {
+    "user_id": "1254e81a7e9ddc75d3322495",
+    "currency": "EUR",
+    "game": "nolimit:FireInTheHolexBomb",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "fp_r_W2303577785-1",
+        "original_action_id": "fp_W2303577785-1"
+      }
+    ],
+    "game_id": "fp-5l27e0-2303577785",
+    "sign": "f140e12c20139a2a212ed297e04ab203bff95f8c289e464e2bc7c4a3875297b0"
+  },
+  {
+    "user_id": "1254e81a7e9ddc75d3322495",
+    "currency": "EUR",
+    "game": "nolimit:FireInTheHolexBomb",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "fp_r_W2303598817-1",
+        "original_action_id": "fp_W2303598817-1"
+      }
+    ],
+    "game_id": "fp-5l27e0-2303598817",
+    "sign": "e894c3bbe17b319e9500125d22f41645b6a54bc4d98ff7ca96e31637b3466747"
+  },
+  {
+    "user_id": "1254e81a7e9ddc75d3322495",
+    "currency": "EUR",
+    "game": "nolimit:FireInTheHolexBomb",
+    "finished": true,
+    "actions": [
+      {
+        "action": "rollback",
+        "action_id": "fp_r_W2303598817-1",
+        "original_action_id": "fp_W2303598817-1"
+      }
+    ],
+    "game_id": "fp-5l27e0-2303598817",
+    "sign": "e894c3bbe17b319e9500125d22f41645b6a54bc4d98ff7ca96e31637b3466747"
+  }
+]

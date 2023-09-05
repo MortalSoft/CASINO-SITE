@@ -1,0 +1,52 @@
+{
+	"name": "chillerlan/php-qrcode",
+	"description": "A QR code generator. PHP 7.2+",
+	"homepage": "https://github.com/chillerlan/php-qrcode",
+	"license": "MIT",
+	"minimum-stability": "stable",
+	"type": "library",
+	"keywords": [
+		"QR code", "qrcode", "qr", "qrcode-generator", "phpqrcode"
+	],
+	"authors": [
+		{
+			"name": "Kazuhiko Arase",
+			"homepage": "https://github.com/kazuhikoarase"
+		},
+		{
+			"name": "Smiley",
+			"email": "smiley@chillerlan.net",
+			"homepage": "https://github.com/codemasher"
+		},
+		{
+			"name": "Contributors",
+			"homepage":"https://github.com/chillerlan/php-qrcode/graphs/contributors"
+		}
+	],
+	"require": {
+		"php": "^7.2 || ^8.0",
+		"ext-mbstring": "*",
+		"chillerlan/php-settings-container": "^1.2.2"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^8.5",
+		"phan/phan": "^3.2.2",
+		"setasign/fpdf": "^1.8.2"
+	},
+	"suggest": {
+		"chillerlan/php-authenticator": "Yet another Google authenticator! Also creates URIs for mobile apps.",
+		"setasign/fpdf": "Required to use the QR FPDF output."
+	},
+	"autoload": {
+		"psr-4": {
+			"chillerlan\\QRCode\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"chillerlan\\QRCodePublic\\": "public/",
+			"chillerlan\\QRCodeTest\\": "tests/",
+			"chillerlan\\QRCodeExamples\\": "examples/"
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES5",
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "lib": ["ESNext"],
+    "allowJs": false,
+    "checkJs": false,
+    "outDir": "./dist",
+    "rootDirs": ["./src", "./tests"],
+    "declaration": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false
+  },
+  "include": ["./src/**/*.ts", "./tests/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

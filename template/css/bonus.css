@@ -1,0 +1,320 @@
+.bonus,
+.battle,
+.battles,
+.battle .t,
+#modal_battles label,
+#modal_battles .gc,
+#modal_battles .gc input,
+#modal_battles .gc .c,
+#modal_battles .amounts,
+#modal_battles input[type="number"],
+#modal_battles .ss2,
+#modal_battles button,
+.bonus .top,
+.bonus .empty,
+.sa-alert {
+  width: 100%;
+  float: left;
+}
+
+.minesweeper_historyitem {
+  transition: transform 500ms, background 300ms;
+}
+
+.bonus h2 {
+  margin: 0 15px 20px 0;
+  float: left;
+}
+
+.bonus button,
+#modal_battles button,
+.bonus ._btn {
+  background: var(--site-color-main);
+  padding: 6px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  float: left;
+}
+
+.profit2 i,
+.profit3 i {
+  display: none;
+}
+
+.sa-alert {
+  background: var(--site-color-bg-dark);
+  padding: 10px 20px;
+  border-radius: 6px;
+  margin: 0 0 20px;
+  color: #8f9bad;
+  /*border-bottom: 2px solid #1bb94c;*/
+}
+
+.sa-alert p {
+  float: left;
+  margin: 0;
+  line-height: 31px;
+}
+
+.sa-alert a {
+  float: right;
+  background: var(--site-color-main);
+  padding: 6px 20px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.sa-alert a:hover {
+  opacity: .8;
+}
+
+.bonus .empty {
+  text-align: center;
+  margin: 150px 0 0;
+}
+
+.bonus .empty i {
+  font-size: 38px;
+  color: #8f9bad;
+  text-align: center;
+}
+
+.bonus .empty p {
+  color: #8f9bad;
+  text-align: center;
+}
+
+.bonus .top .tabs {
+  float: right;
+}
+
+.bonus .top .tabs div {
+  float: left;
+  line-height: 32px;
+  margin: 0 15px;
+  color: #8f9bad;
+  font-weight: 600;
+}
+
+.bonus .top .tabs div:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.bonus .top .tabs div[data-active="true"] {
+  color: #fff;
+}
+
+.bonus ._btn {
+  width: 100%;
+  margin: 20px 0 0;
+}
+
+.bonus button:hover,
+#modal_battles button:hover,
+.bonus ._btn:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.battles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.battle {
+  padding: 15px;
+  border-radius: 8px;
+  background: var(--site-color-bg-dark);
+  text-align: left;
+}
+
+.battle img.game-pic {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.battle p.game {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0 0;
+}
+
+.battle p.time {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 20px;
+  color: #8f9bad;
+}
+
+.battle .t {
+  margin: 3px 0 0;
+}
+
+.battle .t p {
+  color: #8f9bad;
+  font-weight: 600;
+  float: left;
+  margin: 0;
+}
+
+.battle .t div {
+  float: right;
+}
+
+.battle .t div i {
+  float: left;
+  margin: 4px;
+}
+
+.battle .t div span {
+  font-weight: 600;
+  float: left;
+  line-height: 22px;
+}
+
+.battle .t div img {
+  height: 22px;
+  border-radius: 50%;
+  float: left;
+  margin: 0 4px 0 0;
+}
+
+.battle a._btn {
+  width: 100%;
+  margin: 20px 0 0;
+  text-align: center;
+}
+
+#modal_battles h2 {
+  margin: 0 0 20px;
+}
+
+#modal_battles label {
+  color: #8f9bad;
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+
+#modal_battles .gc {
+  /*background: var(--site-color-bg-dark);*/
+  background: #203238;
+  border-radius: 6px;
+  padding: 10px;
+  height: 250px;
+  overflow: auto;
+  position: relative;
+}
+
+#modal_battles .gc input {
+  height: 36px;
+  background: var(--site-color-bg-light);
+  border-radius: 6px;
+  color: #fff;
+  margin: 0 0 10px;
+  padding: 0 10px;
+}
+
+#modal_battles .gc .c {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+#modal_battles .gc .c img {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+#modal_battles .gc .c img[data-selected="true"] {
+  border: 2px solid #00ff00;
+}
+
+#modal_battles select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  border-radius: 6px;
+  background: #203238;
+  padding: 10px 10px;
+  color: #fff;
+}
+
+#modal_battles .amounts {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+
+#modal_battles .amounts div {
+  background: #203238;
+  border-radius: 6px;
+  padding: 5px;
+  text-align: center;
+  font-weight: 600;
+  border: 2px solid transparent;
+}
+
+#modal_battles .amounts div[data-selected="true"] {
+  border: 2px solid #00ff00;
+}
+
+#modal_battles .amounts div:hover,
+#modal_battles .gc .c img:hover,
+#modal_battles .ss2 div:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+#modal_battles input[type="number"] {
+  background: #203238;
+  border-radius: 6px;
+  padding: 0 10px;
+  height: 36px;
+  color: #fff;
+}
+
+#modal_battles .ss2 {
+  margin: 20px 0;
+}
+
+#modal_battles .ss2 div {
+  height: 26px;
+  width: 26px;
+  background: #203238;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 26px;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+#modal_battles .ss2 p {
+  float: left;
+  margin: 0;
+  line-height: 26px;
+}
+
+#modal_battles button {
+  margin: 20px 0 0;
+  padding: 8px 0;
+}
+
+
+
+
+
+.battles2 {
+  display: block;
+  width: 32%;
+}
+
+.battles_main {
+  width: calc(68% - 20px);
+  float: left;
+  margin-left: 20px;
+}

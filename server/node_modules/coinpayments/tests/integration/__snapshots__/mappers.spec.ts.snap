@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mappers integration tests mapGetTxMultiPayload integration tests Should return proper payload 1`] = `
+Object {
+  "cmd": "very-cmd",
+  "txid": "a|b|c",
+}
+`;
+
+exports[`Mappers integration tests mapMassWithdrawalPayload integration tests Should return proper payload 1`] = `
+Object {
+  "cmd": "very-cmd",
+  "wd[wd1][address]": "y",
+  "wd[wd1][amount]": 1000,
+  "wd[wd1][currency]": "x",
+  "wd[wd2][address]": "q",
+  "wd[wd2][amount]": 2000,
+  "wd[wd2][currency]": "p",
+  "wd[wd2][dest_tag]": "dest",
+}
+`;

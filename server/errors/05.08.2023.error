@@ -1,0 +1,11 @@
+	06:50:40.4040 
+ TypeError: Cannot read properties of null (reading 'getInventoryContents')
+    at /home/admin/domains/mortalsoft.online/demo/server/scripts/trading/steam_bot_manager.js:339:22
+    at new Promise (<anonymous>)
+    at Bot.getAllItems (/home/admin/domains/mortalsoft.online/demo/server/scripts/trading/steam_bot_manager.js:337:12)
+    at Socket.<anonymous> (/home/admin/domains/mortalsoft.online/demo/server/server.js:244:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emitUntyped (/home/admin/domains/mortalsoft.online/demo/server/node_modules/socket.io/dist/typed-events.js:69:22)
+    at /home/admin/domains/mortalsoft.online/demo/server/node_modules/socket.io/dist/socket.js:704:39
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+

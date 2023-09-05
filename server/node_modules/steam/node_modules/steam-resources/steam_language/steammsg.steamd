@@ -1,0 +1,360 @@
+#import "header.steamd"
+
+#import "gamecoordinator.steamd"
+
+class MsgClientJustStrings<EMsg::Invalid>
+{
+};
+
+class MsgClientGenericResponse<EMsg::Invalid>
+{
+	EResult result;
+};
+
+class MsgChannelEncryptRequest<EMsg::ChannelEncryptRequest>
+{
+	const uint PROTOCOL_VERSION = 1;
+
+	uint protocolVersion = MsgChannelEncryptRequest::PROTOCOL_VERSION;
+	EUniverse universe = EUniverse::Invalid;
+};
+
+class MsgChannelEncryptResponse<EMsg::ChannelEncryptResponse>
+{
+	uint protocolVersion = MsgChannelEncryptRequest::PROTOCOL_VERSION;
+	uint keySize = 128;
+};
+
+class MsgChannelEncryptResult<EMsg::ChannelEncryptResult>
+{
+	EResult result = EResult::Invalid;
+};
+
+class MsgClientNewLoginKey<EMsg::ClientNewLoginKey>
+{
+	uint uniqueID;
+	byte<20> loginKey;
+};
+
+class MsgClientNewLoginKeyAccepted<EMsg::ClientNewLoginKeyAccepted>
+{
+	uint uniqueID;
+};
+
+class MsgClientLogon<EMsg::ClientLogon>
+{
+	const uint ObfuscationMask = 0xBAADF00D;
+	const uint CurrentProtocol = 65580;
+
+	const uint ProtocolVerMajorMask = 0xFFFF0000;
+	const uint ProtocolVerMinorMask = 0xFFFF;
+
+	const ushort ProtocolVerMinorMinGameServers = 4;
+	const ushort ProtocolVerMinorMinForSupportingEMsgMulti = 12;
+	const ushort ProtocolVerMinorMinForSupportingEMsgClientEncryptPct = 14;
+	const ushort ProtocolVerMinorMinForExtendedMsgHdr = 17;
+	const ushort ProtocolVerMinorMinForCellId = 18;
+	const ushort ProtocolVerMinorMinForSessionIDLast = 19;
+	const ushort ProtocolVerMinorMinForServerAvailablityMsgs = 24;
+	const ushort ProtocolVerMinorMinClients = 25;
+	const ushort ProtocolVerMinorMinForOSType = 26;
+	const ushort ProtocolVerMinorMinForCegApplyPESig = 27;
+	const ushort ProtocolVerMinorMinForMarketingMessages2 = 27;
+	const ushort ProtocolVerMinorMinForAnyProtoBufMessages = 28;
+	const ushort ProtocolVerMinorMinForProtoBufLoggedOffMessage = 28;
+	const ushort ProtocolVerMinorMinForProtoBufMultiMessages = 28;
+	const ushort ProtocolVerMinorMinForSendingProtocolToUFS = 30;
+	const ushort ProtocolVerMinorMinForMachineAuth = 33;
+	const ushort ProtocolVerMinorMinForSessionIDLastAnon = 36;
+	const ushort ProtocolVerMinorMinForEnhancedAppList = 40;
+	const ushort ProtocolVerMinorMinForSteamGuardNotificationUI = 41;
+	const ushort ProtocolVerMinorMinForProtoBufServiceModuleCalls = 42;
+	const ushort ProtocolVerMinorMinForGzipMultiMessages = 43;
+	const ushort ProtocolVerMinorMinForNewVoiceCallAuthorize = 44;
+	const ushort ProtocolVerMinorMinForClientInstanceIDs = 44;
+};
+
+class MsgClientVACBanStatus<EMsg::ClientVACBanStatus>
+{
+	uint numBans;
+};
+
+class MsgClientAppUsageEvent<EMsg::ClientAppUsageEvent>
+{
+	EAppUsageEvent appUsageEvent;
+	gameidmarshal ulong gameID;
+	ushort offline;
+};
+
+class MsgClientEmailAddrInfo<EMsg::ClientEmailAddrInfo>
+{
+	uint passwordStrength;
+	uint flagsAccountSecurityPolicy;
+	boolmarshal byte validated;
+}; 
+
+class MsgClientUpdateGuestPassesList<EMsg::ClientUpdateGuestPassesList>
+{
+	EResult result;
+	int countGuestPassesToGive;
+	int countGuestPassesToRedeem;
+};
+
+class MsgClientRequestedClientStats<EMsg::ClientRequestedClientStats>
+{
+	int countStats;
+};
+
+
+class MsgClientP2PIntroducerMessage<EMsg::ClientP2PIntroducerMessage>
+{
+	steamidmarshal ulong steamID;
+	EIntroducerRouting routingType;
+	byte<1450> data;
+	uint dataLen;
+};
+
+class MsgClientOGSBeginSession<EMsg::ClientOGSBeginSession>
+{
+	byte accountType;
+	steamidmarshal ulong accountId;
+	uint appId;
+	uint timeStarted;
+};
+
+class MsgClientOGSBeginSessionResponse<EMsg::ClientOGSBeginSessionResponse>
+{
+	EResult result;
+	boolmarshal byte collectingAny;
+	boolmarshal byte collectingDetails;
+	ulong sessionId;
+};
+
+class MsgClientOGSEndSession<EMsg::ClientOGSEndSession>
+{
+	ulong sessionId;
+	uint timeEnded;
+	int reasonCode;
+	int countAttributes;
+};
+
+class MsgClientOGSEndSessionResponse<EMsg::ClientOGSEndSessionResponse>
+{
+	EResult result;
+};
+
+
+class MsgClientOGSWriteRow<EMsg::ClientOGSWriteRow>
+{
+	ulong sessionId;
+	int countAttributes;
+};
+
+class MsgClientGetFriendsWhoPlayGame<EMsg::ClientGetFriendsWhoPlayGame>
+{
+	gameidmarshal ulong gameId;
+};
+
+class MsgClientGetFriendsWhoPlayGameResponse<EMsg::ClientGetFriendsWhoPlayGameResponse>
+{
+	EResult result;
+	gameidmarshal ulong gameId;
+	uint countFriends;
+};
+
+class MsgGSPerformHardwareSurvey<EMsg::GSPerformHardwareSurvey>
+{
+	uint flags;
+};
+
+class MsgGSGetPlayStatsResponse<EMsg::GSGetPlayStatsResponse>
+{
+	EResult result;
+	int rank;
+	uint lifetimeConnects;
+	uint lifetimeMinutesPlayed;
+};
+
+class MsgGSGetReputationResponse<EMsg::GSGetReputationResponse>
+{
+	EResult result;
+	uint reputationScore;
+	boolmarshal byte banned;
+	uint bannedIp;
+	ushort bannedPort;
+	ulong bannedGameId;
+	uint timeBanExpires;
+};
+
+class MsgGSDeny<EMsg::GSDeny>
+{
+	steamidmarshal ulong steamId;
+	EDenyReason denyReason;
+};
+
+class MsgGSApprove<EMsg::GSApprove>
+{
+	steamidmarshal ulong steamId;
+};
+
+class MsgGSKick<EMsg::GSKick>
+{
+	steamidmarshal ulong steamId;
+	EDenyReason denyReason;
+	int waitTilMapChange;
+};
+
+class MsgGSGetUserGroupStatus<EMsg::GSGetUserGroupStatus>
+{
+	steamidmarshal ulong steamIdUser;
+	steamidmarshal ulong steamIdGroup;
+};
+
+class MsgGSGetUserGroupStatusResponse<EMsg::GSGetUserGroupStatusResponse>
+{
+	steamidmarshal ulong steamIdUser;
+	steamidmarshal ulong steamIdGroup;
+	EClanRelationship clanRelationship;
+	EClanRank clanRank;
+};
+
+class MsgClientJoinChat<EMsg::ClientJoinChat>
+{
+	steamidmarshal ulong steamIdChat;
+	boolmarshal byte isVoiceSpeaker;
+};
+
+class MsgClientChatEnter<EMsg::ClientChatEnter>
+{
+	steamidmarshal ulong steamIdChat;
+	steamidmarshal ulong steamIdFriend;
+
+	EChatRoomType chatRoomType;
+
+	steamidmarshal ulong steamIdOwner;
+	steamidmarshal ulong steamIdClan;
+
+	byte chatFlags;
+
+	EChatRoomEnterResponse enterResponse;
+
+	int numMembers;
+};
+
+class MsgClientChatMsg<EMsg::ClientChatMsg>
+{
+	steamidmarshal ulong steamIdChatter;
+	steamidmarshal ulong steamIdChatRoom;
+	EChatEntryType chatMsgType;
+};
+
+class MsgClientChatMemberInfo<EMsg::ClientChatMemberInfo>
+{
+	steamidmarshal ulong steamIdChat;
+	EChatInfoType type;
+};
+
+class MsgClientChatAction<EMsg::ClientChatAction>
+{
+	steamidmarshal ulong steamIdChat;
+	steamidmarshal ulong steamIdUserToActOn;
+	EChatAction chatAction;
+};
+
+class MsgClientChatActionResult<EMsg::ClientChatActionResult>
+{
+	steamidmarshal ulong steamIdChat;
+	steamidmarshal ulong steamIdUserActedOn;
+	EChatAction chatAction;
+	EChatActionResult actionResult;
+};
+
+class MsgClientChatRoomInfo<EMsg::ClientChatRoomInfo>
+{
+	steamidmarshal ulong steamIdChat;
+	EChatInfoType type;
+};
+
+class MsgClientSetIgnoreFriend<EMsg::ClientSetIgnoreFriend>
+{
+	steamidmarshal ulong mySteamId;
+	steamidmarshal ulong steamIdFriend;
+
+	byte ignore;
+};
+
+class MsgClientSetIgnoreFriendResponse<EMsg::ClientSetIgnoreFriendResponse>
+{
+	steamidmarshal ulong friendId;
+	EResult result;
+};
+
+class MsgClientLoggedOff<EMsg::ClientLoggedOff>
+{
+	EResult result;
+	int secMinReconnectHint;
+	int secMaxReconnectHint;
+};
+
+class MsgClientLogOnResponse<EMsg::ClientLogOnResponse>
+{
+	EResult result;
+	int outOfGameHeartbeatRateSec;
+	int inGameHeartbeatRateSec;
+	steamidmarshal ulong clientSuppliedSteamId;
+	uint ipPublic;
+	uint serverRealTime;
+};
+
+class MsgClientSendGuestPass<EMsg::ClientSendGuestPass> removed
+{
+	ulong giftId;
+	byte giftType;
+	uint accountId;
+};
+
+class MsgClientSendGuestPassResponse<EMsg::ClientSendGuestPassResponse> removed
+{
+	EResult result;
+};
+
+class MsgClientServerUnavailable<EMsg::ClientServerUnavailable>
+{
+	ulong jobidSent;
+	uint eMsgSent;
+	EServerType eServerTypeUnavailable;
+};
+
+class MsgClientCreateChat<EMsg::ClientCreateChat>
+{
+	EChatRoomType chatRoomType;
+
+	gameidmarshal ulong gameId;
+
+	steamidmarshal ulong steamIdClan;
+
+	EChatPermission permissionOfficer;
+	EChatPermission permissionMember;
+	EChatPermission permissionAll;
+
+	uint membersMax;
+
+	byte chatFlags;
+
+	steamidmarshal ulong steamIdFriendChat;
+	steamidmarshal ulong steamIdInvited;
+};
+
+class MsgClientCreateChatResponse<EMsg::ClientCreateChatResponse>
+{
+	EResult result;
+	steamidmarshal ulong steamIdChat;
+	EChatRoomType chatRoomType;
+	steamidmarshal ulong steamIdFriendChat;
+};
+
+class MsgClientMarketingMessageUpdate2<EMsg::ClientMarketingMessageUpdate2>
+{
+	uint marketingMessageUpdateTime;
+	uint count;
+};

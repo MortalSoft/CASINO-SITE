@@ -1,0 +1,14 @@
+	08:09:45.4545 
+ Error: Invalid API public key passed
+    at IncomingMessage.<anonymous> (/home/admin/domains/mortalsoft.online/demo/server/node_modules/coinpayments/dist/internal.js:91:35)
+    at IncomingMessage.emit (node:events:525:35)
+    at endReadableNT (node:internal/streams/readable:1358:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+	08:10:19.1919 
+ Error: Invalid API public key passed
+    at IncomingMessage.<anonymous> (/home/admin/domains/mortalsoft.online/demo/server/node_modules/coinpayments/dist/internal.js:91:35)
+    at IncomingMessage.emit (node:events:525:35)
+    at endReadableNT (node:internal/streams/readable:1358:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+

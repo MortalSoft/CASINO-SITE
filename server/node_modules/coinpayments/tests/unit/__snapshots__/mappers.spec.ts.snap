@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mappers unit tests mapPayload tests Should override correctly 1`] = `
+Object {
+  "cmd": "some_cmd",
+  "prop1": "overwriten",
+}
+`;

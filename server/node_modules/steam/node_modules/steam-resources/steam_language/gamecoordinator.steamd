@@ -1,0 +1,17 @@
+
+
+class MsgGCHdrProtoBuf
+{
+	protomaskgc uint msg = 0;
+	int headerLength;
+
+	proto<headerLength> SteamKit2.GC.Internal.CMsgProtoBufHeader proto;
+};
+
+class MsgGCHdr
+{
+	ushort headerVersion = 1;
+
+	ulong targetJobID = ulong.MaxValue;
+	ulong sourceJobID = ulong.MaxValue;
+};

@@ -1,0 +1,331 @@
+{
+    "packages": [
+        {
+            "name": "chillerlan/php-qrcode",
+            "version": "3.4.1",
+            "version_normalized": "3.4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chillerlan/php-qrcode.git",
+                "reference": "468603b687a5fe75c1ff33857a45f1726c7b95a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chillerlan/php-qrcode/zipball/468603b687a5fe75c1ff33857a45f1726c7b95a9",
+                "reference": "468603b687a5fe75c1ff33857a45f1726c7b95a9",
+                "shasum": ""
+            },
+            "require": {
+                "chillerlan/php-settings-container": "^1.2.2",
+                "ext-mbstring": "*",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "phan/phan": "^3.2.2",
+                "phpunit/phpunit": "^8.5",
+                "setasign/fpdf": "^1.8.2"
+            },
+            "suggest": {
+                "chillerlan/php-authenticator": "Yet another Google authenticator! Also creates URIs for mobile apps.",
+                "setasign/fpdf": "Required to use the QR FPDF output."
+            },
+            "time": "2021-09-03T17:54:45+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "chillerlan\\QRCode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kazuhiko Arase",
+                    "homepage": "https://github.com/kazuhikoarase"
+                },
+                {
+                    "name": "Smiley",
+                    "email": "smiley@chillerlan.net",
+                    "homepage": "https://github.com/codemasher"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/chillerlan/php-qrcode/graphs/contributors"
+                }
+            ],
+            "description": "A QR code generator. PHP 7.2+",
+            "homepage": "https://github.com/chillerlan/php-qrcode",
+            "keywords": [
+                "phpqrcode",
+                "qr",
+                "qr code",
+                "qrcode",
+                "qrcode-generator"
+            ],
+            "support": {
+                "issues": "https://github.com/chillerlan/php-qrcode/issues",
+                "source": "https://github.com/chillerlan/php-qrcode/tree/3.4.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/donate?hosted_button_id=WLYUNAT9ZTJZ4",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/codemasher",
+                    "type": "ko_fi"
+                }
+            ],
+            "install-path": "../chillerlan/php-qrcode"
+        },
+        {
+            "name": "chillerlan/php-settings-container",
+            "version": "1.2.2",
+            "version_normalized": "1.2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chillerlan/php-settings-container.git",
+                "reference": "d1b5284d6eb3a767459738bb0b20073f0cb3eeaf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chillerlan/php-settings-container/zipball/d1b5284d6eb3a767459738bb0b20073f0cb3eeaf",
+                "reference": "d1b5284d6eb3a767459738bb0b20073f0cb3eeaf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.4"
+            },
+            "time": "2021-09-03T17:33:25+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "chillerlan\\Settings\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Smiley",
+                    "email": "smiley@chillerlan.net",
+                    "homepage": "https://github.com/codemasher"
+                }
+            ],
+            "description": "A container class for immutable settings objects. Not a DI container. PHP 7.2+",
+            "homepage": "https://github.com/chillerlan/php-settings-container",
+            "keywords": [
+                "PHP7",
+                "Settings",
+                "container",
+                "helper"
+            ],
+            "support": {
+                "issues": "https://github.com/chillerlan/php-settings-container/issues",
+                "source": "https://github.com/chillerlan/php-settings-container"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/donate?hosted_button_id=WLYUNAT9ZTJZ4",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/codemasher",
+                    "type": "ko_fi"
+                }
+            ],
+            "install-path": "../chillerlan/php-settings-container"
+        },
+        {
+            "name": "mobiledetect/mobiledetectlib",
+            "version": "2.8.41",
+            "version_normalized": "2.8.41.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/serbanghita/Mobile-Detect.git",
+                "reference": "fc9cccd4d3706d5a7537b562b59cc18f9e4c0cb1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/fc9cccd4d3706d5a7537b562b59cc18f9e4c0cb1",
+                "reference": "fc9cccd4d3706d5a7537b562b59cc18f9e4c0cb1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.35||~5.7"
+            },
+            "time": "2022-11-08T18:31:26+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Detection": "namespaced/"
+                },
+                "classmap": [
+                    "Mobile_Detect.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Serban Ghita",
+                    "email": "serbanghita@gmail.com",
+                    "homepage": "http://mobiledetect.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+            "homepage": "https://github.com/serbanghita/Mobile-Detect",
+            "keywords": [
+                "detect mobile devices",
+                "mobile",
+                "mobile detect",
+                "mobile detector",
+                "php mobile detect"
+            ],
+            "support": {
+                "issues": "https://github.com/serbanghita/Mobile-Detect/issues",
+                "source": "https://github.com/serbanghita/Mobile-Detect/tree/2.8.41"
+            },
+            "install-path": "../mobiledetect/mobiledetectlib"
+        },
+        {
+            "name": "paymentwall/paymentwall-php",
+            "version": "2.2.3",
+            "version_normalized": "2.2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paymentwall/paymentwall-php.git",
+                "reference": "040cbd3aecafe25af35568590f78b6cef4b72015"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paymentwall/paymentwall-php/zipball/040cbd3aecafe25af35568590f78b6cef4b72015",
+                "reference": "040cbd3aecafe25af35568590f78b6cef4b72015",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "behat/behat": "2.4.*@stable"
+            },
+            "time": "2019-04-24T04:28:11+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "lib/Paymentwall/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paymentwall Team",
+                    "email": "devsupport@paymentwall.com"
+                }
+            ],
+            "description": "Paymentwall PHP Library. Paymentwall is the leading digital payments platform for globally monetizing digital goods and services.",
+            "homepage": "https://www.paymentwall.com/?source=gh",
+            "keywords": [
+                "alternative payments",
+                "api",
+                "carrier billing",
+                "credit cards",
+                "monetization",
+                "payment processing",
+                "payments",
+                "paymentwall",
+                "recurring billing"
+            ],
+            "support": {
+                "issues": "https://github.com/paymentwall/paymentwall-php/issues",
+                "source": "https://github.com/paymentwall/paymentwall-php/tree/v2.2.3"
+            },
+            "install-path": "../paymentwall/paymentwall-php"
+        },
+        {
+            "name": "piggly/php-pix",
+            "version": "1.2.8",
+            "version_normalized": "1.2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/piggly-dev/php-pix.git",
+                "reference": "0d45caa94188f18dd0a00b73bf6efcb611d408d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/piggly-dev/php-pix/zipball/0d45caa94188f18dd0a00b73bf6efcb611d408d4",
+                "reference": "0d45caa94188f18dd0a00b73bf6efcb611d408d4",
+                "shasum": ""
+            },
+            "require": {
+                "chillerlan/php-qrcode": "^3.3",
+                "ext-gd": "*",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.14",
+                "phpunit/phpunit": "^8.5"
+            },
+            "time": "2021-06-06T21:13:28+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Piggly\\Pix\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caique Araujo",
+                    "email": "caique@studiopiggly.com.br",
+                    "homepage": "https://github.com/caiquearaujo",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Uma biblioteca para preparar e gerar o código Pix do Banco Central do Brasil.",
+            "homepage": "https://github.com/piggly-dev/php-pix",
+            "keywords": [
+                "bcb",
+                "emv",
+                "payment",
+                "piggly",
+                "pix",
+                "qrcode"
+            ],
+            "support": {
+                "issues": "https://github.com/piggly-dev/php-pix/issues",
+                "source": "https://github.com/piggly-dev/php-pix/tree/1.2.8"
+            },
+            "install-path": "../piggly/php-pix"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

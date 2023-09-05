@@ -1,0 +1,22 @@
+{
+  "name": "convert-string",
+  "version": "0.1.0",
+  "description": "Convert to/from strings and array of bytes",
+  "keywords": [
+    "string",
+    "strings",
+    "convert",
+    "hex",
+    "bytes"
+  ],
+  "devDependencies": {
+    "chai": "~1.8.1",
+    "mocha": "1.*",
+    "terst": "0.0.1"
+  },
+  "repository": {
+    "url": "https://github.com/cryptocoinjs/convert-string",
+    "type": "git"
+  },
+  "main": "convert-string.js"
+}

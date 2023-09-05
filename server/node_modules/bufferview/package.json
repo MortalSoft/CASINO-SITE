@@ -1,0 +1,32 @@
+{
+    "name": "bufferview",
+    "version": "1.0.1",
+    "author": "Daniel Wirtz <dcode@dcode.io>",
+    "description": "A DataView for node Buffers.",
+    "main": "BufferView.min.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dcodeIO/node-BufferView.git"
+    },
+    "bugs": {
+        "url": "https://github.com/dcodeIO/node-BufferView/issues"
+    },
+    "keywords": ["net", "array", "buffer", "arraybuffer", "typed array", "bytebuffer"],
+    "devDependencies": {
+        "testjs": "latest",
+        "preprocessor": "latest",
+        "closurecompiler": "latest"
+    },
+    "license": "Apache-2.0",
+    "engines": {
+        "node": ">=0.8"
+    },
+    "scripts": {
+        "prepublish": "npm test",
+        "test": "node node_modules/testjs/bin/testjs tests/suite.js",
+
+        "build": "preprocess src/BufferView.js src/ > BufferView.js",
+        "make": "npm run-script build && npm run-script compile && npm test",
+        "compile": "ccjs BufferView.js --create_source_map=BufferView.min.map --compilation_level=SIMPLE_OPTIMIZATIONS > BufferView.min.js"
+    }
+}

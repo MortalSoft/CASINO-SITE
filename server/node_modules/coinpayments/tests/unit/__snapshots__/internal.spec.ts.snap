@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Internal unit tests getPrivateHeaders unit tests Should return headers 1`] = `
+Object {
+  "Content-Type": "application/x-www-form-urlencoded",
+  "HMAC": "f14e4857c0ca3445c6532f6ae1f71e81090f8cb2da142f8d02fa4029870f407f9547643b64115dc11483bcca6be3037398e0cd6126228639664b6d23fe93e607",
+}
+`;

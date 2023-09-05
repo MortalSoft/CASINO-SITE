@@ -1,0 +1,14 @@
+{
+  "name": "steam-web-api",
+  "version": "0.0.1",
+  "description": "Steam Web API for Node.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seishun/node-steam-web-api"
+  },
+  "keywords": [
+    "steam"
+  ],
+  "author": "Nikolai Vavilov <vvnicholas@gmail.com>",
+  "license": "MIT"
+}
