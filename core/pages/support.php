@@ -1,7 +1,8 @@
-<link rel="stylesheet" type="text/css" href="/template/css/support.css?v=3" />
+<link rel="stylesheet" type="text/css" href="/template/css/support.css?v=5" />
 
-<?php $departaments = array(
-	'1'=>'General / Others',
+<?php
+$departaments = array(
+  '1'=>'General / Others',
   '2'=>'Bug report',
   '3'=>'Trade offer issue',
   '4'=>'Improvements / Ideas',
@@ -43,8 +44,8 @@
          array_push($tickets_support, $value_ticket);
        }
      } 
-     
-     $answered = ($tickets_support[(sizeof($tickets_support) - 1)]['user'] == $value_support['to_user']) ? 1 : 0;
+
+     //$answered = ($tickets_support[(sizeof($tickets_support) - 1)]['user'] == $value_support['to_user']) ? 1 : 0;
      
      ?>
 
@@ -68,8 +69,7 @@
 				<input type="text" placeholder="Your ticket title" name="title" />
 
 				<label>Category</label>
-				<input type="text" class="field_element_input" name="departament" value="" style="display:none" id="new_category">
-				<select>
+				<select name="departament">
 					<option value="3">Improvement / Ideas</option>
 					<option value="2">Bug report</option>
 					<option value="4">Marketing / Sponsoring</option>
@@ -78,7 +78,6 @@
 
 				<label>Message</label>
 				<textarea placeholder="Your message" name="message" id="message_textarea"></textarea>
-
 				<button class="send" type="submit" id="new_ticket" name="new_ticket">Send message</button>
 			</form>
 		</div>
@@ -94,7 +93,7 @@
 		       }
 		     } 
 		     
-		     $answered = ($tickets_support[(sizeof($tickets_support) - 1)]['user'] == $value_support['to_user']) ? 1 : 0;
+		     //$answered = ($tickets_support[(sizeof($tickets_support) - 1)]['user'] == $value_support['to_user']) ? 1 : 0;
 		     
 		     ?>
 			     <div class="msg_container_full" style="display:none" data-id="<?php echo $value_support['id'];?>">
@@ -102,7 +101,7 @@
 							<?php foreach($tickets_support as $key => $value_ticket){ ?>
 			          <div class="msg<?php echo ($value_ticket['response'] == 1)? ' support' : '';?>">
 									<div class="info">
-										<p><?php echo ($user['userid'] == $value_ticket['user']) ? 'You' : $value_ticket['name'];?></p>
+										<p><?php echo ($user['userid'] == isset($value_ticket['user'])) ? 'You' : $value_ticket['name'];?></p>
 										<div><?php echo date('d.m.Y H:i', $value_ticket['time']);?></div>
 									</div>
 
@@ -141,7 +140,7 @@
 					</div>
 
 					<div class="content">
-						Hey! My name is Matt and a friend of mine told me about your website. I looked around and it looked as a great place for both of us to prosper.I stream gambling content almost every single day I'm very determined at what I do I stream on twitch with 920 followers my twitch is https://www.twitch.tv/vhondyy. Looking forward to a response thanks
+						Hey!
 					</div>
 				</div>
 
@@ -152,7 +151,7 @@
 					</div>
 
 					<div class="content">
-						Hey! I absolutely hate you and think you're a dickhead. do not contact me again
+						Hey!
 					</div>
 				</div>
 			</div> -->

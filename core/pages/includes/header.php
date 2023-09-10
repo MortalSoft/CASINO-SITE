@@ -18,7 +18,7 @@
 					<div class="header-menu-button inline-block mr-2 <?php if($paths[0] == 'rewards') echo 'active';?>" style="opacity:1 !important"><a href="<?php echo $site['root'];?>rewards" style="color:#ffc34c !important;opacity:1 !important">Rewards</a></div>
 					<div class="header-menu-button inline-block mr-2 <?php if($paths[0] == 'leaderboard') echo 'active';?>"><a href="<?php echo $site['root'];?>leaderboard">Leaderboard</a></div>
 					<div class="header-menu-button inline-block mr-2 <?php if($paths[0] == 'faq') echo 'active';?>"><a href="<?php echo $site['root'];?>faq">FAQ</a></div>
-					<!-- <div class="header-menu-button inline-block mr-2 <?php if($paths[0] == 'support') echo 'active';?>"><a href="<?php echo $site['root'];?>support">Support</a></div>  -->
+					<div class="header-menu-button inline-block mr-2 <?php if($paths[0] == 'support') echo 'active';?>"><a href="<?php echo $site['root'];?>support">Support</a></div>
 					<?php if(isset($user['rank']) && $user['rank'] == '1' || isset($user['rank']) && $user['rank'] == '100') {  ?>
 						<div class="header-menu-button inline-block mr-2 <?php if($paths[0] == 'admin') echo 'active';?>" style="opacity:1 !important"><a href="<?php echo $site['root'];?>admin" style="color:var(--site-color-main) !important;">Admin panel</a></div>
 					<?php } ?>

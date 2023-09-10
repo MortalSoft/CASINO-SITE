@@ -234,4 +234,144 @@ switch($api) {
         break;
     case "nowpayments":
         break;
+    case "withdraw": 
+        $rows = array();
+        $DataBase = new DataBase(); 
+        $Config = new Config();
+        $Other = new Other();
+
+        $recaptcha = $Other->CheckRecaptcha($_POST['g-recaptcha-response']);
+
+        if(isset($_POST["type"]) && $_POST["type"]=="crypto" && $_POST["userid"] && $recaptcha["success"] === true) {
+            if(isset($_POST["address"]) && isset($_POST["currency"]) && isset($_POST["amount"])) {
+                $cryptoAddr = $_POST["address"];
+                $amount = $_POST["amount"];
+                $userId = $_POST["userid"];
+                $cryptoVault = $_POST["currency"];
+
+                $DataBase->Query("INSERT INTO withdraws (id, toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, :date)");
+                $DataBase->Bind(':toAddr', "");
+                $DataBase->Bind(':type', "crypto");
+                $DataBase->Bind(':ccNum', "");
+                $DataBase->Bind(':ccDate', "");
+                $DataBase->Bind(':cryptoAddr', $cryptoAddr);
+                $DataBase->Bind(':cryptoVault', $cryptoVault);
+                $DataBase->Bind(':amount', $amount);
+                $DataBase->Bind(':status', 0);
+                $DataBase->Bind(':userId', $userId);
+                $DataBase->Bind(':date', time());
+
+                if($DataBase->Execute())
+                {
+                    $rows["status"] = "ok";
+                    $rows["messages"] = "We will proceed your withdraw soon!";
+                } else {
+                    $rows["status"] = "error";
+                    $rows["messages"] = "Something went wrong!";
+                }
+            } else {
+                $rows["status"] = "error";
+                $rows["messages"] = "Please fill all inputs!";
+            }
+        } else if(isset($_POST["type"]) && $_POST["type"]=="credicard" && $_POST["userid"] && $recaptcha["success"] === true) {
+            if(isset($_POST["ccnum"]) && isset($_POST["amount"]) && isset($_POST["ccyear"]) && isset($_POST["ccmonth"])) {
+                $ccnum = $_POST["ccnum"];
+                $ccyear = $_POST["ccyear"];
+                $ccmonth = $_POST["ccmonth"];
+                $ccexpire = $ccyear. " / ".$ccmonth;
+
+                $amount = $_POST["amount"];
+                $userId = $_POST["userid"];
+                
+
+                $DataBase->Query("INSERT INTO withdraws (id, toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, :date)");
+                $DataBase->Bind(':toAddr', "");
+                $DataBase->Bind(':type', "creditcard");
+                $DataBase->Bind(':ccNum', $ccnum);
+                $DataBase->Bind(':ccDate', $ccexpire);
+                $DataBase->Bind(':cryptoAddr', "");
+                $DataBase->Bind(':cryptoVault', "");
+                $DataBase->Bind(':amount', $amount);
+                $DataBase->Bind(':status', 0);
+                $DataBase->Bind(':userId', $userId);
+                $DataBase->Bind(':date', time());
+
+                if($DataBase->Execute())
+                {
+                    $rows["status"] = "ok";
+                    $rows["messages"] = "We will proceed your withdraw soon!";
+                } else {
+                    $rows["status"] = "error";
+                    $rows["messages"] = "Something went wrong!";
+                }
+            } else {
+                $rows["status"] = "error";
+                $rows["messages"] = "Please fill all inputs!";
+            }
+        } else if(isset($_POST["type"]) && $_POST["type"]=="metamask" && $_POST["userid"] && $recaptcha["success"] === true) {
+            if(isset($_POST["address"]) && isset($_POST["currency"]) && isset($_POST["amount"])) {
+                $cryptoAddr = $_POST["address"];
+                $amount = $_POST["amount"];
+                $userId = $_POST["userid"];
+                $cryptoVault = $_POST["currency"];
+
+                $DataBase->Query("INSERT INTO withdraws (id, toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, :date)");
+                $DataBase->Bind(':toAddr', "");
+                $DataBase->Bind(':type', "metamask");
+                $DataBase->Bind(':ccNum', "");
+                $DataBase->Bind(':ccDate', "");
+                $DataBase->Bind(':cryptoAddr', $cryptoAddr);
+                $DataBase->Bind(':cryptoVault', $cryptoVault);
+                $DataBase->Bind(':amount', $amount);
+                $DataBase->Bind(':status', 0);
+                $DataBase->Bind(':userId', $userId);
+                $DataBase->Bind(':date', time());
+
+                if($DataBase->Execute())
+                {
+                    $rows["status"] = "ok";
+                    $rows["messages"] = "We will proceed your withdraw soon!";
+                } else {
+                    $rows["status"] = "error";
+                    $rows["messages"] = "Something went wrong!";
+                }
+            } else {
+                $rows["status"] = "error";
+                $rows["messages"] = "Please fill all inputs!";
+            }
+        } else if (isset($_POST["type"]) && $_POST["type"]=="pix" && $_POST["userid"] && $recaptcha["success"] === true) {
+            if(isset($_POST["address"]) && isset($_POST["amount"])) {
+                $toAddr = $_POST["address"];
+                $amount = $_POST["amount"];
+                $userId = $_POST["userid"];
+
+                $DataBase->Query("INSERT INTO withdraws (id, toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, :date)");
+                $DataBase->Bind(':toAddr', $toAddr);
+                $DataBase->Bind(':type', "pix");
+                $DataBase->Bind(':ccNum', "");
+                $DataBase->Bind(':ccDate', "");
+                $DataBase->Bind(':cryptoAddr', "");
+                $DataBase->Bind(':cryptoVault', "");
+                $DataBase->Bind(':amount', $amount);
+                $DataBase->Bind(':status', 0);
+                $DataBase->Bind(':userId', $userId);
+                $DataBase->Bind(':date', time());
+
+                if($DataBase->Execute())
+                {
+                    $rows["status"] = "ok";
+                    $rows["messages"] = "We will proceed your withdraw soon!";
+                } else {
+                    $rows["status"] = "error";
+                    $rows["messages"] = "Something went wrong!";
+                }
+            } else {
+                $rows["status"] = "error";
+                $rows["messages"] = "Please fill all inputs!";
+            }
+        } else {
+            $rows["status"] = "error";
+            $rows["messages"] = "Payment gateway doesnt exist!";
+        }
+        break;
 }

@@ -64,5 +64,14 @@
             'reference' => '0d45caa94188f18dd0a00b73bf6efcb611d408d4',
             'dev_requirement' => false,
         ),
+        'stripe/stripe-php' => array(
+            'pretty_version' => 'v12.1.0',
+            'version' => '12.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../stripe/stripe-php',
+            'aliases' => array(),
+            'reference' => '8ef18513811e3ad0cac50f699deac4032409ae07',
+            'dev_requirement' => false,
+        ),
     ),
 );

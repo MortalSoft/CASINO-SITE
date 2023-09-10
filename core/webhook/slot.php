@@ -1,8 +1,9 @@
 <?php
-//error_log(E_ALL);
-include $_SERVER["DOCUMENT_ROOT"].'/core/sql.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/core/config.php';
 
-$tokenwebhook = '1231231414';
+$DataBase = new DataBase();
+$Config = new Config();
+$tokenwebhook = $Config->api("mortalsoft")["secret"];
 
 $id = $_GET['identifier'] ?? null;
 $newBalance = $_GET['new_balance'] ?? null;
@@ -21,12 +22,11 @@ if (!$id || !$newBalance) {
 
 
 try {
-    $idd = $db->quote($id);
-    $newBalance = $db->quote($newBalance);
 
-    $updateQuery = "UPDATE users SET balance = $newBalance WHERE userid = $idd";
-
-    $updateBal = $db->exec($updateQuery);
+    $DataBase->Query("UPDATE users SET balance = :newBalance WHERE userid = :idd");
+    $DataBase->Bind(":newBalance", $newBalance);
+    $DataBase->Bind(":idd", $id);
+    $updateBal = $DataBase->Execute();
 
     if (floatval($newBalance) >= floatval($oldBalance)) {
         $amount = floatval($newBalance) - floatval($oldBalance);
@@ -40,23 +40,26 @@ try {
         $xp *= 2;
     }
 
-    $query = "INSERT INTO `slots_bets` SET `userid` = :userid, `xp` = :xp, `amount` = :amount, `game` = :game, `time` = :time";
-    $updateTrans = $db->prepare($query);
+    $DataBase->Query("UPDATE users SET xp = xp + :newXP WHERE userid = :idd");
+    $DataBase->Bind(":newXP", $xp);
+    $DataBase->Bind(":idd", $id);
+    $updatexp = $DataBase->Execute();
 
-    $updateTrans->bindParam(':userid',  $id);
-    $updateTrans->bindParam(':xp', $xp, PDO::PARAM_INT);
-    $updateTrans->bindParam(':amount', $amount);
-    $updateTrans->bindValue(':game', "Slots", PDO::PARAM_STR);
-    $updateTrans->bindParam(':time', time());
+    $DataBase->Query("INSERT INTO `slots_bets` SET `userid` = :userid, `xp` = :xp, `amount` = :amount, `game` = :game, `time` = :time");
+    $DataBase->Bind(':userid',  $id);
+    $DataBase->Bind(':xp', $xp);
+    $DataBase->Bind(':amount', $amount);
+    $DataBase->Bind(':game', "Slots");
+    $DataBase->Bind(':time', time());
 
-    $trans = $updateTrans->execute();
+    $trans = $DataBase->execute();
 
-    if ($updateBal !== false && $trans !== false) {
+    if ($updateBal && $trans && $updatexp) {
         http_response_code(200);
         echo 'User balance updated successfully';
     } else {
         http_response_code(502);
-        echo 'Error updating user balance: ' . $db->errorInfo()[2];
+        echo 'Something went wrong';
     }
 } catch (PDOException $e) {
     http_response_code(501);

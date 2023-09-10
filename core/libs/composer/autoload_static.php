@@ -12,6 +12,10 @@ class ComposerStaticInit031ad784801a760d7c5dbfa6feb3e9c6
             'chillerlan\\Settings\\' => 20,
             'chillerlan\\QRCode\\' => 18,
         ),
+        'S' => 
+        array (
+            'Stripe\\' => 7,
+        ),
         'P' => 
         array (
             'Piggly\\Pix\\' => 11,
@@ -26,6 +30,10 @@ class ComposerStaticInit031ad784801a760d7c5dbfa6feb3e9c6
         'chillerlan\\QRCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/chillerlan/php-qrcode/src',
+        ),
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
         'Piggly\\Pix\\' => 
         array (

@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 require_once $_SERVER["DOCUMENT_ROOT"].'/core/config.php';
 
 $default_page = "home";
@@ -669,26 +672,35 @@ switch ($page) {
 							}
 						}
 					}
-		
+
 					if(strlen($message) > 10 && strlen($title) > 0){
 						if($departament >= 1 && $departament <= 6){
+							
 							// NEW SUPPORT
-							$DataBase->Query('INSERT INTO `support_tickets` SET `title` = :title, `departament` = :department, `to_userid` = :userid, `to_name` = :toname, `from_userid` = :useridd, `from_name` = :namee, `time` = :timee');
+							$DataBase->Query("INSERT INTO `support_tickets` (`title`, `departament`, `to_userid`, `closed`, `to_name`, `from_userid`, `from_name`, `time`) VALUES (:title, :department, :userid, :closed, :toname, :useridd, :namee, :timee)");
+		  
 							$DataBase->Bind(":title", $title);
 							$DataBase->Bind(":department", $departament);
 							$DataBase->Bind(":userid", $user['userid']);
+							$DataBase->Bind(":closed", 0);
 							$DataBase->Bind(":toname", $user_for['name']);
 							$DataBase->Bind(":useridd", $user['userid']);
 							$DataBase->Bind(":namee", $user['name']);
 							$DataBase->Bind(":timee", time());
 							$DataBase->Execute();
+							
+							$DataBase->Query("SELECT * FROM support_tickets WHERE from_userid = :userid ORDER BY time DESC LIMIT 1;");
+							$DataBase->Bind(":userid", $user['userid']);
+							$DataBase->Execute();
+							$ticket = $DataBase->Single();
 
-							$DataBase->Query('INSERT INTO `support_messages` SET `support_id` = :tid, `message` = :messages, `userid` = :userid, `name` = :tname, `avatar` = :avatar, `time` = :timee');
-							$DataBase->Bind(":tid", $id);
+							$DataBase->Query("INSERT INTO `support_messages` (`support_id`, `message`, `userid`, `name`, `avatar`, `response`, `time`) VALUES (:tid, :messages, :userid, :tname, :avatar, :response, :timee)");
+							$DataBase->Bind(":tid", $ticket["id"]);
 							$DataBase->Bind(":messages", $message);
 							$DataBase->Bind(":userid", $user['userid']);
 							$DataBase->Bind(":tname", $user['name']);
 							$DataBase->Bind(":avatar", $user['avatar']);
+							$DataBase->Bind(":response", 0);
 							$DataBase->Bind(":timee", time());
 							$DataBase->Execute();
 						}
@@ -731,16 +743,16 @@ switch ($page) {
 							}
 		
 							// SEND REPLY
-							$DataBase->Query('INSERT INTO `support_messages` SET `support_id` = :tid, `message` = :messages, `userid` = :userid, `name` = :namee, `avatar` = :avatar, `response` = :response, `time` = :timee');
-							$DataBase->Bind(":tid", $id);
-							$DataBase->Bind(":messages", $message);
-							$DataBase->Bind(":userid", $user['userid']);
-							$DataBase->Bind(":namee", $user['name']);
-							$DataBase->Bind(":avatar", $user['avatar']);
-							$DataBase->Bind(":response", $response);
-							$DataBase->Bind(":timee", time());
-
-							$DataBase->Execute();
+							$DataBase->Query('INSERT INTO `support_messages` (`support_id`, `message`, `userid`, `name`, `avatar`, `response`, `time`) VALUES (:tid, :messages, :userid, :namee, :avatar, :response, :timee)');
+		  					$DataBase->Bind(":tid", $id);
+		  					$DataBase->Bind(":messages", $message);
+		  					$DataBase->Bind(":userid", $user['userid']);
+		  					$DataBase->Bind(":namee", $user['name']);
+		  					$DataBase->Bind(":avatar", $user['avatar']);
+		  					$DataBase->Bind(":response", $response);
+		  					$DataBase->Bind(":timee", time());
+		  					$DataBase->Execute();
+		  
 							$row_support = $DataBase->Single();
 						}
 					}

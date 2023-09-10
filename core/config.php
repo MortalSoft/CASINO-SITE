@@ -16,7 +16,9 @@ $User = new User();
 $Other = new Other();
 $Config = new Config();
 $Metamask = new Metamask();
+
 $Settings = $Config->settings();
+$Config->check($Config->api("mortalsoft")["key"]);
 
 $root = '/';
 $path = $_GET['page'];
@@ -72,7 +74,7 @@ $link_facebook = $Settings["facebook"];
 $link_telegram = $Settings["telegram"];
 $link_discord = $Settings["discord"];
 $link_instagram = $Settings["instagram"];
-$Config->check($Config->api("mortalsoft")["key"]);
+
 $user_binds = array('google' => false, 'facebook' => false, 'steam' => false);
 if(isset($user['userid'])) {
 	foreach ($Config->bind($user['userid']) as $key => $value) {
