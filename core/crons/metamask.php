@@ -1,4 +1,6 @@
 <?php
+require_once $_SERVER["DOCUMENT_ROOT"].'/core/config.php';
+
 $Config = new Config();
 $DataBase = new DataBase();
 $Metamask = new Metamask();
