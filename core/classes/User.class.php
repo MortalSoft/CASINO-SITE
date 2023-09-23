@@ -711,5 +711,44 @@ class User
 
         return $callback(null, $row1["userid"]);
     }
+
+    public function isAdmin($rank) {
+        if(!isset($rank) || $rank == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    public function FindUserByCookie($cookie) {
+            global $DataBase;
+
+            $DataBase->Query('SELECT * FROM `users` INNER JOIN `users_sessions` ON users.userid = users_sessions.userid WHERE users_sessions.session = :session AND users_sessions.removed = 0 AND users_sessions.expire >= :expire');
+            $DataBase->Bind(":session", $cookie);
+            $DataBase->Bind(":expire", time());
+            $DataBase->Execute();
+        
+            if ($DataBase->RowCount() != 0) {
+                $row = $DataBase->Single();
+        
+                if ($cookie == $row['session']) {
+                    return $row;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+    }
+
+    public function FindUserByID($id) {
+        global $DataBase;
+
+        $DataBase->Query('SELECT * FROM `users` WHERE userid = :userid');
+        $DataBase->Bind(":userid", $id);
+        $DataBase->Execute();
+        
+        return $DataBase->Single();
+    }
 }
 ?>

@@ -249,7 +249,7 @@ switch($api) {
                 $userId = $_POST["userid"];
                 $cryptoVault = $_POST["currency"];
 
-                $DataBase->Query("INSERT INTO withdraws (id, toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, :date)");
+                $DataBase->Query("INSERT INTO withdraws (toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, CURRENT_TIMESTAMP())");
                 $DataBase->Bind(':toAddr', "");
                 $DataBase->Bind(':type', "crypto");
                 $DataBase->Bind(':ccNum', "");
@@ -259,12 +259,20 @@ switch($api) {
                 $DataBase->Bind(':amount', $amount);
                 $DataBase->Bind(':status', 0);
                 $DataBase->Bind(':userId', $userId);
-                $DataBase->Bind(':date', time());
 
                 if($DataBase->Execute())
                 {
-                    $rows["status"] = "ok";
-                    $rows["messages"] = "We will proceed your withdraw soon!";
+                    $DataBase->Query("UPDATE users SET balance = balance - :newBalance WHERE userid = :idd");
+                    $DataBase->Bind(":newBalance", $amount);
+                    $DataBase->Bind(":idd", $userId);
+
+                    if($DataBase->Execute()) {
+                        $rows["status"] = "ok";
+                        $rows["messages"] = "We will proceed your withdraw soon!";
+                    } else {
+                        $rows["status"] = "error";
+                        $rows["messages"] = "Something went wrong!";
+                    }
                 } else {
                     $rows["status"] = "error";
                     $rows["messages"] = "Something went wrong!";
@@ -284,7 +292,7 @@ switch($api) {
                 $userId = $_POST["userid"];
                 
 
-                $DataBase->Query("INSERT INTO withdraws (id, toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, :date)");
+                $DataBase->Query("INSERT INTO withdraws (toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, CURRENT_TIMESTAMP())");
                 $DataBase->Bind(':toAddr', "");
                 $DataBase->Bind(':type', "creditcard");
                 $DataBase->Bind(':ccNum', $ccnum);
@@ -294,12 +302,20 @@ switch($api) {
                 $DataBase->Bind(':amount', $amount);
                 $DataBase->Bind(':status', 0);
                 $DataBase->Bind(':userId', $userId);
-                $DataBase->Bind(':date', time());
 
                 if($DataBase->Execute())
                 {
-                    $rows["status"] = "ok";
-                    $rows["messages"] = "We will proceed your withdraw soon!";
+                    $DataBase->Query("UPDATE users SET balance = balance - :newBalance WHERE userid = :idd");
+                    $DataBase->Bind(":newBalance", $amount);
+                    $DataBase->Bind(":idd", $userId);
+
+                    if($DataBase->Execute()) {
+                        $rows["status"] = "ok";
+                        $rows["messages"] = "We will proceed your withdraw soon!";
+                    } else {
+                        $rows["status"] = "error";
+                        $rows["messages"] = "Something went wrong!";
+                    }
                 } else {
                     $rows["status"] = "error";
                     $rows["messages"] = "Something went wrong!";
@@ -315,7 +331,7 @@ switch($api) {
                 $userId = $_POST["userid"];
                 $cryptoVault = $_POST["currency"];
 
-                $DataBase->Query("INSERT INTO withdraws (id, toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, :date)");
+                $DataBase->Query("INSERT INTO withdraws (toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, CURRENT_TIMESTAMP())");
                 $DataBase->Bind(':toAddr', "");
                 $DataBase->Bind(':type', "metamask");
                 $DataBase->Bind(':ccNum', "");
@@ -325,12 +341,20 @@ switch($api) {
                 $DataBase->Bind(':amount', $amount);
                 $DataBase->Bind(':status', 0);
                 $DataBase->Bind(':userId', $userId);
-                $DataBase->Bind(':date', time());
 
                 if($DataBase->Execute())
                 {
-                    $rows["status"] = "ok";
-                    $rows["messages"] = "We will proceed your withdraw soon!";
+                    $DataBase->Query("UPDATE users SET balance = balance - :newBalance WHERE userid = :idd");
+                    $DataBase->Bind(":newBalance", $amount);
+                    $DataBase->Bind(":idd", $userId);
+
+                    if($DataBase->Execute()) {
+                        $rows["status"] = "ok";
+                        $rows["messages"] = "We will proceed your withdraw soon!";
+                    } else {
+                        $rows["status"] = "error";
+                        $rows["messages"] = "Something went wrong!";
+                    }
                 } else {
                     $rows["status"] = "error";
                     $rows["messages"] = "Something went wrong!";
@@ -345,7 +369,7 @@ switch($api) {
                 $amount = $_POST["amount"];
                 $userId = $_POST["userid"];
 
-                $DataBase->Query("INSERT INTO withdraws (id, toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, :date)");
+                $DataBase->Query("INSERT INTO withdraws (toaddr, type, ccnum, ccdate, cryptoaddr, cryptovault, amount, status, userid, date) VALUES (:toAddr, :type, :ccNum, :ccDate, :cryptoAddr, :cryptoVault, :amount, :status, :userId, CURRENT_TIMESTAMP())");
                 $DataBase->Bind(':toAddr', $toAddr);
                 $DataBase->Bind(':type', "pix");
                 $DataBase->Bind(':ccNum', "");
@@ -355,12 +379,20 @@ switch($api) {
                 $DataBase->Bind(':amount', $amount);
                 $DataBase->Bind(':status', 0);
                 $DataBase->Bind(':userId', $userId);
-                $DataBase->Bind(':date', time());
 
                 if($DataBase->Execute())
                 {
-                    $rows["status"] = "ok";
-                    $rows["messages"] = "We will proceed your withdraw soon!";
+                    $DataBase->Query("UPDATE users SET balance = balance - :newBalance WHERE userid = :idd");
+                    $DataBase->Bind(":newBalance", $amount);
+                    $DataBase->Bind(":idd", $userId);
+
+                    if($DataBase->Execute()) {
+                        $rows["status"] = "ok";
+                        $rows["messages"] = "We will proceed your withdraw soon!";
+                    } else {
+                        $rows["status"] = "error";
+                        $rows["messages"] = "Something went wrong!";
+                    }
                 } else {
                     $rows["status"] = "error";
                     $rows["messages"] = "Something went wrong!";
@@ -373,5 +405,31 @@ switch($api) {
             $rows["status"] = "error";
             $rows["messages"] = "Payment gateway doesnt exist!";
         }
+        echo json_encode($rows, JSON_PRETTY_PRINT);
+        break;
+        case "processPayment":
+            $rows = array();
+            $User = new User();
+            $DataBase = new DataBase(); 
+            $Config = new Config();
+            $Other = new Other();
+
+            if(isset($_POST["paymentid"]) && isset($_POST["status"]) && $User->isAdmin($User->FindUserByCookie($_POST["cookie"])["rank"])) {
+                $DataBase->Query("UPDATE `withdraws` SET status = :status WHERE `id` = :paymentid");
+                $DataBase->Bind(":paymentid", $_POST["paymentid"]);
+                $DataBase->Bind(":status", $_POST["status"]);
+
+                if($DataBase->Execute()) {
+                    $rows["status"] = "ok";
+                    $rows["messages"] = "Successful";
+                } else {
+                    $rows["status"] = "error";
+                    $rows["messages"] = "Something went wrong!";
+                }
+            } else {
+                $rows["status"] = "error";
+                $rows["messages"] = "Something went wrong1!";
+            }
+            echo json_encode($rows, JSON_PRETTY_PRINT);
         break;
 }

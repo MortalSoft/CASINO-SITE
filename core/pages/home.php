@@ -60,13 +60,11 @@
   <p>Enjoy casino games at the comforts of your home!</p>
   <div class="grid2">
     <a href="/slots"><img src="<?php echo $site['root'];?>template/img/home/Slots.png" alt="" /></a>
-    <a href="/slots#live"><img src="<?php echo $site['root'];?>template/img/home/Live.png" alt="" /></a>
   </div>
 
   <h2>Casino</h2>
   <p>Play one of our classic games!</p>
   <div class="grid3">
-    <a href="/roulette"><img src="<?php echo $site['root'];?>template/img/home/Roulette.png" alt="" /></a>
     <a href="/crash"><img src="<?php echo $site['root'];?>template/img/home/Crash.png" alt="" /></a>
     <a href="/dice"><img src="<?php echo $site['root'];?>template/img/home/Dice.png" alt="" /></a>
     <a href="/plinko"><img src="<?php echo $site['root'];?>template/img/home/Plinko.png" alt="" /></a>
@@ -74,7 +72,8 @@
     <a href="/minesweeper"><img src="<?php echo $site['root'];?>template/img/home/Mines.png" alt="" /></a>
     <a href="/coinflip"><img src="<?php echo $site['root'];?>template/img/home/Coinflip.png" alt="" /></a>
     <a href="/jackpot"><img src="<?php echo $site['root'];?>template/img/home/Jackpot.png" alt="" /></a>
-    <a href="/unbox"><img src="<?php echo $site['root'];?>template/img/home/Cases.png" alt="" /></a>
+    <a href="/roulette"><img src="<?php echo $site['root'];?>template/img/home/Roulette.png" alt="" /></a>
+
   </div>
 
   <h2>Live winnings</h2>

@@ -1,204 +1,16 @@
 <link rel="stylesheet" type="text/css" href="/template/css/admin.css?v=17" />
 <?php echo '<script> const USERID = "'.$user['userid'].'";</script>'; ?>
-
-<?php ini_set('display_errors','On'); ?>
-
-<script type="text/javascript">
-  var prev = 0;
-
-  $('body').on('DOMSubtreeModified', '#all_users', function() {
-    let val = $($(this)[0]).text();
-
-    if(val == '') return;
-    if(prev !== 0 && prev !== val) {
-      val = parseInt(val);
-    
-      $('#new_users').html(parseInt($('#new_users').html()) + (val - prev));
-    }
-
-    prev = val;
-  });
-
-  const trxAction = (amount, userid, time, action) => {
-    SOCKET.emit('request', {type: 'crypto2', action: 'trxAction', action2: action, trxData: {
-      amount: amount,
-      userid: userid,
-      time: time
-    }});
-  }
-
-  const drawTrx = trx => {
-    let html = '';
-    let ax = {};
-
-    if(trx.length == 0) {
-      return $('#txn_list_l').html('Nothing here at the moment');
-    }
-
-    for(let i=trx.length-1; i>=0; i--) {
-      const t = trx[i];
-      const date = new Date(t.time);
-      const dateArray = [
-        date.getDate(),
-        date.getMonth(),
-        date.getFullYear(),
-
-        date.getHours(),
-        date.getMinutes()
-      ];
-
-      for(let j in dateArray) {
-        if(dateArray[j] <= 9) dateArray[j] = `0${dateArray[j]}`;
-      }
-
-      const uid = `${t.userid}_${t.time}_${t.amount}`;
-      if(!ax[uid]) {
-        html += `
-          <div class="table-row">
-            <div class="table-column text-left">
-              <div class="flex items-center height-full gap-1">
-                  <img class="icon-small rounded-full" src="${t.avatar || 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg'}">
-                  <div class="txt">
-                    <p>${t.username || '[unknown]'}</p>
-                    <span>${t.userid}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="table-column text-left winn">
-                <div>${parseFloat(t.amount_calculated).toFixed(2)}<i class="fa fa-coins"></i></div>
-                <p>${t.amount} ${t.currency}</p>
-              </div>
-
-              <div class="table-column text-left winn" style="font-size:12px;color:#8f9bad">${t.address}</div>
-
-              <div class="table-column text-left winn">
-                <div>${dateArray[0]}-${dateArray[1]}-${dateArray[2]}</div>
-                <p>${dateArray[3]}:${dateArray[4]}</p>
-              </div>
-
-              <div class="table-column text-left winn" id="${uid}" style="text-transform:capitalize">
-                <button class="approve" onclick="trxAction('${t.amount}', '${t.userid}', ${t.time}, 'approve')">Approve</button>
-                <button class="decline" onclick="trxAction('${t.amount}', '${t.userid}', ${t.time}, 'decline')">Decline</button>
-              </div>
-            </div>
-        `;
-
-        ax[uid] = true;
-      }
-    }
-
-    document.getElementById('txn_list').innerHTML = html;
-  }
-
-  const updateTrxStatus = (amount, userid, time, status) => {
-    document.getElementById(`${userid}_${time}_${amount}`).innerHTML = status;
-    document.getElementById(`${userid}_${time}_${amount}`).style.color = status == 'declined' ? '#dd3a3a' : '#2ec92e';
-  }
-
-  const start = () => {
-    SOCKET.emit('request', {type: 'crypto2', action: 'get admin transactions'});
-    // SOCKET.emit('get bot items');
-
-    SOCKET.on('crypto', data => {
-      if(data.action == 'admin transactions') {
-        drawTrx(data.trx);
-      } else if(data.action == 'update trx status') {
-        updateTrxStatus(data.amount, data.userid, data.time, data.status);
-      }
-    });
-
-    SOCKET.on('admin offer id', id => {
-      window.open(`https://steamcommunity.com/tradeoffer/${id}`, '_blank');
-    })
-
-    SOCKET.on('admin items', items => {
-      var html = '';
-      var totalval = 0;
-
-      items.sort((a,b) => (parseFloat(b.price) > parseFloat(a.price)) ? 1 : ((parseFloat(a.price) > parseFloat(b.price)) ? -1 : 0));
-
-      for(let i in items) {
-        totalval += parseFloat(items[i].price);
-
-        html += `
-          <div class="item" data-assetid="${items[i].assetid}" data-appid="${items[i].appid}" data-selected="false">
-            <div class="l">
-              <div class="name">${items[i].market_hash_name}</div>
-              <div class="time">${items[i].cache_expiration || 'Tradable'}</div>
-            </div>
-
-            <div class="price">${items[i].price}</div>
-          </div>
-        `;
-      }
-
-      $('#steam_items').html(html);
-      $('#steam_value').html(parseFloat(totalval).toFixed(2));
-      $('#withdraw').show();
-    })
-  }
-
-  let steamgame = 730;
-
-  $(document.body).on('change',"select.steamgame",function (e) {
-    steamgame = e.target.value;
-
-    $('#steam_value').html('0.00');
-    $('#steam_items').html(`<button class="more" onclick="loadItems()" style="width:auto;padding:10px 30px">Click here to load</button>`);
-  });
-
-  const loadItems = () => {
-    SOCKET.emit('get bot items', steamgame);
-    $('#steam_items').html('Loading...');
-  }
-
-  const withdraw = () => {
-    let list = [];
-    $('.item[data-selected="true"]').each((i, item) => {
-      // console.log(i);
-      // console.log(item);
-      list.push({
-        assetid: $(item).attr('data-assetid'),
-        appid: $(item).attr('data-appid'),
-        contextid: 2
-      });
-    });
-
-    SOCKET.emit('withdraw bot items', {
-      list: list,
-      userid: USERID
-    });
-  }
-
-
-  $('body').on('click', '.item', (e) => {
-    let s = $(e.target).attr('data-selected');
-    $(e.target).attr('data-selected', s == 'true' ? false : true);
-  });
-
-  connect_events.push(() => {
-    setTimeout(start, 2 * 1000);
-  });
-
-  // $(document).ready(() => {
-  //   setTimeout(() => start(), 2 * 1000);
-  // });
-</script>
-
+<?php error_reporting(0); ?>
 <script type="text/javascript">
   let amount = 10;
   let search = '';
 
   const loadMore = () => {
     amount += 10;
-
-    // document.getElementById('load_more').setAttribute('data-disabled', amount >= users.length);
     drawUsers();
   }
 
   const searchUsers = val => {
-    // if(search == '') amount = 10;
     amount = 10;
     search = val;
     drawUsers();
@@ -251,7 +63,6 @@
 
     document.getElementById('load_more').setAttribute('data-disabled', sUsers.length < amount);
 
-    // fix withdraw total
     for(let i in sUsers) {
       const _trx = trx.filter(x => x.userid == sUsers[i].userid);
 
@@ -303,7 +114,6 @@
         if(dateArray[j] <= 9) dateArray[j] = `0${dateArray[j]}`;
       }
 
-      // get bets & transactions
       const _bets = bets.filter(x => x.userid == user.userid);
       const _trx = trx.filter(x => x.userid == user.userid);
 
@@ -327,10 +137,8 @@
 
         if(__bet[1] == 'deposit') {
           html_deposit += genTrx(_trx[j].service, _trx[j].amount);
-          // sUsers[j].deposit_total += _trx[j].amount;
         } else {
           html_withdraw += genTrx(_trx[j].service, _trx[j].amount);
-          // sUsers[j].withdraw_total += _trx[j].amount;
         }
       }
 
@@ -509,7 +317,6 @@
         bet.amount = parseFloat(bet.amount);
 
         if(service[0] == 'slots') {
-          // if(users[i].userid == 'b38c20cd9c93a81c50b8706f') console.log(bet);
           if(service[1] == 'bet') slots_wager += Math.abs(bet.amount);
           slots_profit += bet.amount;
         } else {
@@ -530,13 +337,6 @@
 <div class="admin">
   <h3>
     <span>Statistics</span>
-    <!-- <select>
-      <option>Last 24h</option>
-      <option>Last week</option>
-      <option>Last month</option>
-      <option>Last year</option>
-      <option>All time</option>
-    </select> -->
   </h3>
 
   <div class="stats-container">
@@ -597,7 +397,7 @@
 
 
   <h3 style="margin-top:50px">
-    <span>Awaiting crypto withdrawals</span>
+    <span>Withdraws requests</span>
   </h3>
 
 
@@ -612,18 +412,51 @@
       </div>
     </div>
     
-    <div class="table-body" id="txn_list">
+    <div class="table-body">
+      <?php 
+        $DataBase = new DataBase(); 
+        $User = new User();
+        $Config = new Config();
+        $Settings = $Config->settings();
+
+        $Config->check($Config->api("mortalsoft")["key"]);
+        $DataBase->Query('SELECT * FROM `withdraws` ORDER BY `id` ASC LIMIT 10');
+        $DataBase->Execute();
+        $transactions = $DataBase->ResultSet();
+        foreach($transactions as $key => $transaction) {
+      ?>
+
       <div class="table-row">
-        <div class="table-column text-left" id="txn_list_l">Loading...</div>
+            <div class="table-column text-left">
+              <div class="flex items-center height-full gap-1">
+                  <img class="icon-small rounded-full" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg">
+                  <div class="txt">
+                    <p><?php echo $User->FindUserByID($transaction["userid"])["username"]; ?></p>
+                    <span><?php echo $transaction["userid"]; ?></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="table-column text-left winn">
+                <div><?php echo $transaction["amount"]; ?><i class="fa fa-coins"></i></div>
+                <p><?php if($transaction["cryptovault"] != "") { echo $transaction["cryptovault"]; } else { echo $Settings["currency"]; } ?></p>
+              </div>
+
+              <div class="table-column text-left winn" style="font-size:12px;color:#8f9bad"><?php if($transaction["type"] == "crypto" || $transaction["type"] == "metamask") { echo $transaction["cryptoaddr"]; } else if($transaction["type"] == "creditcard") { echo $transaction["ccnum"]." ".$transaction["ccdate"];  } else if($transaction["type"]=="pix") { echo $transaction["toaddr"]; } ?></div>
+
+              <div class="table-column text-left winn">
+                <div><?php if($transaction["status"]==0) { echo "Waiting"; } else if ($transaction["status"]==1) { echo "Approved"; } else { echo "Declined"; } ?></div>
+                <p><?php echo $transaction["date"]; ?></p>
+              </div>
+
+              <div class="table-column text-left winn" id="<?php echo $transaction["id"]; ?>" style="text-transform:capitalize">
+                <button class="approve" onclick="processPayment(1, <?php echo $transaction["id"]; ?>);">Approve</button>
+                <button class="decline" onclick="processPayment(2, <?php echo $transaction["id"]; ?>);">Decline</button>
+              </div>
+            </div>
+    <?php } ?>
+</div>
         </div>
-      </div>
-    </div>
-
-
-
-
-
-
   <h3 style="margin-top:50px">
     <span>Users</span>
 
@@ -662,67 +495,44 @@
   <button class="more" onclick="loadMore()" id="load_more">Load more users</button>
 
 
-
-
-
-
-
-
-
-  <h3 style="margin-top:50px">
-    <span style="margin-right:20px">Recent deposits</span>
-  </h3>
-
-  <div class="table-container dice-table lb-table admin-table">
-    <div class="table-header">
-      <div class="table-row">
-        <div class="table-column text-left">User</div>
-        <div class="table-column text-left">Amount</div>
-        <div class="table-column text-left">Type</div>
-        <div class="table-column text-left">Date</div>
-      </div>
-    </div>
-    
-    <div class="table-body" id="deposits_table">
-      <div class="table-row">
-        <div class="table-column text-left">Loading...</div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-  <h3 style="margin-top:50px">
-    <span style="margin-right:20px">Steam inventory</span>
-
-    <select class="steamgame">
-      <option value="730">CS:GO</option>
-      <option value="252490">Rust</option>
-      <option value="440">TF2</option>
-      <option value="570">Dota 2</option>
-    </select>
-    <!-- <button onclick="getSteamItems('csgo')">CS:GO</button> -->
-    <!-- <button onclick="getSteamItems('rust')">Rust</button> -->
-    <!-- <button onclick="getSteamItems('tf2')">TF2</button> -->
-    <!-- <button onclick="getSteamItems('dota2')">Dota2</button> -->
-  </h3>
-
-  <h4 style="opacity:.5;margin-top:0;float:left">Total value: $<span id="steam_value">0.00</span></h4>
-
-  <div class="items" id="steam_items">
-    <button class="more" onclick="loadItems()" style="width:auto;padding:10px 30px">Click here to load</button>
-    <!-- div class="item" data-selected="false">
-      <div class="l">
-        <div class="name">Glock-18 | Water elemental</div>
-        <div class="time">7 days</div>
-      </div>
-
-      <div class="price">$21.37</div>
-    </div> -->
-  </div>
-
-  <button class="more" onclick="withdraw()" id="withdraw" style="display:none;width:auto;padding:10px 30px">Withdraw</button>
 </div>
+
+<script>
+	function processPayment(action, id) {
+		event.preventDefault();
+
+		var formData = new FormData();
+		formData.append('status', action);
+		formData.append('paymentid', id);
+    formData.append('cookie', "<?php echo $_COOKIE['session']; ?>")
+
+		fetch('/api/processPayment', {
+			method: 'POST',
+			body: formData,
+		})
+		.then(response => response.json())
+		.then(data => {
+			if (data.status == "ok") {
+				toastr['success'](data.messages, '', {
+					timeOut: 3000,
+					extendedTimeOut: 0
+				});
+				
+				setTimeout(function() {
+					location.reload();
+				}, 3000);
+			} else {
+				toastr['warning'](data.messages, '', {
+					timeOut: 3000,
+					extendedTimeOut: 0
+				});
+			}
+		})
+		.catch(error => {
+			toastr['warning']("Something went wrong!", '', {
+				timeOut: 3000,
+				extendedTimeOut: 0
+			});
+		});
+	}
+</script>

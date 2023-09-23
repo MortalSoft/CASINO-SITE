@@ -227,7 +227,7 @@ $path = $_GET['page'];
 							<button style="margin-right:0" onclick="event.preventDefault();" class="register switch_panel" data-id="auth" data-panel="register">Not a user? Sign up</button>
 						</div>
 
-						<div class="ftr">
+						<!--<div class="ftr">
 							<p>Log in directly with</p>
 
 
@@ -236,7 +236,7 @@ $path = $_GET['page'];
 								</a>
 							</div>
 						</div>
-						<!--<div class="xx">
+						<div class="xx">
 							<div class="input_field bet_input_field transition-5" data-border="#de4c41">
 								<div class="field_container">
 									<div class="field_content">

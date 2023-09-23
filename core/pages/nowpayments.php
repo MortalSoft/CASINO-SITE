@@ -17,7 +17,7 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
 
             $DataBase->Query("INSERT INTO `transaction` (user, service, title, amount, time, status) VALUES (:user, :servicee, :title, :amount, :timee, :statuss)");
             $DataBase->Bind(':user', $userid);
-            $DataBase->Bind(':servicee', "paymentwall");
+            $DataBase->Bind(':servicee', "nowpayments");
             $DataBase->Bind(':title', "");
             $DataBase->Bind(':amount', $amount);
             $DataBase->Bind(':statuss', 0);

@@ -10,7 +10,7 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
         $pix = new OpenPIX($pixconfig['key']);
         $captcha = $Other->CheckRecaptcha($_POST['g-recaptcha-response']);
 
-        if($_POST["amount"] && $captcha["success"] === 1) {
+        if($_POST["amount"] && $captcha["success"] === true) {
             $userid = $user['userid'];
             $amount = $_POST["amount"];
 
@@ -54,24 +54,10 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
     
     <div class="input">
         <img style="margin:12px auto" src="<?php echo $qrcode; ?>">
-       <!-- <input type="number" value="" id="payload" onclick="copy();" step="any" readonly> -->
     </div>
 
   </div>
 </div>
-<script>
-/*	function copy() {
-		var copyText = document.getElementById("payload");
-		copyText.select();
-		copyText.setSelectionRange(0, 99999);
-		document.execCommand("copy");
-
-        toastr.success(['PIX copied!', '', {
-                timeOut: 3000,
-                extendedTimeOut: 0
-        }]);
-	} */
-</script>
 <?php } else {
 $Config = new Config();       
 $captcha = $Config->api("recaptcha")["key"];

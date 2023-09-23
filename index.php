@@ -1,7 +1,6 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-
 require_once $_SERVER["DOCUMENT_ROOT"].'/core/config.php';
 
 $default_page = "home";
@@ -25,16 +24,7 @@ if(sizeof($paths) == 0 || empty($paths[0])){
 $page = $paths[0];
 
 if (isset($_COOKIE['session'])) {
-    $DataBase->Query('SELECT * FROM `users` INNER JOIN `users_sessions` ON users.userid = users_sessions.userid WHERE users_sessions.session = :session AND users_sessions.removed = 0 AND users_sessions.expire >= :expire');
-    $DataBase->Bind(":session", $_COOKIE['session']);
-    $DataBase->Bind(":expire", time());
-	$DataBase->Execute();
-
-    if ($DataBase->RowCount() != 0) {
-        $row = $DataBase->Single();
-
-        if ($_COOKIE['session'] == $row['session']) $user = $row;
-    }
+	$user = $User->FindUserByCookie($_COOKIE['session']);
 }
 
 $array_page = array('user' => $user, 'site' => $site, 'profile' => $profile, 'rewards' => $rewards, 'affiliates' => $affiliates, 'paths' => $paths);
@@ -388,7 +378,7 @@ switch ($page) {
 
 			$transfers = $DataBase->ResultSet();
 		
-			$DataBase->Query('SELECT * FROM `crypto_transactions` WHERE `userid` = :userid ORDER BY `id` DESC LIMIT 50');
+			$DataBase->Query('SELECT * FROM `withdraws` WHERE `userid` = :userid ORDER BY `id` DESC LIMIT 50');
 			$DataBase->Bind(":userid", $user['userid']);
 			$DataBase->Execute();
 			$crypto = $DataBase->ResultSet();
@@ -511,6 +501,8 @@ switch ($page) {
 			
 
 			case 'deposit':
+					if(!$user) return header('location: ./');
+
 					$location = $page;
 				
 					if(isset($paths[1])){
@@ -555,6 +547,8 @@ switch ($page) {
 					echo $page_request;
 					return;
 			case 'metamask':
+				if(!$user) return header('location: ./');
+
 				$location = $page;
 				$tokens = array();
 
@@ -573,21 +567,29 @@ switch ($page) {
 				echo $page_request;
 				return;
 			case 'pix':
+					if(!$user) return header('location: ./');
+
 					$location = $page;
 					$page_request = getTemplatePage($names_pages[$page], $page, $location, $array_page);
 					echo $page_request;
 					return;
 			case 'stripe':
+				if(!$user) return header('location: ./');
+
 				$location = $page;
 				$page_request = getTemplatePage($names_pages[$page], $page, $location, $array_page);
 				echo $page_request;
 				return;
 			case 'paymentwall':
+				if(!$user) return header('location: ./');
+
 				$location = $page;
 				$page_request = getTemplatePage($names_pages[$page], $page, $location, $array_page);
 				echo $page_request;
 				return;
 			case 'withdraw':
+					if(!$user) return header('location: ./');
+
 					$location = $page;
 				
 					if(isset($paths[1])){

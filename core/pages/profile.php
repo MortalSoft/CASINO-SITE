@@ -81,7 +81,7 @@
   <div class="menu">
     <button class="menu-btn" onclick="togglePTab(0)" data-active="true">Summary</button>
     <button class="menu-btn" onclick="togglePTab(1)">Affiliates</button>
-    <button class="menu-btn" onclick="togglePTab(2)">Crypto Transactions</button>
+    <button class="menu-btn" onclick="togglePTab(2)">Withdraws</button>
     <button class="menu-btn" onclick="togglePTab(3)">Transactions</button>
     <button class="menu-btn" onclick="togglePTab(4)">Transfers</button>
     <button class="menu-btn" onclick="togglePTab(5)">Stats</button>
@@ -302,10 +302,8 @@
       <div class="table-header">
         <div class="table-row">
           <div class="table-column text-left">Id</div>
-          <div class="table-column text-left">TXN Id</div>
           <div class="table-column text-left">Amount</div>
           <div class="table-column text-left">Type</div>
-          <div class="table-column text-left">Currency</div>
           <div class="table-column text-left">Status</div>
           <div class="table-column text-left">Date</div>
         </div>
@@ -314,14 +312,12 @@
       <div class="table-body">
         <?php if(sizeof($stats['offers_crypto']) > 0){?>
         <?php foreach($stats['offers_crypto'] as $key => $value){ ?>
-        <div class="table-row text-<?php if($value['status'] >= 100) { ?>success<?php } else if($value['status'] < 0) { ?>danger<?php } else if($value['status'] == 2 && $value['type'] == 'withdraw') { ?>success<?php } else {?>warning<?php } ?>">
+        <div class="table-row text-<?php if($value['status'] == 1) { ?>success<?php } else { ?>danger<?php } ?>">
           <div class="table-column text-left">#<?php echo $value['id'];?></div>
-          <div class="table-column text-left"><?php echo $value['txnid'];?></div>
           <div class="table-column text-left"><?php echo $value['amount'];?></div>
-          <div class="table-column text-left"><?php echo $Other->ucfirst($value['type']);?></div>
-          <div class="table-column text-left"><?php echo $Other->strtoupper($value['currency']);?></div>
-          <div class="table-column text-left"><?php if($value['status'] == 100){ ?>Completed<?php } elseif($value['status'] < 0){ ?>Declined<?php }elseif($value['status'] == 2 && $value['type'] == 'withdraw'){ ?>Completed<?php } else {?>In progress<?php } ?></div>
-          <div class="table-column text-left"><?php echo $Other->makeDate($value['time']);?></div>
+          <div class="table-column text-left"><?php echo $value['type']; ?></div>
+          <div class="table-column text-left"><?php if($value['status'] == 1){ ?>Completed<?php } elseif($value['status'] == 0){ ?>Pending<?php }elseif($value['status'] == 2){ ?>Declined<?php } ?></div>
+          <div class="table-column text-left"><?php echo $value['date']; ?></div>
         </div>
         <?php } ?>
         <?php } else { ?>
