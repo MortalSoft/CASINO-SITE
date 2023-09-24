@@ -101,7 +101,6 @@ class User
         if ($DataBase->RowCount() <= 0) {
             return $callback("User registered with Auth unsuccessfully (2)"); //ERROR
         }
-        $row1 = $DataBase->Single();
 
         $DataBase->Query("INSERT INTO `users_logins` SET `type` = :auth, `userid` = :userid, `ip` = :ip, `device` = :device, `location` = :loc, `time` = :timee");
         $DataBase->Bind(":auth", "auth_register");
