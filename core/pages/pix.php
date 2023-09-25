@@ -23,6 +23,9 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
             $DataBase->Bind(':timee', time());
 
             if($DataBase->Execute()) {
+                $DataBase->Query("SELECT * FROM `transaction` WHERE user = :userid ORDER BY id DESC LIMIT 1");
+                $DataBase->Bind(':userid', $userid);
+                $DataBase->Execute();
                 $pixrow = $DataBase->Single();
 
                 if(!$pix->createPixPayment($amount, $pixrow["id"], $pixconfig['destinationAlias'], "Deposit", "")) {
@@ -34,7 +37,13 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
 
                     if($response != false) {
                         $qrcode = $response["pixQrCode"]["qrCodeImage"];
+                    } else {
+                      header('location: /');
+                      die();
                     }
+                } else {
+                  header('location: /');
+                  die();
                 }
             }
         }

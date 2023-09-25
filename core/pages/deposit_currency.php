@@ -1,29 +1,3 @@
-<?php
-  $c1 = 'btc_shop';
-  $c2 = 'Bitcoin';
-  $c3 = 'BTC';
-
-  if($paths[2] == 'eth') { 
-    $c1 = 'eth_shop';
-    $c2 = 'Ethereum';
-    $c3 = 'ETH';
-  } else if($paths[2] == 'ltc') { 
-    $c1 = 'ltc_shop';
-    $c2 = 'Litecoin';
-    $c3 = 'LTC';
-  } else if($paths[2] == 'bch') { 
-    $c1 = 'Bitcoin_Cash 1';
-    $c2 = 'Bitcoin Cash';
-    $c3 = 'BCH';
-  } else if($paths[2] == 'sol') { 
-    $c1 = 'Solana_logo';
-    $c2 = 'Solana';
-    $c3 = 'SOL';
-  }
-
-  echo "<script>const CRC='".$c3."';</script>";
-?>
-
 <div class="deposit">
   <div class="btns">
     <button class="back" onclick="window.location='/deposit';">

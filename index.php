@@ -1,6 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 require_once $_SERVER["DOCUMENT_ROOT"].'/core/config.php';
 
 $default_page = "home";
@@ -587,6 +585,13 @@ switch ($page) {
 				$page_request = getTemplatePage($names_pages[$page], $page, $location, $array_page);
 				echo $page_request;
 				return;
+			case 'nowpayments':
+					if(!$user) return header('location: ./');
+
+					$location = $page;
+					$page_request = getTemplatePage($names_pages[$page], $page, $location, $array_page);
+					echo $page_request;
+					return;
 			case 'withdraw':
 					if(!$user) return header('location: ./');
 

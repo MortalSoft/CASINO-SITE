@@ -1,11 +1,13 @@
 <?php 
+$DataBase = new DataBase();
+$Config = new Config();
+$Other = new Other();
+
+$Settings = $Config->settings();
+$MainCurrency = $Settings["currency"];
 
 if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"]=="1")
 {
-        $DataBase = new DataBase();
-        $Config = new Config();
-        $Other = new Other();
-
         $StripeConfig = $Config->api("stripe");
         $Stripe = new StripePay($StripeConfig["secret"], $StripeConfig["key"]);
         $recaptcha = $Other->CheckRecaptcha($_POST['g-recaptcha-response']);
@@ -14,7 +16,7 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
         if($_POST["amount"] && $recaptcha["success"] === true) {
             $userid = $user['userid'];
             $amount = $_POST["amount"];
-            $payment = $Stripe->createPaymentIntent($amount);
+            $payment = $Stripe->createPaymentIntent($amount, strtolower($MainCurrency));
 
             if($payment!=false) {
               $DataBase->Query("INSERT INTO `transaction` (user, service, title, amount, time, status) VALUES (:user, :servicee, :title, :amount, :timee, :statuss)");
@@ -25,6 +27,9 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
               $DataBase->Bind(':statuss', 0);
               $DataBase->Bind(':timee', time());
               $DataBase->Execute();
+            } else {
+              header('location: /');
+              die();
             }
       }
 ?>
@@ -43,7 +48,7 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
 
     <div class="input">
         <form action="" method="POST">
-            <input name="amount" placeholder="Enter in USD amount" type="number" id="depositAmount" step="any">
+            <input name="amount" placeholder="Enter in <?php echo $MainCurrency; ?> amount" type="number" id="depositAmount" step="any">
             <br>
             <br>
             <div style="display: flex;justify-content: center;align-items: center;" class="g-recaptcha" id="gcaptcha" data-theme="dark"  data-sitekey="<?php echo $captcha; ?>"></div>
@@ -91,7 +96,7 @@ $captcha = $Config->api("recaptcha")["key"];
 
     <div class="input">
         <form action="" method="POST">
-            <input name="amount" placeholder="Enter in USD amount" type="number" id="depositAmount" step="any">
+            <input name="amount" placeholder="Enter in <?php echo $MainCurrency; ?> amount" type="number" id="depositAmount" step="any">
             <br>
             <br>
             <div style="display: flex;justify-content: center;align-items: center;" class="g-recaptcha" id="gcaptcha" data-theme="dark"  data-sitekey="<?php echo $captcha; ?>"></div>

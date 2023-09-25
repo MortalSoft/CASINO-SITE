@@ -15,20 +15,7 @@
 			</div> -->
 		
 			<div class="width-12 options-container">
-				<?php if($Config->api("coinpayments")["enabled"]==1) { ?>
-					<div class="options-container-grid">
-						<a href="/coinpayments">
-							<div class="option">
-								<div class="img"><img src="template/img/payments/coinpayments.png" alt="" /></div>
 
-								<div class="text">
-									<p>CoinPayments</p>
-									<span>Crypto Deposit</span>
-								</div>
-							</div>
-						</a>
-					</div>
-				<?php } ?> 
 					
 				<?php if($Config->api("metamask")["enabled"]==1) { ?>
 					<div class="options-container-grid">
@@ -59,6 +46,18 @@
 						</a>
 					</div>
 				<?php } ?> 
+				<div class="options-container-grid" style="visibility:hidden;">
+						<a href="/coinpayments">
+							<div class="option">
+								<div class="img"><img src="template/img/payments/coinpayments.png" alt="" /></div>
+
+								<div class="text">
+									<p>CoinPayments</p>
+									<span>Crypto Deposit</span>
+								</div>
+							</div>
+						</a>
+					</div>
 				</div>
 				<br>
 				<div class="width-12 options-container">

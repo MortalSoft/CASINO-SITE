@@ -53,35 +53,6 @@ switch($api) {
             die();
         }
     break;
-    case "NewNow":
-       /* $db = new DataBase();
-        $config = new Config();
-        $api = new NowPaymentsAPI();
-
-        if($_GET["process"]=="pay" && isset($_GET["currency"]) && isset($_GET["amount"]) && isset($_GET["token"]) && isset($_GET["uid"])) {
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => "6LdDf2kkAAAAAPFq4PWLOpp4GnA4eAcZjwkF2VkE", 'response' => $_GET["token"])));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            curl_close($ch);
-            $arrResponse = json_decode($response, true);
-        
-            if($arrResponse["success"] == '1') {
-                $payment = $api->createPayment(["price_amount"=>$_GET["amount"],"price_currency"=>"usd", "pay_currency"=>$_GET["currency"], "ipn_callback_url" => "https://".$_SERVER['HTTP_HOST']."/payment/nowpayments/callback"]);
-
-                if($payment) {
-                    $data = json_decode($payment, true);
-        
-                    $invoice = $db->prepare("INSERT INTO w_payments (user_id, sum, currency, system, credit_id, status, shop_id, txid, payamount, paycurrency) VALUES (:uid, :sum, :curr, :system, :creditid, :status, :shopid, :txid, :payamount, :paycurrency)");
-                    $invoice->execute(["uid" => $_GET["uid"], "sum" => $_GET["amount"], "curr" => "USD", "system" => "CRYPTO", "creditid" => "0", "status" => 0, "shopid" => 1, "txid" =>  $data["payment_id"], "payamount" => $data["pay_amount"], "paycurrency" => strtoupper($_GET["currency"])]);
-                }
-                print_r($payment);
-            }
-        } */
-    break;
     case "pix":
             $Other = new Other();
             $DataBase = new DataBase();
@@ -231,9 +202,55 @@ switch($api) {
         }
         echo json_encode($rows, JSON_PRETTY_PRINT);
         die();
-        break;
+    break;
     case "nowpayments":
-        break;
+        $DataBase = new DataBase();
+        $Config = new Config();
+        $Secret = $Config->api("nowpayments")["secret"];
+
+        $error_msg = "Unknown error";
+        $auth_ok = false;
+        $request_data = null;
+    
+        if (isset($_SERVER['HTTP_X_NOWPAYMENTS_SIG']) && !empty($_SERVER['HTTP_X_NOWPAYMENTS_SIG'])) {
+            $recived_hmac = $_SERVER['HTTP_X_NOWPAYMENTS_SIG'];
+            $request_json = file_get_contents('php://input');
+            $request_data = json_decode($request_json, true);
+            ksort($request_data);
+            $sorted_request_json = json_encode($request_data, JSON_UNESCAPED_SLASHES);
+            if ($request_json !== false && !empty($request_json)) {
+                $hmac = hash_hmac("sha512", $sorted_request_json, trim($Secret));
+                if ($hmac == $recived_hmac) {
+                    if($request_data["payment_status"]=="finished") {
+    
+                        $DataBase->Query("SELECT * FROM transaction WHERE title = :txid AND status = 0");
+                        $DataBase->Bind(":txid", $request_data["payment_id"]);
+                        $DataBase->Execute();
+    
+                        if($DataBase->RowCount() > 0) {
+                            $transaction = $DataBase->Single();
+                            $user = $transaction["user"];
+
+                            $DataBase->Query("UPDATE transaction SET status = :status WHERE title = :txid");
+                            $DataBase->Bind(":txid", $request_data["payment_id"]);
+                            $DataBase->Execute();
+
+                            $DataBase->Query("UPDATE users SET balance = balance + :amount WHERE userid = :user");
+                            $DataBase->Bind(":amount", $transaction["amount"]);
+                            $DataBase->Bind(":user", $user);
+                            $DataBase->Execute();
+                        }
+                    }
+                } else {
+                    $error_msg = 'HMAC signature does not match';
+                }
+            } else {
+                $error_msg = 'Error reading POST data';
+            }
+        } else {
+            $error_msg = 'No HMAC signature sent.';
+        }
+    break;
     case "withdraw": 
         $rows = array();
         $DataBase = new DataBase(); 
@@ -431,5 +448,82 @@ switch($api) {
                 $rows["messages"] = "Something went wrong1!";
             }
             echo json_encode($rows, JSON_PRETTY_PRINT);
+        break;
+        case "nowMinimalDeposit":
+            $Config = new Config();
+            $Settings = $Config->settings();
+            $MainCurrency = $Settings["currency"];
+            
+            $nowpaymentskey = $Config->api("nowpayments")["key"];
+            $nowpayments = new NowPaymentsAPI($nowpaymentskey);
+
+            $mindeposit = json_decode($nowpayments->getMinimumPaymentAmount(["currency_from" => $MainCurrency, "currency_to" => $_GET["currency"]]), true)["min_amount"];
+            $deposit = array("mindeposit" => $mindeposit);
+            echo json_encode($deposit, JSON_PRETTY_PRINT);
+        break;
+        case "slot":
+            $DataBase = new DataBase();
+            $Config = new Config();
+            $tokenwebhook = $Config->api("mortalsoft")["secret"];
+            
+            $id = $_GET['identifier'] ?? null;
+            $newBalance = $_GET['new_balance'] ?? null;
+            $oldBalance = $_GET['old_balance'] ?? null;
+            $token = $_GET['token'] ?? null;
+            
+            if ($token != $tokenwebhook) {
+                http_response_code(401);
+                exit('Invalid token');
+            }
+            
+            if (!$id || !$newBalance) {
+                http_response_code(402);
+                exit('Invalid payload');
+            }
+            
+            
+            try {
+                $DataBase->Query("UPDATE users SET balance = :newBalance WHERE userid = :idd");
+                $DataBase->Bind(":newBalance", $newBalance);
+                $DataBase->Bind(":idd", $id);
+                $updateBal = $DataBase->Execute();
+            
+                if (floatval($newBalance) >= floatval($oldBalance)) {
+                    $amount = floatval($newBalance) - floatval($oldBalance);
+                } else {
+                    $amount = floatval($oldBalance) - floatval($newBalance);
+                }
+                    
+                $xp = intval(round($amount,2) * 100);
+            
+                if (date('w') == 0 || date('w') == 6) {
+                    $xp *= 2;
+                }
+            
+                $DataBase->Query("UPDATE users SET xp = xp + :newXP WHERE userid = :idd");
+                $DataBase->Bind(":newXP", $xp);
+                $DataBase->Bind(":idd", $id);
+                $updatexp = $DataBase->Execute();
+            
+                $DataBase->Query("INSERT INTO `slots_bets` SET `userid` = :userid, `xp` = :xp, `amount` = :amount, `game` = :game, `time` = :time");
+                $DataBase->Bind(':userid',  $id);
+                $DataBase->Bind(':xp', $xp);
+                $DataBase->Bind(':amount', $amount);
+                $DataBase->Bind(':game', "Slots");
+                $DataBase->Bind(':time', time());
+            
+                $trans = $DataBase->execute();
+            
+                if ($updateBal && $trans && $updatexp) {
+                    http_response_code(200);
+                    echo 'User balance updated successfully';
+                } else {
+                    http_response_code(502);
+                    echo 'Something went wrong';
+                }
+            } catch (PDOException $e) {
+                http_response_code(501);
+                exit('Database connection failed');
+            }
         break;
 }

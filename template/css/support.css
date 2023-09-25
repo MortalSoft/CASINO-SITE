@@ -1,6 +1,8 @@
 .support {
   width: 100%;
   float: left;
+  background: #24262b;
+  padding: 25px;
 }
 
 .support .left {
@@ -38,7 +40,7 @@
 .support .left .ticket {
   width: 100%;
   float: left;
-  background: #141b1e;
+  background: #1c1e22;
   position: relative;
   text-align: left;
   padding: 10px;
@@ -100,7 +102,7 @@
 
 .support .main input,
 .support .main select {
-  background: #141b1e;
+  background: #1c1e22;
   outline: 0;
   border: 0;
   height: 40px;
@@ -112,7 +114,7 @@
 }
 
 .support .main textarea {
-  background: #141b1e;
+  background: #1c1e22;
   border-radius: 6px;
   resize: vertical;
   min-height: 150px;
@@ -123,7 +125,7 @@
 .support .main .container {
   width: 100%;
   float: left;
-  background: #141b1e;
+  background: #1c1e22;
   height: 750px;
   overflow: hidden;
   border-radius: 6px;
@@ -138,7 +140,7 @@
 }
 
 .support .main .container .msg .content {
-  background: var(--site-color-bg-dark);
+  background: #17181a;
   padding: 10px;
   border-radius: 6px;
   text-align: left;
@@ -178,7 +180,7 @@
 .support .main .container .input textarea {
   width: 100%;
   float: left;
-  background: var(--site-color-bg-dark);
+  background: #24262b;
   padding: 10px;
   border-radius: 6px;
   color: #fff;

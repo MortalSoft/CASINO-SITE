@@ -126,6 +126,11 @@ class Other {
     
         return $decodedResponse;
     }
+
+    public function GenerateQR($data) {
+        $QR = file_get_contents("https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=".$data."&choe=UTF-8&chld=L|2");
+        return base64_encode($QR);
+    }
 }
 
 ?>
