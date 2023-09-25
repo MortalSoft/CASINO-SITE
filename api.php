@@ -233,6 +233,7 @@ switch($api) {
 
                             $DataBase->Query("UPDATE transaction SET status = :status WHERE title = :txid");
                             $DataBase->Bind(":txid", $request_data["payment_id"]);
+                            $DataBase->Bind(":status", 1);
                             $DataBase->Execute();
 
                             $DataBase->Query("UPDATE users SET balance = balance + :amount WHERE userid = :user");
