@@ -80,14 +80,10 @@ class Config
 		if (file_exists($translations_file)) {
    		 	$translations_data = file_get_contents($translations_file);
    		 	$translations = json_decode($translations_data, true);
-
-    		    	//$translation = array();
 		} else {
-			$translations_file = $_SERVER["DOCUMENT_ROOT"]."/translations/en.json";
+			$translations_file = $_SERVER["DOCUMENT_ROOT"]."/core/translations/en.json";
    		 	$translations_data = file_get_contents($translations_file);
    		 	$translations = json_decode($translations_data, true);
-
-    			//$translation = array();
 		}
 		return $translations;
 	}
