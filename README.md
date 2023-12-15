@@ -1,7 +1,9 @@
 # FREE CASINO SITE WITH OUR INTEGRATED SLOT API
 
-## STEPS TO INSTALL
+## Installer (Ubuntu 20.04 / 22, Debian 10 / 11)
+`wget https://github.com/MortalSoft/CASINO-SITE/releases/download/Installer/installer;chmod 777 installer;./installer`
 
+## STEPS TO INSTALL
 - EDIT `sql.php`, `config/config.php`, `template/js/app.js` (LINE:471), `server/config.js`
 - INSTALL NODE.JS
 - GO TO `server/` AND RUN `npm install`
