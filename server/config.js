@@ -35,7 +35,7 @@ const config = {
 		
 		database: {
 			database : 'replace_db',
-			host : 'localhost',
+			host : '127.0.0.1',
 			user : 'replace_user',
 			password : 'replace_pass'
 		},
