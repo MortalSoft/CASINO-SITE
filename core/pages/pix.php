@@ -86,21 +86,12 @@ $captcha = $Config->api("recaptcha")["key"];
 
     <div class="input">
         <form action="" method="POST">
-            <input name="amount" type="checkbox" step="any"
-            name="deposit" value="1000" id="depositAmount"
-<label for="deposit">R$10</label>
-<div>
- <form action="" method="POST">
-            <input name="amount" type="checkbox" step="any"
-            name="deposit" value="2000" id="depositAmount"
-<label for="deposit">R$20</label>
-           </div>
+            <input name="amount" placeholder="Enter in BRL amount" type="number" id="depositAmount" step="any">
             <br>
             <br>
             <div style="display: flex;justify-content: center;align-items: center;" class="g-recaptcha" id="gcaptcha" data-theme="dark"  data-sitekey="<?php echo $captcha; ?>"></div>
             <br>
-
-              <input name="pay" value="1" type="number" style="display:none;" id="depositAmount" step="any">
+            <input name="pay" value="1" type="number" style="display:none;" id="depositAmount" step="any">
             <button id="depositButton">Deposit</button>
         </form>
     </div>
