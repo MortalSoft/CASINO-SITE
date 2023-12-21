@@ -8,18 +8,19 @@ class OpenPIX {
     }
 
     public function createPixPayment($value, $paymentId, $destinationAlias, $comment, $sourceAccountId) {
+
         $data = array(
-            'value' => $value,
-            'destinationAlias' => $destinationAlias,
-            'comment' => $comment,
+            'name' => $paymentId,
             'correlationID' => $paymentId,
-            'sourceAccountId' => $sourceAccountId
+            'value' => $value,
+            'comment' => $comment,
+            'identifier' => $paymentId,
         );
 
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://api.openpix.com.br/api/v1/payment",
+            CURLOPT_URL => "https://api.openpix.com.br/api/v1/qrcode-static",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -40,14 +41,9 @@ class OpenPIX {
 
         if ($err) {
             return false;
-        } else {
-            if($response["error"]) {
-                return false;
-            } else {
-                return true;
-            }
-            
         }
+
+        return true;
     }
 
     public function getQrCode($paymentId) {
@@ -74,17 +70,17 @@ class OpenPIX {
         if ($err) {
             return false;
         } else {
-            if($response["error"]) {
+            if(isset($response["error"])) {
                 return false;
             } else {
                 return $response;
-            }   
+            }
         }
     }
-    
+
     public function checkStatus($paymentId) {
         $curl = curl_init();
-    
+
         curl_setopt_array($curl, [
             CURLOPT_URL => "https://api.openpix.com.br/api/v1/qrcode-static/" . $paymentId,
             CURLOPT_RETURNTRANSFER => true,
@@ -97,12 +93,12 @@ class OpenPIX {
                 "Authorization: " . $this->apiKey
             ],
         ]);
-    
+
         $response = curl_exec($curl);
         $err = curl_error($curl);
-    
+
         curl_close($curl);
-    
+
         if ($err) {
             return false;
         } else {
@@ -110,7 +106,7 @@ class OpenPIX {
                 return false;
             } else {
                 return $response;
-            }   
+            }
         }
     }
 }
