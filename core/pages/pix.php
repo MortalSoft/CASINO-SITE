@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"]=="1")
 {
@@ -28,7 +28,7 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
                 $DataBase->Execute();
                 $pixrow = $DataBase->Single();
 
-                if(!$pix->createPixPayment($amount, $pixrow["id"], $pixconfig['destinationAlias'], "Deposit", "")) {
+                if(!$res = $pix->createPixPayment($amount, $pixrow["id"], $pixconfig['destinationAlias'], "Deposit", "")) {
                     $DataBase->Query("DELETE FROM `transaction` WHERE id = :transaction_id");
                     $DataBase->Bind(':transaction_id', $pixrow["id"]);
                     $DataBase->Execute();
@@ -36,14 +36,12 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
                     $response = $pix->getQrCode($pixrow["id"]);
 
                     if($response != false) {
-                        $qrcode = $response["pixQrCode"]["qrCodeImage"];
+                        $response = json_decode($response);
+                        $qrcode = $response->pixQrCode->qrCodeImage;
                     } else {
                       header('location: /');
                       die();
                     }
-                } else {
-                  header('location: /');
-                  die();
                 }
             }
         }
@@ -60,17 +58,17 @@ if(isset($_POST["pay"]) && isset($_POST['g-recaptcha-response']) && $_POST["pay"
     <h3>
       Deposit with PIX
     </h3>
-    
+
     <div class="input">
-        <img style="margin:12px auto" src="<?php echo $qrcode; ?>">
+        <img style="width:100%; margin:12px auto" src="<?php echo $qrcode; ?>">
     </div>
 
   </div>
 </div>
 <?php } else {
-$Config = new Config();       
+$Config = new Config();
 $captcha = $Config->api("recaptcha")["key"];
-    
+
 ?>
 
 <div class="deposit">
@@ -88,12 +86,21 @@ $captcha = $Config->api("recaptcha")["key"];
 
     <div class="input">
         <form action="" method="POST">
-            <input name="amount" placeholder="Enter in BRL amount" type="number" id="depositAmount" step="any">
+            <input name="amount" type="checkbox" step="any"
+            name="deposit" value="1000" id="depositAmount"
+<label for="deposit">R$10</label>
+<div>
+ <form action="" method="POST">
+            <input name="amount" type="checkbox" step="any"
+            name="deposit" value="2000" id="depositAmount"
+<label for="deposit">R$20</label>
+           </div>
             <br>
             <br>
             <div style="display: flex;justify-content: center;align-items: center;" class="g-recaptcha" id="gcaptcha" data-theme="dark"  data-sitekey="<?php echo $captcha; ?>"></div>
             <br>
-            <input name="pay" value="1" type="number" style="display:none;" id="depositAmount" step="any">
+
+              <input name="pay" value="1" type="number" style="display:none;" id="depositAmount" step="any">
             <button id="depositButton">Deposit</button>
         </form>
     </div>
