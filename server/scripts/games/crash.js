@@ -109,10 +109,18 @@ function crashGame_bet(user, socket, amount, auto) {
 			return;
 		}
 		
-		pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-		pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('crash_bet') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
-		
-		pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2) {
+		pool.query('UPDATE `users` SET `xp` = `xp` + ? WHERE `userid` = ?', [getXpByAmount(amount), user.userid], function(){
+			getLevel(user.userid);
+		});
+		pool.query('INSERT INTO `users_transactions` SET ?', {
+			userid: user.userid,
+			service: 'crash_bet',
+			amount: -amount,
+			time: time
+		}, function(err) {
+		});
+
+		pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err2) {
 			if(err2) {
 				logger.error(err2);
 				writeError(err2);
@@ -121,7 +129,7 @@ function crashGame_bet(user, socket, amount, auto) {
 			}
 			
 			//AFFILIATES
-			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err3, row3) {
+			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ? GROUP BY referral_uses.referral', [user.userid], function(err3, row3) {
 				if(err3) {
 					logger.error(err3);
 					writeError(err3);
@@ -132,11 +140,29 @@ function crashGame_bet(user, socket, amount, auto) {
 				if(row3.length > 0 && should_refferals_count_wager) {
 					var commission_deposit = getFeeFromCommission(amount, getAffiliateCommission(getFormatAmount(row3[0].amount), 'bet'));
 					
-					pool.query('INSERT INTO `referral_wagered` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row3[0].referral) + ', `amount` = ' + amount + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-					pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row3[0].referral));
+					pool.query('INSERT INTO `referral_wagered` SET ?', {
+						userid: user.userid,
+						referral: row3[0].referral,
+						amount: amount,
+						commission: commission_deposit,
+						time: time
+					}, function(err) {
+					});
+					
+					pool.query('UPDATE `referral_codes` SET `available` = `available` + ? WHERE `userid` = ?', [commission_deposit, row3[0].referral], function(err) {
+					});					
 				}
 			
-				pool.query('INSERT INTO `crash_bets` SET `userid` = ' + pool.escape(user.userid) + ', `name` = ' + pool.escape(user.name) + ', `avatar` = ' + pool.escape(user.avatar) + ', `xp` = ' + parseInt(user.xp) + ', `amount` = ' + amount + ', `game_id` = ' + parseInt(crashGame.id) + ', `auto_cashout` = ' + roundedToFixed(parseFloat(auto / 100), 2) + ', `time` = ' + pool.escape(time()), function(err4, row4) {
+				pool.query('INSERT INTO `crash_bets` SET ?', {
+					userid: user.userid,
+					name: user.name,
+					avatar: user.avatar,
+					xp: parseInt(user.xp),
+					amount: amount,
+					game_id: parseInt(crashGame.id),
+					auto_cashout: roundedToFixed(parseFloat(auto / 100), 2),
+					time: time
+				}, function(err4, row4) {
 					if(err4) {
 						logger.error(err4);
 						writeError(err4);
@@ -263,10 +289,16 @@ function crashGame_cashout(user, socket) {
 		amount: winning
 	});
 	
-	pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - crashGame_userBets[user.userid]['amount'])) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(user.userid));
-	pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('crash_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
-	
-	pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(user.userid), function(err1){
+	pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(getFormatAmount(winning - crashGame_userBets[user.userid]['amount'])), user.userid]);
+
+	pool.query('INSERT INTO `users_transactions` SET ?', {
+		userid: user.userid,
+		service: 'crash_win',
+		amount: winning,
+		time: time
+	});
+
+	pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, user.userid], function(err1) {
 		if(err1){
 			logger.error(err1);
 			writeError(err1);
@@ -274,8 +306,11 @@ function crashGame_cashout(user, socket) {
 			return;
 		}
 		
-		pool.query('UPDATE `crash_bets` SET `cashedout` = 1, `point_cashedout` = ' + roundedToFixed(crashGame_settings.point, 2).toFixed(2) + ' WHERE `id` = ' + pool.escape(crashGame_userBets[user.userid]['id']));
-		
+		pool.query('UPDATE `crash_bets` SET `cashedout` = 1, `point_cashedout` = ? WHERE `id` = ?', [roundedToFixed(crashGame_settings.point, 2).toFixed(2), crashGame_userBets[user.userid]['id']], function(err) {
+			if (err) {
+			  console.error("Error updating crash bet:", err);
+			}
+		  });		
 		getBalance(user.userid);
 		
 		if(winning >= config.config_games.winning_to_chat){
@@ -307,7 +342,7 @@ function crashGame_checkGame(){
 				id: row1[0].id,
 			}
 			
-			pool.query('SELECT * FROM `crash_bets` WHERE `game_id` = ' + parseInt(crashGame.id), function(err2, row2){
+			pool.query('SELECT * FROM `crash_bets` WHERE `game_id` = ?', [parseInt(crashGame.id)], function(err2, row2) {
 				if(err2){
 					logger.error(err2);
 					writeError(err2);
@@ -395,7 +430,7 @@ function crashGame_generateGame(){
 	crashGame.secret = makeCode(16);
 	crashGame.hash = sha256(crashGame.secret + '-' + parseFloat(crashGame.roll / 100).toFixed(2));
 	
-	pool.query('INSERT INTO `crash_rolls` SET `point` = ' + parseFloat(crashGame.roll / 100).toFixed(2) + ', `hash` = ' + pool.escape(crashGame.hash) + ', `secret` = ' + pool.escape(crashGame.secret) + ', `time` = ' + pool.escape(time()), function(err1, row1){
+	pool.query('INSERT INTO `crash_rolls` SET `point` = ?, `hash` = ?, `secret` = ?, `time` = ?', [parseFloat(crashGame.roll / 100).toFixed(2), crashGame.hash, crashGame.secret, time()], function(err1, row1) {
 		if(err1){
 			logger.error(err1);
 			writeError(err1);
@@ -475,7 +510,7 @@ function crashGame_checkPoint(){
 		
 		crashGame.status = 'ended';
 		
-		pool.query('UPDATE `crash_rolls` SET `ended` = 1 WHERE `id` = ' + parseInt(crashGame.id), function(err1){
+		pool.query('UPDATE `crash_rolls` SET `ended` = 1 WHERE `id` = ?', [parseInt(crashGame.id)], function(err1) {
 			if(err1){
 				logger.error(err1);
 				writeError(err1);
@@ -565,10 +600,18 @@ function crashGame_checkBet(bet, point){
 					crashGame_userBets[bet.user.userid]['cashedout'] = true;
 					crashGame_userBets[bet.user.userid]['point_cashedout'] = parseInt(crashGame_userBets[bet.user.userid]['auto_cashout']);
 						
-					pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - crashGame_userBets[bet.user.userid]['amount'])) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(bet.user.userid));
-					pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(bet.user.userid) + ', `service` = ' + pool.escape('crash_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
+					pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(getFormatAmount(winning - crashGame_userBets[bet.user.userid]['amount'])), bet.user.userid], function(err1) {
+						if (err1) {
+							console.error('Error occurred while updating users:', err1);
+						} 
+					});
 					
-					pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(bet.user.userid), function(err1){
+					pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [bet.user.userid, 'crash_win', winning, time()], function(err2) {
+						if (err2) {
+							console.error('Error occurred while inserting into users_transactions:', err2);
+						}
+					});
+					pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, bet.user.userid], function(err1) {
 						if(err1) {
 							logger.error(err1);
 							writeError(err1);
@@ -577,8 +620,12 @@ function crashGame_checkBet(bet, point){
 							return;
 						}
 						
-						pool.query('UPDATE `crash_bets` SET `cashedout` = 1, `point_cashedout` = ' + roundedToFixed(parseFloat(crashGame_userBets[bet.user.userid]['auto_cashout'] / 100), 2) + ' WHERE `id` = ' + pool.escape(crashGame_userBets[bet.user.userid]['id']));
-						
+						pool.query('UPDATE `crash_bets` SET `cashedout` = 1, `point_cashedout` = ? WHERE `id` = ?', [roundedToFixed(parseFloat(crashGame_userBets[bet.user.userid]['auto_cashout'] / 100), 2), crashGame_userBets[bet.user.userid]['id']], function(err) {
+							if (err) {
+								console.error('Error occurred while updating crash_bets:', err);
+							}
+						});
+
 						getBalance(bet.user.userid);
 						
 						if(winning >= config.config_games.winning_to_chat){
@@ -613,10 +660,19 @@ function crashGame_checkBet(bet, point){
 				crashGame_userBets[bet.user.userid]['cashedout'] = true;
 				crashGame_userBets[bet.user.userid]['point_cashedout'] = parseInt(winning / crashGame_userBets[bet.user.userid]['amount'] * 100);
 					
-				pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - crashGame_userBets[bet.user.userid]['amount'])) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(bet.user.userid));
-				pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(bet.user.userid) + ', `service` = ' + pool.escape('crash_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
+				pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(getFormatAmount(winning - crashGame_userBets[bet.user.userid]['amount'])), bet.user.userid], function(err1) {
+					if (err1) {
+						console.error('Error occurred while updating users:', err1);
+					}
+				});
 				
-				pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(bet.user.userid), function(err2){
+				// Insert query
+				pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [bet.user.userid, 'crash_win', winning, time()], function(err2) {
+					if (err2) {
+						console.error('Error occurred while inserting into users_transactions:', err2);
+					}
+				});
+				pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, bet.user.userid], function(err2) {
 					if(err2) {
 						logger.error(err2);
 						writeError(err2);
@@ -625,8 +681,11 @@ function crashGame_checkBet(bet, point){
 						return;
 					}
 					
-					pool.query('UPDATE `crash_bets` SET `cashedout` = 1, `point_cashedout` = ' + roundedToFixed(parseFloat(winning / crashGame_userBets[bet.user.userid]['amount']), 2) + ' WHERE `id` = ' + pool.escape(crashGame_userBets[bet.user.userid]['id']));
-					
+					pool.query('UPDATE `crash_bets` SET `cashedout` = 1, `point_cashedout` = ? WHERE `id` = ?', [roundedToFixed(parseFloat(winning / crashGame_userBets[bet.user.userid]['amount']), 2), crashGame_userBets[bet.user.userid]['id']], function(err) {
+						if (err) {
+							console.error('Error occurred while updating crash_bets:', err);
+						}
+					});					
 					getBalance(bet.user.userid);
 					
 					if(winning >= config.config_games.winning_to_chat){

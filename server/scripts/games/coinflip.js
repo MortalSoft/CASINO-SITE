@@ -31,7 +31,7 @@ function coinflipGame_loadHistory(){
 				timeout: null,
 			}
 			
-			pool.query('SELECT * FROM `coinflip_bets` WHERE `gameid` = ' + pool.escape(coinflip.id), function(err2, row2) {
+			pool.query('SELECT * FROM `coinflip_bets` WHERE `gameid` = ?', [coinflip.id], function(err2, row2) {
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -60,16 +60,15 @@ function coinflipGame_loadHistory(){
 						
 						if(coinflip.time + config.config_games.games.coinflip.timer_cancel > time()){
 							coinflipGame_games[coinflip.id].timeout = setTimeout(function(){
-								pool.query('UPDATE `coinflip_games` SET `canceled` = 1 WHERE `id` = ' + coinflip.id, function(err3){
+								pool.query('UPDATE `coinflip_games` SET `canceled` = 1 WHERE `id` = ?', [coinflip.id], function(err3) {
 									if(err3) {
 										logger.error(err3);
 										writeError(err3);
 										return;
 									}
 									
-									pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(creator) + ', `service` = ' + pool.escape('coinflip_refund') + ', `amount` = ' + amount + ', `time` = ' + pool.escape(time()));
-									
-									pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount + ' WHERE `userid` = ' + pool.escape(creator), function(err4){
+									pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [creator, 'coinflip_refund', amount, time()]);									
+									pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [amount, creator], function(err) {
 										if(err4) {
 											logger.error(err4);
 											writeError(err4);
@@ -93,16 +92,21 @@ function coinflipGame_loadHistory(){
 								});
 							}, (time() - coinflip.time + config.config_games.games.coinflip.timer_cancel) * 1000);
 						} else {
-							pool.query('UPDATE `coinflip_games` SET `canceled` = 1 WHERE `id` = ' + coinflip.id, function(err3){
+							pool.query('UPDATE `coinflip_games` SET `canceled` = 1 WHERE `id` = ?', [coinflip.id], function(err) {
 								if(err3) {
 									logger.error(err3);
 									writeError(err3);
 									return;
 								}
 								
-								pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(creator) + ', `service` = ' + pool.escape('coinflip_refund') + ', `amount` = ' + amount + ', `time` = ' + pool.escape(time()));
-								
-								pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount + ' WHERE `userid` = ' + pool.escape(creator), function(err4){
+								pool.query('INSERT INTO `users_transactions` SET ?', {
+									userid: creator,
+									service: 'coinflip_refund',
+									amount: amount,
+									time: time
+								});						
+
+								pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [amount, creator], function(err4){
 									if(err4) {
 										logger.error(err4);
 										writeError(err4);
@@ -183,10 +187,18 @@ function coinflipGame_create(user, socket, amount, coin) {
 			return;
 		}
 		
-		pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-		pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('coinflip_bet') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
-		
-		pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err3){
+		pool.query('UPDATE `users` SET `xp` = `xp` + ? WHERE `userid` = ?', [getXpByAmount(amount), user.userid], function() {
+			getLevel(user.userid);
+		});
+
+		pool.query('INSERT INTO `users_transactions` SET ?', {
+			userid: user.userid,
+			service: 'coinflip_bet',
+			amount: -amount,
+			time: time
+		});
+				
+		pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err3) {
 			if(err3) {
 				logger.error(err3);
 				writeError(err3);
@@ -195,7 +207,7 @@ function coinflipGame_create(user, socket, amount, coin) {
 			}
 			
 			//AFFILIATES
-			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err4, row4) {
+			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ?', [user.userid], function(err4, row4) {
 				if(err4) {
 					logger.error(err4);
 					writeError(err4);
@@ -206,8 +218,13 @@ function coinflipGame_create(user, socket, amount, coin) {
 				if(row4.length > 0 && should_refferals_count_wager) {
 					var commission_deposit = getFeeFromCommission(amount, getAffiliateCommission(getFormatAmount(row4[0].amount), 'bet'));
 					
-					pool.query('INSERT INTO `referral_wagered` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row4[0].referral) + ', `amount` = ' + amount + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-					pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row4[0].referral));
+					pool.query('INSERT INTO `referral_wagered` SET ?', {
+						userid: user.userid,
+						referral: row4[0].referral,
+						amount: amount,
+						commission: commission_deposit,
+						time: time
+					});	
 				}
 			
 				var secretCF = makeCode(16);
@@ -215,7 +232,7 @@ function coinflipGame_create(user, socket, amount, coin) {
 				
 				var hashCF = sha256(secretCF + '-' + percentageCF);
 				
-				pool.query('INSERT INTO `coinflip_games` SET `creator` = ' + coin + ', `amount` = ' + amount + ', `hash` = ' + pool.escape(hashCF) + ', `secret` = ' + pool.escape(secretCF) + ', `percentage` = ' + pool.escape(percentageCF) + ', `time` = ' + pool.escape(time()), function(err5, row5){
+				pool.query('INSERT INTO `coinflip_games` SET `creator` = ?, `amount` = ?, `hash` = ?, `secret` = ?, `percentage` = ?, `time` = ?', [coin, amount, hashCF, secretCF, percentageCF, time()], function(err5, row5){
 					if(err5) {
 						logger.error(err5);
 						writeError(err5);
@@ -223,7 +240,15 @@ function coinflipGame_create(user, socket, amount, coin) {
 						return;
 					}
 					
-					pool.query('INSERT INTO `coinflip_bets` SET `userid` = ' + pool.escape(user.userid) + ', `name` = ' + pool.escape(user.name) + ', `avatar` = ' + pool.escape(user.avatar) + ', `xp` = ' + parseInt(user.xp) + ', `coin` = ' + coin + ', `gameid` = ' + pool.escape(row5.insertId) + ', `time` = ' + pool.escape(time()), function(err6){
+					pool.query('INSERT INTO `coinflip_bets` SET ?', {
+						userid: user.userid,
+						name: user.name,
+						avatar: user.avatar,
+						xp: parseInt(user.xp),
+						coin: coin,
+						gameid: row5.insertId,
+						time: time()
+					  }, function(err6) {
 						if(err6) {
 							logger.error(err6);
 							writeError(err6);
@@ -274,16 +299,21 @@ function coinflipGame_create(user, socket, amount, coin) {
 						
 						if(config.config_games.games.coinflip.cancel){
 							coinflipGame_games[row5.insertId].timeout = setTimeout(function(){
-								pool.query('UPDATE `coinflip_games` SET `canceled` = 1 WHERE `id` = ' + row5.insertId, function(err7){
+								pool.query('UPDATE `coinflip_games` SET `canceled` = 1 WHERE `id` = ?', row5.insertId, function(err7) {
 									if(err7) {
 										logger.error(err7);
 										writeError(err7);
 										return;
 									}
 									
-									pool.query('INSERT INTO `users_transactions` SET `user` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('coinflip_refund') + ', `amount` = ' + amount + ', `time` = ' + pool.escape(time()));
-									
-									pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err8){
+									pool.query('INSERT INTO `users_transactions` SET ?', {
+										user: user.userid,
+										service: 'coinflip_refund',
+										amount: amount,
+										time: time
+									});
+
+									pool.query('UPDATE `users` SET `balance` = `balance` + ?', amount, function(err8, result) {
 										if(err8) {
 											logger.error(err8);
 											writeError(err8);
@@ -373,10 +403,23 @@ function coinflipGame_join(user, socket, id) {
 		return;
 	}
 	
-	pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-	pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('coinflip_join') + ', `amount` = ' + (-amount)+', `time` = ' + pool.escape(time()));
-		
-	pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = '+pool.escape(user.userid), function(err1){
+	pool.query('UPDATE `users` SET `xp` = `xp` + ? WHERE `userid` = ?', [getXpByAmount(amount), user.userid], function(err, result) {
+		if (err) {
+		  // Handle error
+		} else {
+		  // Call getLevel function after successful update
+		  getLevel(user.userid);
+		}
+	});	
+	
+	pool.query('INSERT INTO `users_transactions` SET ?', { 
+		userid: user.userid,
+		service: 'coinflip_join',
+		amount: -amount,
+		time: time
+	});
+
+	pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err) {
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -385,7 +428,9 @@ function coinflipGame_join(user, socket, id) {
 		}
 		
 		//AFFILIATES
-		pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err2, row2) {
+		const query = 'SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ? GROUP BY referral_uses.referral';
+
+		pool.query(query, [user.userid], function(err, rows) {
 			if(err2) {
 				logger.error(err2);
 				writeError(err2);
@@ -396,13 +441,20 @@ function coinflipGame_join(user, socket, id) {
 			if(row2.length > 0 && should_refferals_count_wager) {
 				var commission_deposit = getFeeFromCommission(amount, getAffiliateCommission(getFormatAmount(row2[0].amount), 'bet'));
 				
-				pool.query('INSERT INTO `referral_wagered` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row2[0].referral) + ', `amount` = ' + amount + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-				pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row2[0].referral));
+				pool.query(
+					'INSERT INTO `referral_wagered` SET `userid` = ?, `referral` = ?, `amount` = ?, `commission` = ?, `time` = ?',
+					[user.userid, row2[0].referral, amount, commission_deposit, time]
+				);
+				
+				pool.query(
+					'UPDATE `referral_codes` SET `available` = `available` + ? WHERE `userid` = ?',
+					[commission_deposit, row2[0].referral]
+				);
 			}
 		
 			var playerToJoin = parseInt([2, 1][coinflipGame_games[id]['creator'] - 1]);
 			
-			pool.query('INSERT INTO `coinflip_bets` SET `userid` = ' + pool.escape(user.userid) + ', `name` = ' + pool.escape(user.name) + ', `avatar` = ' + pool.escape(user.avatar) + ', `xp` = ' + parseInt(user.xp) + ', `coin` = ' + playerToJoin + ', `gameid` = ' + pool.escape(id) + ', `time` = ' + pool.escape(time()), async function(err3){
+			pool.query('INSERT INTO `coinflip_bets` SET `userid` = ?, `name` = ?, `avatar` = ?, `xp` = ?, `coin` = ?, `gameid` = ?, `time` = ?', [user.userid, user.name, user.avatar, parseInt(user.xp), playerToJoin, id, time], async function(err3) {				
 				if(err3) {
 					logger.error(err3);
 					writeError(err3);
@@ -525,11 +577,17 @@ function coinflipGame_continue(id, pseed){
 				var amount = getFormatAmount(coinflipGame_games[id]['amount']);
 				var winning = getFormatAmount(parseFloat(amount * 2 - getFeeFromCommission(parseFloat(amount * 2), config.config_games.games.coinflip.commission)));
 				
-				pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - amount)) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(winner));	
-				pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - amount)) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(opponent));	
-				pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(winner) + ', `service` = ' + pool.escape('coinflip_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
-				
-				pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(winner), function(err2){
+				pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(getFormatAmount(winning - amount)), winner]);
+				pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(getFormatAmount(winning - amount)), opponent]);
+
+				pool.query('INSERT INTO `users_transactions` SET ?', {
+					userid: winner,
+					service: 'coinflip_win',
+					amount: winning,
+					time: time
+				});
+								  
+				pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, winner], function(err2){
 					if(err2) {
 						logger.error(err2);
 						writeError(err2);

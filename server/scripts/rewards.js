@@ -12,7 +12,7 @@ function rewards_dailyRedeem(user, socket, recaptcha) {
 			return;
 		}
 	
-		pool.query('SELECT SUM(amount) AS `amount` FROM `users_trades` WHERE `userid` = ' + pool.escape(user.userid) + ' AND `type` = ' + pool.escape("deposit") + ' AND `time` > ' + pool.escape(time() - config.config_site.daily_requirements.time), function(err1, row1){
+		pool.query('SELECT SUM(amount) AS `amount` FROM `users_trades` WHERE `userid` = ? AND `type` = ? AND `time` > ?', [user.userid, "deposit", time() - config.config_site.daily_requirements.time], function(err1, row1){
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -29,7 +29,7 @@ function rewards_dailyRedeem(user, socket, recaptcha) {
 				return;
 			}
 		
-			pool.query('SELECT * FROM `users_rewards` WHERE `reward` = ' + pool.escape('daily') + ' AND `userid` = ' + pool.escape(user.userid) + ' ORDER BY `id` DESC LIMIT 1', function(err2, row2){
+			pool.query('SELECT * FROM `users_rewards` WHERE `reward` = ? AND `userid` = ? ORDER BY `id` DESC LIMIT 1', ['daily', user.userid], function(err2, row2){
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -50,7 +50,7 @@ function rewards_dailyRedeem(user, socket, recaptcha) {
 				
 				var amount_got = getFormatAmount(calculateLevel(user.xp).level * config.config_site.rewards_amount.daily_step + config.config_site.rewards_amount.daily_start);
 				
-				pool.query('INSERT INTO `users_rewards` SET `userid` = ' + pool.escape(user.userid) + ', `reward` = ' + pool.escape('daily') + ', `amount` = ' + amount_got + ', `time` = ' + pool.escape(time()), function(err3){
+				pool.query('INSERT INTO `users_rewards` SET `userid` = ?, `reward` = ?, `amount` = ?, `time` = ?', [user.userid, 'daily', amount_got, time()], function(err3){
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);
@@ -58,9 +58,9 @@ function rewards_dailyRedeem(user, socket, recaptcha) {
 						return;
 					}
 					
-					pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('daily_reward') + ', `amount` = ' + amount_got + ', `time` = ' + pool.escape(time()));
+					pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'daily_reward', amount_got, time()]);
 					
-					pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount_got + ' WHERE `userid` = ' + pool.escape(user.userid), function(err4){
+					pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [amount_got, user.userid], function(err4){
 						if(err4) {
 							logger.error(err4);
 							writeError(err4);
@@ -86,7 +86,7 @@ function rewards_dailyRedeem(user, socket, recaptcha) {
 }
 
 function rewards_dailyTime(user, socket){
-	pool.query('SELECT * FROM `users_rewards` WHERE `reward` = ' + pool.escape('daily') + ' AND `userid` = ' + pool.escape(user.userid) + ' ORDER BY `id` DESC LIMIT 1', function(err1, row1){
+	pool.query('SELECT * FROM `users_rewards` WHERE `reward` = ? AND `userid` = ? ORDER BY `id` DESC LIMIT 1', ['daily', user.userid], function(err1, row1){
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -144,7 +144,7 @@ function rewards_bindRedeem(user, socket, data, recaptcha) {
 			return;
 		}
 		
-		pool.query('SELECT * FROM `users_binds` WHERE `bind` = ' + pool.escape(data.bind) + ' AND `userid` = ' + pool.escape(user.userid) + ' AND `removed` = 0', function(err1, row1){
+		pool.query('SELECT * FROM `users_binds` WHERE `bind` = ? AND `userid` = ? AND `removed` = 0', [data.bind, user.userid], function(err1, row1){
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -161,7 +161,7 @@ function rewards_bindRedeem(user, socket, data, recaptcha) {
 				return;
 			}
 			
-			pool.query('SELECT * FROM `users_rewards` WHERE `reward` = ' + pool.escape(data.bind) + ' AND `userid` = ' + pool.escape(user.userid), function(err2, row2){
+			pool.query('SELECT * FROM `users_rewards` WHERE `reward` = ? AND `userid` = ?', [data.bind, user.userid], function(err2, row2){
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -180,7 +180,7 @@ function rewards_bindRedeem(user, socket, data, recaptcha) {
 				
 				var amount_got = getFormatAmount(config.config_site.rewards_amount[data.bind]);
 				
-				pool.query('INSERT INTO`users_rewards` SET `userid` = ' + pool.escape(user.userid) + ', `reward` = ' + pool.escape(data.bind) + ', `amount` = ' + amount_got + ', `time` = ' + pool.escape(time()), function(err3, row3){
+				pool.query('INSERT INTO `users_rewards` SET `userid` = ?, `reward` = ?, `amount` = ?, `time` = ?', [user.userid, data.bind, amount_got, time()], function(err3, row3){
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);
@@ -188,9 +188,9 @@ function rewards_bindRedeem(user, socket, data, recaptcha) {
 						return;
 					}
 				
-					pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape(data.bind + '_reward') + ', `amount` = ' + amount_got + ', `time` = ' + pool.escape(time()));
+					pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, data.bind + '_reward', amount_got, time()]);
 					
-					pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount_got + ' WHERE `userid` = ' + pool.escape(user.userid), function(err4) {
+					pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [amount_got, user.userid], function(err4) {
 						if(err4) {
 							logger.error(err4);
 							writeError(err4);
@@ -231,7 +231,7 @@ function rewards_referralRedeem(user, socket, data, recaptcha){
 			return;
 		}
 		
-		pool.query('SELECT * FROM `referral_uses` WHERE `userid` = ' + pool.escape(user.userid), function(err1, row1){
+		pool.query('SELECT * FROM `referral_uses` WHERE `userid` = ?', [user.userid], function(err1, row1){
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -268,7 +268,7 @@ function rewards_referralRedeem(user, socket, data, recaptcha){
 				return;
 			}
 		
-			pool.query('SELECT * FROM `referral_codes` WHERE `code` = ' + pool.escape(code), function(err2, row2){
+			pool.query('SELECT * FROM `referral_codes` WHERE `code` = ?', [code], function(err2, row2){
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -296,7 +296,7 @@ function rewards_referralRedeem(user, socket, data, recaptcha){
 			
 				var amount_got = getFormatAmount(config.config_site.rewards_amount.refferal_code);
 				
-				pool.query('INSERT INTO `referral_uses` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row2[0].userid) + ', `amount` = ' + amount_got + ', `time` = ' + pool.escape(time()), function(err3, row3){
+				pool.query('INSERT INTO `referral_uses` SET `userid` = ?, `referral` = ?, `amount` = ?, `time` = ?', [user.userid, row2[0].userid, amount_got, time()], function(err3, row3){
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);
@@ -304,7 +304,7 @@ function rewards_referralRedeem(user, socket, data, recaptcha){
 						return;
 					}
 					
-					pool.query('INSERT INTO `users_rewards` SET `userid` = ' + pool.escape(user.userid) + ', `reward` = ' + pool.escape('referral') + ', `amount` = ' + amount_got + ', `time` = ' + pool.escape(time()), function(err4){
+					pool.query('INSERT INTO `users_rewards` SET `userid` = ?, `reward` = ?, `amount` = ?, `time` = ?', [user.userid, 'referral', amount_got, time()], function(err4){
 						if(err4) {
 							logger.error(err4);
 							writeError(err4);
@@ -312,9 +312,9 @@ function rewards_referralRedeem(user, socket, data, recaptcha){
 							return;
 						}
 					
-						pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('code_reward') + ', `amount` = ' + amount_got + ', `time` = ' + pool.escape(time()));
+						pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'code_reward', amount_got, time()]);
 						
-						pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount_got + ' WHERE `userid` = ' + pool.escape(user.userid), function(err5) {
+						pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [amount_got, user.userid], function(err5) {
 							if(err5) {
 								logger.error(err5);
 								writeError(err5);
@@ -376,7 +376,7 @@ function rewards_referralCreate(user, socket, data, recaptcha){
 			return;
 		}
 		
-		pool.query('SELECT * FROM `referral_codes` WHERE `code` = ' + pool.escape(code), function(err1, row1){
+		pool.query('SELECT * FROM `referral_codes` WHERE `code` = ?', [code], function(err1, row1){
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -393,7 +393,7 @@ function rewards_referralCreate(user, socket, data, recaptcha){
 				return;
 			}
 			
-			pool.query('SELECT * FROM `referral_codes` WHERE `userid` = ' + pool.escape(user.userid), function(err2, row2){
+			pool.query('SELECT * FROM `referral_codes` WHERE `userid` = ?', [user.userid], function(err2, row2){
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -402,7 +402,7 @@ function rewards_referralCreate(user, socket, data, recaptcha){
 				}
 				
 				if(row2.length > 0) {
-					pool.query('UPDATE `referral_codes` SET `code` = ' + pool.escape(code) + ' WHERE `userid` = ' + pool.escape(user.userid), function(err3) {
+					pool.query('UPDATE `referral_codes` SET `code` = ? WHERE `userid` = ?', [code, user.userid], function(err3) {
 						if(err3) {
 							logger.error(err3);
 							writeError(err3);
@@ -410,7 +410,7 @@ function rewards_referralCreate(user, socket, data, recaptcha){
 							return;
 						}
 						
-						pool.query('INSERT INTO `referral_updates` SET `userid` = ' + pool.escape(user.userid) + ', `code` = ' + pool.escape(code) + ', `time` = ' + pool.escape(time()), function(err4) {
+						pool.query('INSERT INTO `referral_updates` SET `userid` = ?, `code` = ?, `time` = ?', [user.userid, code, time()], function(err4) {
 							if(err4) {
 								logger.error(err4);
 								writeError(err4);
@@ -431,7 +431,7 @@ function rewards_referralCreate(user, socket, data, recaptcha){
 						});
 					});
 				} else if(row2.length == 0) {
-					pool.query('INSERT INTO `referral_codes` SET `userid` = ' + pool.escape(user.userid) + ', `code` = ' + pool.escape(code), function(err3) {
+					pool.query('INSERT INTO `referral_codes` SET `userid` = ?, `code` = ?', [user.userid, code], function(err3) {
 						if(err3) {
 							logger.error(err3);
 							writeError(err3);
@@ -439,7 +439,7 @@ function rewards_referralCreate(user, socket, data, recaptcha){
 							return;
 						}
 						
-						pool.query('INSERT INTO `referral_updates` SET `userid` = ' + pool.escape(user.userid) + ', `code` = ' + pool.escape(code) + ', `time` = ' + pool.escape(time()), function(err4) {
+						pool.query('INSERT INTO `referral_updates` SET `userid` = ?, `code` = ?, `time` = ?', [user.userid, code, time()], function(err4) {
 							if(err4) {
 								logger.error(err4);
 								writeError(err4);
@@ -495,7 +495,7 @@ function rewards_bonusRedeem(user, socket, data, recaptcha){
 			return;
 		}
 		
-		pool.query('SELECT * FROM `bonus_codes` WHERE `code` = ' + pool.escape(code), function(err1, row1){
+		pool.query('SELECT * FROM `bonus_codes` WHERE `code` = ?', [code], function(err1, row1){
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -521,7 +521,7 @@ function rewards_bonusRedeem(user, socket, data, recaptcha){
 				return;
 			}
 		
-			pool.query('SELECT * FROM `bonus_uses` WHERE `code` = ' + pool.escape(code) + ' AND `userid` = ' + pool.escape(user.userid), function(err2, row2){
+			pool.query('SELECT * FROM `bonus_uses` WHERE `code` = ? AND `userid` = ?', [code, user.userid], function(err2, row2){
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -540,7 +540,7 @@ function rewards_bonusRedeem(user, socket, data, recaptcha){
 				
 				var amount_got = getFormatAmount(row1[0].amount);
 				
-				pool.query('UPDATE `bonus_codes` SET `uses` = `uses` + 1 WHERE `code` = ' + pool.escape(code), function(err3){
+				pool.query('UPDATE `bonus_codes` SET `uses` = `uses` + 1 WHERE `code` = ?', [code], function(err3){
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);
@@ -548,7 +548,7 @@ function rewards_bonusRedeem(user, socket, data, recaptcha){
 						return;
 					}
 				
-					pool.query('INSERT INTO `bonus_uses` SET `userid` = ' + pool.escape(user.userid) + ', `code` = ' + pool.escape(code) + ', `amount` = ' + amount_got + ', `time` = ' + pool.escape(time()), function(err4){
+					pool.query('INSERT INTO `bonus_uses` SET `userid` = ?, `code` = ?, `amount` = ?, `time` = ?', [user.userid, code, amount_got, time()], function(err4){
 						if(err4) {
 							logger.error(err4);
 							writeError(err4);
@@ -556,9 +556,8 @@ function rewards_bonusRedeem(user, socket, data, recaptcha){
 							return;
 						}
 					
-						pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('bonus_code_reward') + ', `amount` = ' + amount_got + ', `time` = ' + pool.escape(time()));
-						
-						pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount_got + ' WHERE `userid` = ' + pool.escape(user.userid), function(err5) {
+						pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'bonus_code_reward', amount_got, time()]);						
+						pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [amount_got, user.userid], function(err5) {
 							if(err5) {
 								logger.error(err5);
 								writeError(err5);
@@ -667,7 +666,7 @@ function rewards_bonusCreate(user, socket, data, recaptcha){
 				return;
 			}
 			
-			pool.query('SELECT * FROM `bonus_codes` WHERE `code` = ' + pool.escape(code), function(err2, row2){
+			pool.query('SELECT * FROM `bonus_codes` WHERE `code` = ?', [code], function(err2, row2){
 				if(err2){
 					logger.error(err2);
 					writeError(err2);
@@ -684,7 +683,7 @@ function rewards_bonusCreate(user, socket, data, recaptcha){
 					return;
 				}
 				
-				pool.query('INSERT INTO `bonus_codes` SET `userid` = ' + pool.escape(user.userid) + ', `code` = ' + pool.escape(code) + ', `amount` = ' + amount + ', `max_uses` = ' + uses + ', `time` = ' + pool.escape(time()), function(err3){
+				pool.query('INSERT INTO `bonus_codes` SET `userid` = ?, `code` = ?, `amount` = ?, `max_uses` = ?, `time` = ?', [user.userid, code, amount, uses, time()], function(err3){
 					if(err3){
 						logger.error(err3);
 						writeError(err3);

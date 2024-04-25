@@ -293,11 +293,22 @@ function bonusBattlesJoin(user, socket, request) {
     }
 
     // all good
-    pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(row1[0].amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-    pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('bonusbattle_join') + ', `amount` = ' + (-row1[0].amount) + ', `time` = ' + pool.escape(time()));
+    pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - amount)) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(winner), (error, results, fields) => {
+      if (error) {
+          // Handle error
+      } else {
+          // Handle success
+      }
+  });
+
+  pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'bonusbattle_join', -row1[0].amount, time()], function(err) {
+    if (err) {
+        console.error("Error inserting transaction record:", err);
+    }
+});
     
-    pool.query('UPDATE `users` SET `balance` = `balance` - ' + row1[0].amount + ', `balance_battles` = `balance_battles` + ' + row1[0].amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err3){
-      if(err3) {
+pool.query('UPDATE `users` SET `balance` = `balance` - ?, `balance_battles` = `balance_battles` + ? WHERE `userid` = ?', [row1[0].amount, row1[0].amount, user.userid], function(err3) {
+  if(err3) {
         logger.error(err3);
         writeError(err3);
         bonus_actions[user.userid] = false;
@@ -315,7 +326,7 @@ function bonusBattlesJoin(user, socket, request) {
 
       if(row1[0].players.length >= row1[0].max_players) row1[0].status = 1;
 
-      pool.query('UPDATE `bonusbattles_games` SET `status` = ' + row1[0].status + ', `players` = ' + pool.escape(JSON.stringify(row1[0].players)) + ' WHERE `id` = ' + pool.escape(battle_id), function(err4){
+      pool.query('UPDATE `bonusbattles_games` SET `status` = ?, `players` = ? WHERE `id` = ?', [row1[0].status, JSON.stringify(row1[0].players), battle_id], function(err4) {
         if(err4) {
           logger.error(err4);
           writeError(err4);
@@ -401,7 +412,7 @@ function bonusBattlesCreate(user, socket, request) {
 
     // players status: 0 = didnt buy the bonus yet, 1 = bought bonus, 2 = game over
 
-    pool.query('INSERT INTO `bonusbattles_games` SET `time_start` = ' + pool.escape(insert_data.time_start) + ', `status` = ' + pool.escape(insert_data.status) + ', `players` = ' + pool.escape(insert_data.players) + ', `game` = ' + pool.escape(insert_data.game) + ', `amount` = ' + insert_data.amount + ', `max_players` = ' + insert_data.max_players, function(err6, rs){
+    pool.query('INSERT INTO `bonusbattles_games` SET `time_start` = ?, `status` = ?, `players` = ?, `game` = ?, `amount` = ?, `max_players` = ?', [insert_data.time_start, insert_data.status, insert_data.players, insert_data.game, insert_data.amount, insert_data.max_players], function(err6, rs){
       if(err6) {
         logger.error(err6);
         writeError(err6);
@@ -929,13 +940,28 @@ function inputATdata(userid, amount = 0, type = 'bet') {
     const game = currentGame[userid] || '?';
 
     if(type == 'bet') {
-      pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(amount) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(userid));
-      pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(userid), function(){ getLevel(userid); });
-      pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(userid) + ', `service` = ' + pool.escape('slots_bet') + ', `amount` = '+ (-amount) + ', `time` = ' + pool.escape(time()));
-
+      pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(amount), userid], function(err1) {
+        if (err1) {
+            console.error('Error occurred while updating users:', err1);
+        }
+    });
+    
+    pool.query('UPDATE `users` SET `xp` = `xp` + ? WHERE `userid` = ?', [getXpByAmount(amount), userid], function(err2) {
+        if (err2) {
+            console.error('Error occurred while updating users:', err2);
+        } else {
+            getLevel(userid);
+        }
+    });
+    
+    pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [userid, 'slots_bet', -amount, time()], function(err3) {
+        if (err3) {
+            console.error('Error occurred while inserting into users_transactions:', err3);
+        }
+    });
 
       //AFFILIATES
-      pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(userid) + ' GROUP BY referral_uses.referral', async function(err3, row3) {
+      pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ?', [userid], async function(err3, row3) {
         if(err3) {
           logger.error(err3);
           writeError(err3);
@@ -946,11 +972,20 @@ function inputATdata(userid, amount = 0, type = 'bet') {
         if(row3.length > 0) {
           var commission_deposit = getFeeFromCommission(amount, getAffiliateCommission(getFormatAmount(row3[0].amount), 'bet'));
           
-          pool.query('INSERT INTO `referral_wagered` SET `userid` = ' + pool.escape(userid) + ', `referral` = ' + pool.escape(row3[0].referral) + ', `amount` = ' + amount + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-          pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row3[0].referral));
+          pool.query('INSERT INTO `referral_wagered` SET `userid` = ?, `referral` = ?, `amount` = ?, `commission` = ?, `time` = ?', [userid, row3[0].referral, amount, commission_deposit, time()], function(err4) {
+            if (err4) {
+                console.error('Error occurred while inserting into referral_wagered:', err4);
+            } 
+        });
+        
+        pool.query('UPDATE `referral_codes` SET `available` = `available` + ? WHERE `userid` = ?', [commission_deposit, row3[0].referral], function(err5) {
+            if (err5) {
+                console.error('Error occurred while updating referral_codes:', err5);
+            }
+        });
         }
         
-        pool.query('INSERT INTO `slots_bets` SET `userid` = ' + pool.escape(userid) + ', `xp` = ' + parseInt(getXpByAmount(amount)) + ', `amount` = ' + amount + ', `game` = ' + pool.escape(game) + ', `time` = ' + pool.escape(time()), function(err4, row4) {
+        pool.query('INSERT INTO `slots_bets` SET `userid` = ?, `xp` = ?, `amount` = ?, `game` = ?, `time` = ?', [userid, parseInt(getXpByAmount(amount)), amount, game, time()], function(err4, row4) {
           if(err4) {
             logger.error(err4);
             writeError(err4);
@@ -981,7 +1016,7 @@ function inputATdata(userid, amount = 0, type = 'bet') {
 
 
 function getUser(userid, cb) {
-  pool.query('SELECT `username`, `avatar`, `userid`, `balance_battles` FROM `users` WHERE `userid` = ' + pool.escape(userid), function(err1, row1) {
+  pool.query('SELECT `username`, `avatar`, `userid`, `balance_battles` FROM `users` WHERE `userid` = ?', [userid], function(err1, row1) {
     if(err1) return cb({balance_battles: 0, username: '', avatar: '', userid: userid});
     if(row1.length == 0) return cb({balance_battles: 0, username: '', avatar: '', userid: userid});
 
@@ -991,7 +1026,7 @@ function getUser(userid, cb) {
 
 async function getUserBalanceBattles(userid) {
   return new Promise((resolve, reject) => {
-    pool.query('SELECT `userid`, `balance_battles` FROM `users` WHERE `userid` = ' + pool.escape(userid), function(err1, row1) {
+    pool.query('SELECT `userid`, `balance_battles` FROM `users` WHERE `userid` = ?', [userid], function(err1, row1) {
       if(err1) {
         saveLog(err1);
         return resolve(0);

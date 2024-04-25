@@ -85,11 +85,20 @@ function bonusBattlesCreate(user, socket, request) {
 
   if(amount > user.balance) return socket.emit('message', {type: 'error', error: 'Not enough balance.'});
 
-  // all good
-  pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-  pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('bonusbattle_create') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
-  
-  pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ', `balance_battles` = `balance_battles` + ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err3){
+  pool.query('UPDATE `users` SET `xp` = `xp` + ? WHERE `userid` = ?', [getXpByAmount(amount), user.userid], function(err1) {
+    if (err1) {
+        console.error('Error occurred while updating users:', err1);
+    } else {
+        getLevel(user.userid);
+    }
+  });
+
+  pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'bonusbattle_create', -amount, time()], function(err2) {
+    if (err2) {
+        console.error('Error occurred while inserting into users_transactions:', err2);
+    }
+  });
+  pool.query('UPDATE `users` SET `balance` = `balance` - ?, `balance_battles` = `balance_battles` + ? WHERE `userid` = ?', [amount, amount, user.userid], function(err3) {
     if(err3) {
       logger.error(err3);
       writeError(err3);
@@ -107,7 +116,7 @@ function bonusBattlesCreate(user, socket, request) {
 
     // players status: 0 = didnt buy the bonus yet, 1 = bought bonus, 2 = game over
 
-    pool.query('INSERT INTO `bonusbattles_games` SET `time_start` = ' + pool.escape(insert_data.time_start) + ', `status` = ' + pool.escape(insert_data.status) + ', `players` = ' + pool.escape(insert_data.players) + ', `game` = ' + pool.escape(insert_data.game) + ', `amount` = ' + insert_data.amount + ', `max_players` = ' + insert_data.max_players, function(err6, rs){
+    pool.query('INSERT INTO `bonusbattles_games` SET `time_start` = ?, `status` = ?, `players` = ?, `game` = ?, `amount` = ?, `max_players` = ?', [insert_data.time_start, insert_data.status, insert_data.players, insert_data.game, insert_data.amount, insert_data.max_players], function(err6, rs) {
       if(err6) {
         logger.error(err6);
         writeError(err6);

@@ -60,7 +60,7 @@ var chat_ranksList = [
 
 chat_loadMessages();
 function chat_loadMessages(){
-	pool.query('SELECT * FROM `messages` WHERE `deleted` = 0 ORDER BY `id` DESC LIMIT ' + config.config_chat.max_messages, async function(err1, row1){
+	pool.query('SELECT * FROM `messages` WHERE `deleted` = 0 ORDER BY `id` DESC LIMIT ?', [config.config_chat.max_messages], async function(err1, row1){
 		if(err1){
 			logger.error(err1);
 			writeError(err1);
@@ -447,7 +447,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 			return;
 		}
 			
-		pool.query('UPDATE `messages` SET `deleted` = 1 WHERE `id` = ' + message_id);
+		pool.query('UPDATE `messages` SET `deleted` = 1 WHERE `id` = ?', [message_id]);
 		
 		chat_massages.splice(message_index, 1);
 		
@@ -517,7 +517,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 			return;
 		}
 		
-		pool.query('SELECT `name` FROM `users` WHERE `userid` = ' + pool.escape(res[1]), function(err1, row1) {
+		pool.query('SELECT `name` FROM `users` WHERE `userid` = ?', [res[1]], function(err1, row1) {
 			if(err1){
 				logger.error(err1);
 				writeError(err1);
@@ -572,7 +572,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 			return;
 		}
 		
-		pool.query('SELECT `name` FROM `users` WHERE `userid` = ' + pool.escape(res[1]), function(err1, row1) {
+		pool.query('SELECT `name` FROM `users` WHERE `userid` = ?', [res[1]], function(err1, row1) {
 			if(err1){
 				logger.error(err1);
 				writeError(err1);
@@ -661,7 +661,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 			return;
 		}
 		
-		pool.query('SELECT `name`, `rank` FROM `users` WHERE `userid` = ' + pool.escape(res[1]), function(err1, row1) {
+		pool.query('SELECT `name`, `rank` FROM `users` WHERE `userid` = ?', [res[1]], function(err1, row1) {
 			if(err1){
 				logger.error(err1);
 				writeError(err1);
@@ -684,7 +684,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 				return;
 			}
 			
-			pool.query('UPDATE `users` SET `rank` = ' + rankInList.code + ' WHERE `userid` = ' + pool.escape(res[1]));
+			pool.query('UPDATE `users` SET `rank` = ? WHERE `userid` = ?', [rankInList.code, res[1]]);
 			
 			socket.emit('message', {
 				type: 'info',
@@ -705,7 +705,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 			return;
 		}
 			
-		pool.query('UPDATE `info` SET `maintenance` = 1, `maintenance_message` = ' + pool.escape(res[1]));
+		pool.query('UPDATE `info` SET `maintenance` = 1, `maintenance_message` = ?', [res[1]]);
 		
 		socket.emit('message', {
 			type: 'success',
@@ -743,7 +743,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 			return;
 		}
 		
-		pool.query('SELECT * FROM `users` WHERE `userid` = ' + pool.escape(res[1]), function(err1, row1) {
+		pool.query('SELECT * FROM `users` WHERE `userid` = ?', [res[1]], function(err1, row1) {
 			if(err1){
 				logger.error(err1);
 				writeError(err1);
@@ -758,7 +758,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 				return;
 			}
 			
-			pool.query('SELECT `ip` FROM `users_logins` WHERE `userid` = ' + pool.escape(row1[0].userid) + ' ORDER BY `id` DESC LIMIT 1', function(err2, row2) {
+			pool.query('SELECT `ip` FROM `users_logins` WHERE `userid` = ? ORDER BY `id` DESC LIMIT 1', [row1[0].userid], function(err2, row2) {
 				if(err2){
 					logger.error(err2);
 					writeError(err2);
@@ -773,7 +773,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 					return;
 				}
 			
-				pool.query('SELECT * FROM `bannedip` WHERE `ip` = ' + pool.escape(row2[0].ip), function(err3, row3) {
+				pool.query('SELECT * FROM `bannedip` WHERE `ip` = ?', [row2[0].ip], function(err3, row3) {
 					if(err3){
 						logger.error(err3);
 						writeError(err3);
@@ -788,7 +788,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 						return;
 					}
 					
-					pool.query('INSERT INTO `bannedip` SET `ip` = ' + pool.escape(row2[0].ip) + ', `userid` = ' + pool.escape(user.userid) + ', `time` = ' + pool.escape(time()), function(err4) {
+					pool.query('INSERT INTO `bannedip` SET `ip` = ?, `userid` = ?, `time` = ?', [row2[0].ip, user.userid, time()], function(err4) {
 						if(err4){
 							logger.error(err4);
 							writeError(err4);
@@ -880,7 +880,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 			return;
 		}
 		
-		pool.query('UPDATE `info` SET `trade` = ' + parseInt(res[1]));
+		pool.query('UPDATE `info` SET `trade` = ?', [parseInt(res[1])]);
 		
 		socket.emit('message', {
 			type: 'success',
@@ -903,7 +903,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 			return;
 		}
 		
-		pool.query('UPDATE `info` SET `play` = ' + parseInt(res[1]));
+		pool.query('UPDATE `info` SET `play` = ?', [parseInt(res[1])]);
 		
 		socket.emit('message', {
 			type: 'success',
@@ -935,7 +935,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 				return;
 			}
 		
-			pool.query('SELECT `name` FROM `users` WHERE `userid` = ' + pool.escape(res[1]), function(err2, row2) {
+			pool.query('SELECT `name` FROM `users` WHERE `userid` = ?', [res[1]], function(err2, row2) {
 				if(err2){
 					logger.error(err2);
 					writeError(err2);
@@ -950,9 +950,9 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 					return;
 				}
 				
-				pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(res[1]) + ', `service` = ' + pool.escape('change_balance') + ', `amount` = ' + amount + ', `time` = ' + pool.escape(time()));
+				pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [res[1], 'change_balance', amount, time()]);
 			
-				pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount + ' WHERE `userid` = ' + pool.escape(res[1]), function(err3){
+				pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [amount, res[1]], function(err3){
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);
@@ -999,7 +999,7 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 				return;
 			}
 		
-			pool.query('SELECT `name`, `balance` FROM `users` WHERE `userid` = ' + pool.escape(res[1]), function(err2, row2) {
+			pool.query('SELECT `name`, `balance` FROM `users` WHERE `userid` = ?', [res[1]], function(err2, row2) {
 				if(err2){
 					logger.error(err2);
 					writeError(err2);
@@ -1016,9 +1016,9 @@ function chat_checkMessage(user, socket, message, channel, hide) {
 				
 				if(getFormatAmount(row2[0].balance) < amount) amount = getFormatAmount(row2[0].balance);
 				
-				pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(res[1]) + ', `service` = ' + pool.escape('change_balance') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
+				pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [res[1], 'change_balance', -amount, time()]);
 			
-				pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(res[1]), function(err3){
+				pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, res[1]], function(err3) {
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);
@@ -1142,7 +1142,7 @@ function chat_writeMessage(user, socket, message, channel){
 	}
 	
 	chat_getMentions(message, function(mentions){
-		pool.query('INSERT INTO `messages` SET `userid` = ' + pool.escape(user.userid) + ', `name` = ' + pool.escape(user.name) + ', `avatar` = ' + pool.escape(user.avatar) + ', `rank` = ' + parseInt(user.rank) + ', `xp` = ' + parseInt(user.xp) + ', `message` = ' + pool.escape(message) + ', `channel` = ' + pool.escape(channel) + ', `time` = ' + pool.escape(new Date().getTime()), function(err1, row1){
+		pool.query('INSERT INTO `messages` SET `userid` = ?, `name` = ?, `avatar` = ?, `rank` = ?, `xp` = ?, `message` = ?, `channel` = ?, `time` = ?', [user.userid, user.name, user.avatar, parseInt(user.rank), parseInt(user.xp), message, channel, new Date().getTime()], function(err1, row1){
 			if(err1){
 				logger.error(err1);
 				writeError(err1);
@@ -1189,7 +1189,7 @@ function chat_getMentions(message, callback){
 	
 	for(var i = 0; i < mentions.length; i++) mentions[i] = mentions[i].replace('@', '');
 	
-	pool.query('SELECT * FROM `users` WHERE `userid` IN (' + pool.escape(mentions.join(',')) + ')', function(err1, row1){
+	pool.query('SELECT * FROM `users` WHERE `userid` IN (?)', [mentions], function(err1, row1){
 		if(err1){
 			logger.error(err1);
 			writeError(err1);

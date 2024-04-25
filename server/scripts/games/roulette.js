@@ -128,11 +128,24 @@ function rouletteGame_bet(user, socket, amount, color) {
 			return;
 		}
 		
-		pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(amount) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(user.userid));
-		pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-		pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('roulette_bet') + ', `amount` = '+ (-amount) + ', `time` = ' + pool.escape(time()));
-		
-		pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2) {
+		pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(amount), user.userid]);
+
+		pool.query('UPDATE `users` SET `xp` = `xp` + ? WHERE `userid` = ?', [getXpByAmount(amount), user.userid], function(error) {
+    		if (!error) {
+        		getLevel(user.userid);
+    		}
+		});
+
+		pool.query('INSERT INTO `users_transactions` SET ?', {
+    		userid: user.userid,
+    		service: 'roulette_bet',
+    		amount: -amount,
+    		time: new Date()
+		}, function(error) {
+    		if (error) {
+			}
+		});
+		pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err2) {
 			if(err2) {
 				logger.error(err2);
 				writeError(err2);
@@ -141,7 +154,7 @@ function rouletteGame_bet(user, socket, amount, color) {
 			}
 			
 			//AFFILIATES
-			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err3, row3) {
+			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ? GROUP BY referral_uses.referral', [user.userid], function(err3, row3) {
 				if(err3) {
 					logger.error(err3);
 					writeError(err3);
@@ -152,11 +165,21 @@ function rouletteGame_bet(user, socket, amount, color) {
 				if(row3.length > 0 && should_refferals_count_wager) {
 					var commission_deposit = getFeeFromCommission(amount, getAffiliateCommission(getFormatAmount(row3[0].amount), 'bet'));
 					
-					pool.query('INSERT INTO `referral_wagered` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row3[0].referral) + ', `amount` = ' + amount + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-					pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row3[0].referral));
+					pool.query('INSERT INTO `referral_wagered` SET `userid` = ?, `referral` = ?, `amount` = ?, `commission` = ?, `time` = ?', [user.userid, row3[0].referral, amount, commission_deposit, time()], function(err) {
+   					 if (err) {
+       					 console.error(err);
+    				 }
+					});
+
+					pool.query('UPDATE `referral_codes` SET `available` = `available` + ? WHERE `userid` = ?', [commission_deposit, row3[0].referral], function(err) {
+    					if (err) {
+       				 		console.error(err);
+    					}
+					});
+
 				}
 			
-				pool.query('INSERT INTO `roulette_bets` SET `userid` = ' + pool.escape(user.userid) + ', `name` = ' + pool.escape(user.name) + ', `avatar` = ' + pool.escape(user.avatar) + ', `xp` = ' + parseInt(user.xp) + ', `amount` = ' + amount + ', `color` = ' + pool.escape(color) + ', `game_id` = ' + parseInt(rouletteGame.id) + ', `time` = ' + pool.escape(time()), function(err4, row4) {
+				pool.query('INSERT INTO `roulette_bets` SET `userid` = ?, `name` = ?, `avatar` = ?, `xp` = ?, `amount` = ?, `color` = ?, `game_id` = ?, `time` = ?', [user.userid, user.name, user.avatar, parseInt(user.xp), amount, color, parseInt(rouletteGame.id), time()], function(err4, row4) {
 					if(err4) {
 						logger.error(err4);
 						writeError(err4);
@@ -247,7 +270,7 @@ function rouletteGame_checkRound(){
 				id: parseInt(row1[0].id),
 			}
 			
-			pool.query('SELECT * FROM `roulette_bets` WHERE `game_id` = ' + parseInt(rouletteGame.id), function(err2, row2){
+			pool.query('SELECT * FROM `roulette_bets` WHERE `game_id` = ?', [parseInt(rouletteGame.id)], function(err2, row2) {
 				if(err2){
 					logger.error(err2);
 					writeError(err2);
@@ -313,7 +336,7 @@ function rouletteGame_generateRound(){
 	
 	rouletteGame_checkTimer();
 	
-	pool.query('INSERT INTO `roulette_rolls` SET `roll` = ' + parseInt(rouletteGame.roll) + ', `color` = ' + pool.escape(rouletteGame.color) + ', `progress` = ' + pool.escape(rouletteGame.progress) + ', `hash` = ' + pool.escape(rouletteGame.hash) + ', `secret` = ' + pool.escape(rouletteGame.secret) + ', `time` = ' + pool.escape(time()), function(err1, row1){
+	pool.query('INSERT INTO `roulette_rolls` SET `roll` = ?, `color` = ?, `progress` = ?, `hash` = ?, `secret` = ?, `time` = ?', [parseInt(rouletteGame.roll), rouletteGame.color, rouletteGame.progress, rouletteGame.hash, rouletteGame.secret, time()], function(err1, row1) {
 		if(err1){
 			logger.error(err1);
 			writeError(err1);
@@ -371,7 +394,7 @@ function rouletteGame_checkTimer() {
 				logger.debug('[ROULETTE] Ended');
 				rouletteGame.status = 'ended';
 				
-				pool.query('UPDATE `roulette_rolls` SET `ended` = 1 WHERE `id` = ' + parseInt(rouletteGame.id), function(err){
+				pool.query('UPDATE `roulette_rolls` SET `ended` = 1 WHERE `id` = ?', [parseInt(rouletteGame.id)], function(err) {
 					if(err){
 						logger.error(err);
 						writeError(err);
@@ -432,9 +455,18 @@ function rouletteGame_finish() {
 		if(rouletteGame.color == item.color) {
 			var winning = getFormatAmount(item.amount * multiplier);
 			
-			pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(item.user.userid));
-			pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(item.user.userid) + ', `service` = ' + pool.escape('roulette_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
-			
+			pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, item.user.userid], function(err1) {
+    			if (err1) {
+       			 	console.error('Error occurred while updating users:', err1);
+    			}
+			});
+
+			pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [item.user.userid, 'roulette_win', winning, time()], function(err2) {
+   				if (err2) {
+       			 	console.error('Error occurred while inserting into users_transactions:', err2);
+    			} 
+			});
+
 			logger.debug('[ROULETTE] Win registed. ' + item.user.userid + ' did win $' + getFormatAmountString(winning) + ' with multiplier x' + multiplier);
 			
 			if(total_winnings[item.user.userid] === undefined) total_winnings[item.user.userid] = {

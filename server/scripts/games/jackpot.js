@@ -16,7 +16,7 @@ function jackpotGame_loadHistory(){
 		row1.reverse();
 		
 		row1.forEach(function(history){
-			pool.query('SELECT * FROM `jackpot_bets` WHERE `id` = ' + parseInt(history.betid) + ' AND `gameid` = ' + parseInt(history.id), function(err2, row2){
+			pool.query('SELECT * FROM `jackpot_bets` WHERE `id` = ? AND `gameid` = ?', [parseInt(history.betid), parseInt(history.id)], function(err2, row2) {
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -67,7 +67,7 @@ var jackpotGame = {
 jackpotGame_checkGames();
 
 function jackpotGame_checkGames(){
-	pool.query('SELECT * FROM `jackpot_history` WHERE `ended` = 0 ORDER BY `id` DESC LIMIT 1', function(err1, row1){
+	pool.query('SELECT * FROM `jackpot_history` WHERE `ended` = ? ORDER BY `id` DESC LIMIT 1', [0], function(err1, row1) {
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -89,7 +89,7 @@ function jackpotGame_checkGames(){
 				hash: jackpotGame.hash
 			});
 			
-			pool.query('SELECT * FROM `jackpot_bets` WHERE `gameid` = ' + parseInt(jackpotGame.id), function(err2, row2){
+			pool.query('SELECT * FROM `jackpot_bets` WHERE `gameid` = ?', [jackpotGame.id], function(err2, row2) {
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -154,7 +154,12 @@ function jackpotGame_generateGame(){
 	jackpotGame.percentage = Math.random() * 100;
 	jackpotGame.hash = sha256(jackpotGame.secret+'-'+jackpotGame.percentage);
 
-	pool.query('INSERT INTO `jackpot_history` SET `hash` = '+pool.escape(jackpotGame.hash)+', `secret` = '+pool.escape(jackpotGame.secret)+', `percentage` = '+parseFloat(jackpotGame.percentage)+', `time` = '+pool.escape(time()), function(err, row){
+	pool.query('INSERT INTO `jackpot_history` SET ?', {
+		hash: jackpotGame.hash,
+		secret: jackpotGame.secret,
+		percentage: parseFloat(jackpotGame.percentage),
+		time: time
+	  }, function(err, row) {
 		if(err) {
 			logger.error(err);
 			writeError(err);
@@ -222,11 +227,28 @@ function jackpotGame_bet(user, socket, amount){
 			return;
 		}
 		
-		pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(amount) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(user.userid));
-		pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-		pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('jackpot_bet') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
-	
-		pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2) {
+		pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(amount), user.userid]);
+
+		pool.query('UPDATE `users` SET `xp` = `xp` + ? WHERE `userid` = ?', [getXpByAmount(amount), user.userid], function(err) {
+		  if (!err) {
+			getLevel(user.userid);
+		  } else {
+			console.error("Error updating user XP:", err);
+		  }
+		});
+		
+		pool.query('INSERT INTO `users_transactions` SET ?', {
+		  userid: user.userid,
+		  service: 'jackpot_bet',
+		  amount: -amount,
+		  time: time
+		}, function(err) {
+		  if (err) {
+			console.error("Error inserting user transaction:", err);
+		  }
+		});
+		
+		pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err2) {
 			if(err2) {
 				logger.error(err2);
 				writeError(err2);
@@ -235,7 +257,7 @@ function jackpotGame_bet(user, socket, amount){
 			}
 			
 			//AFFILIATES
-			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err3, row3) {
+			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ? GROUP BY referral_uses.referral', [user.userid], function(err3, row3) {
 				if(err3) {
 					logger.error(err3);
 					writeError(err3);
@@ -246,15 +268,34 @@ function jackpotGame_bet(user, socket, amount){
 				if(row3.length > 0 && should_refferals_count_wager) {
 					var commission_deposit = getFeeFromCommission(amount, getAffiliateCommission(getFormatAmount(row3[0].amount), 'bet'));
 					
-					pool.query('INSERT INTO `referral_wagered` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row3[0].referral) + ', `amount` = ' + amount + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-					pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row3[0].referral));
+					pool.query('INSERT INTO `referral_wagered` SET `userid` = ?, `referral` = ?, `amount` = ?, `commission` = ?, `time` = ?', [user.userid, row3[0].referral, amount, commission_deposit, time], function(err) {
+						if (err) {
+						  console.error("Error inserting into referral_wagered:", err);
+						}
+					});
+					  
+					pool.query('UPDATE `referral_codes` SET `available` = `available` + ? WHERE `userid` = ?', [commission_deposit, row3[0].referral], function(err) {
+						if (err) {
+						  console.error("Error updating referral_codes:", err);
+						}
+					}); 
 				}
 			
 			
 				var min_ticket = parseInt(jackpotGame_settings.last_ticket + 1);
 				var max_ticket = parseInt(parseInt(amount * 100) + jackpotGame_settings.last_ticket);
 				
-				pool.query('INSERT INTO `jackpot_bets` SET `userid` = ' + pool.escape(user.userid) + ', `name` = ' + pool.escape(user.name) + ', `avatar` = ' + pool.escape(user.avatar) + ', `xp` = ' + parseInt(user.xp) + ', `amount` = ' + amount + ', `ticket_min` = ' + pool.escape(min_ticket) + ', `ticket_max` = ' + pool.escape(max_ticket) + ', `gameid` = ' + parseInt(jackpotGame.id) + ', `time` = ' + pool.escape(time()), function(err4, row4) {
+				pool.query('INSERT INTO `jackpot_bets` SET ?', {
+					userid: user.userid,
+					name: user.name,
+					avatar: user.avatar,
+					xp: parseInt(user.xp),
+					amount: amount,
+					ticket_min: min_ticket,
+					ticket_max: max_ticket,
+					gameid: parseInt(jackpotGame.id),
+					time: time
+				  }, function(err4, row4) {
 					if(err4) {
 						logger.error(err4);
 						writeError(err4);
@@ -481,8 +522,18 @@ function jackpotGame_pickingWinner(pseed){
 			winner: jackpotGame_lastWinner
 		});
 		
-		pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(winner_jackpot.userid) + ', `service` = ' + pool.escape('jackpot_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
-		pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(winner_jackpot.userid), function(err1){
+		pool.query('INSERT INTO `users_transactions` SET ?', {
+			userid: winner_jackpot.userid,
+			service: 'jackpot_win',
+			amount: winning,
+			time: time
+		  }, function(err1) {
+			if (err1) {
+			  console.error("Error inserting into users_transactions:", err1);
+			}
+		  });
+		  
+		  pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, winner_jackpot.userid], function(err2) {
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -510,7 +561,7 @@ function jackpotGame_pickingWinner(pseed){
 			jackpotGame_lastGames.push(history);
 			while(jackpotGame_lastGames.length > 10) jackpotGame_lastGames.shift();
 			
-			pool.query('UPDATE `jackpot_history` SET `ended` = 1, `betid` = ' + pool.escape(winner_id) + ', `chance` = ' + chance_winner + ', `ticket` = ' + parseInt(winnerTick) + ', `amount` = ' + winning + ', `tickets` = ' + parseInt(jackpotGame_settings.last_ticket) + ', `players` = "' + pool.escape(JSON.stringify(jackpotGame_totalBets)) + '" WHERE `id` = ' + parseInt(jackpotGame.id), function(err2) {
+			pool.query('UPDATE `jackpot_history` SET `ended` = 1, `betid` = ?, `chance` = ?, `ticket` = ?, `amount` = ?, `tickets` = ?, `players` = ? WHERE `id` = ?', [winner_id, chance_winner, parseInt(winnerTick), winning, parseInt(jackpotGame_settings.last_ticket), JSON.stringify(jackpotGame_totalBets), parseInt(jackpotGame.id)], function(err2) {
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);

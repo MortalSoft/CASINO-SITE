@@ -9,10 +9,10 @@ function addRakeback(bet_amount, game, userid) {
 	const rb_amount = (bet_amount * 0.05) * 0.1;
 
 	// updateBalance2(userid, rb_amount)
-	pool.query('UPDATE `users` SET `rakeback` = `rakeback` + ' + rb_amount + ' WHERE `userid` = ' + pool.escape(userid), function(err2){
+	pool.query('UPDATE `users` SET `rakeback` = `rakeback` + ? WHERE `userid` = ?', [rb_amount, userid], function(err2){
 		if(err2) return;
 
-		pool.query('SELECT `rakeback` FROM `users` WHERE `userid` = ' + pool.escape(userid), function(err1, row1) {
+		pool.query('SELECT `rakeback` FROM `users` WHERE `userid` = ?', [userid], function(err1, row1) {
 			if(err1) return;
 			if(row1.length == 0) return;
 			
@@ -22,13 +22,13 @@ function addRakeback(bet_amount, game, userid) {
 }
 
 function collectRakeback(userid) {
-	pool.query('SELECT `rakeback` FROM `users` WHERE `userid` = ' + pool.escape(userid), function(err1, row1) {
-			if(err1) return io.sockets.in(userid).emit('rb_error', err1);
+	pool.query('SELECT `rakeback` FROM `users` WHERE `userid` = ?', [userid], function(err1, row1) {
+		if(err1) return io.sockets.in(userid).emit('rb_error', err1);
 			if(row1.length == 0) return io.sockets.in(userid).emit('rb_error', `Invalid user. (?)`);
 
 			if(row1[0].rakeback <= 0) return io.sockets.in(userid).emit('rb_error', `Not enough to be collected.`);
 			
-			pool.query('UPDATE `users` SET `rakeback` = 0, `balance` = `balance` + ' + row1[0].rakeback + ' WHERE `userid` = ' + pool.escape(userid), async function(err2){
+			pool.query('UPDATE `users` SET `rakeback` = 0, `balance` = `balance` + ? WHERE `userid` = ?', [row1[0].rakeback, userid], async function(err2){
 				if(err2) return;
 
 				const bl = await getBalance2(userid);
@@ -40,7 +40,7 @@ function collectRakeback(userid) {
 }
 
 function getBalance(userid) {
-	pool.query('SELECT `balance` FROM `users` WHERE `userid` = ' + pool.escape(userid), function(err1, row1) {
+	pool.query('SELECT `balance` FROM `users` WHERE `userid` = ?', [userid], function(err1, row1) {
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -60,7 +60,7 @@ function getBalance2(userid, getBonusBattlesBalance = false) {
 	return new Promise((resolve, reject) => {
 		const x = getBonusBattlesBalance ? 'balance_battles' : 'balance';
 
-		pool.query('SELECT `' + x + '` FROM `users` WHERE `userid` = ' + pool.escape(userid), function(err1, row1) {
+		pool.query('SELECT ?? FROM `users` WHERE `userid` = ?', [x, userid], function(err1, row1) {
 			if(err1) return resolve(0);
 			if(row1.length == 0) return resolve(0);
 			
@@ -78,7 +78,7 @@ function updateBalance2(userid, amount, set = false, getBonusBattlesBalance = fa
 
 			const x = getBonusBattlesBalance ? 'balance_battles' : 'balance';
 
-			pool.query('UPDATE `users` SET `' + x + '` = ' + bal + ' WHERE `userid` = ' + pool.escape(userid), function(err2){
+			pool.query('UPDATE `users` SET ?? = ? WHERE `userid` = ?', [x, bal, userid], function(err2) {
 				if(err2) return resolve(0);
 
 				if(!getBonusBattlesBalance) {
@@ -95,7 +95,7 @@ function updateBalance2(userid, amount, set = false, getBonusBattlesBalance = fa
 }
 
 function getLevel(userid) {
-	pool.query('SELECT `xp` FROM `users` WHERE `userid` = ' + pool.escape(userid), function(err1, row1) {
+	pool.query('SELECT `xp` FROM `users` WHERE `userid` = ?', [userid], function(err1, row1) {
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -154,7 +154,7 @@ function saveTradelink(user, socket, tradelink, recaptcha){
 			return;
 		}
 		
-		pool.query('INSERT INTO `users_changes` SET `userid` = ' + pool.escape(user.userid) + ', `change` = ' + pool.escape('tradelink') + ', `value` = ' + pool.escape(tradelink) + ', `time` = ' + pool.escape(time()), function(err1) {
+		pool.query('INSERT INTO `users_changes` SET `userid` = ?, `change` = ?, `value` = ?, `time` = ?', [user.userid, 'tradelink', tradelink, time()], function(err1) {
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -162,7 +162,7 @@ function saveTradelink(user, socket, tradelink, recaptcha){
 				return;
 			}
 		
-			pool.query('UPDATE `users` SET `tradelink` = ' + pool.escape(tradelink) + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2) {
+			pool.query('UPDATE `users` SET `tradelink` = ? WHERE `userid` = ?', [tradelink, user.userid], function(err2) {
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -209,7 +209,7 @@ function saveApikey(user, socket, apikey, recaptcha){
 				return;
 			}
 		
-			pool.query('INSERT INTO `users_changes` SET `userid` = ' + pool.escape(user.userid) + ', `change` = ' + pool.escape('apikey') + ', `value` = ' + pool.escape(apikey) + ', `time` = ' + pool.escape(time()), function(err2) {
+			pool.query('INSERT INTO `users_changes` SET `userid` = ?, `change` = ?, `value` = ?, `time` = ?', [user.userid, 'apikey', apikey, time()], function(err2) {
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -217,7 +217,7 @@ function saveApikey(user, socket, apikey, recaptcha){
 					return;
 				}
 			
-				pool.query('UPDATE `users` SET `apikey` = ' + pool.escape(apikey) + ' WHERE `userid` = ' + pool.escape(user.userid), function(err3) {
+				pool.query('UPDATE `users` SET `apikey` = ? WHERE `userid` = ?', [apikey, user.userid], function(err3) {
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);
@@ -251,7 +251,7 @@ function profileSettings(user, socket, data){
 		return;
 	}
 	
-	pool.query('INSERT INTO `users_changes` SET `userid` = ' + pool.escape(user.userid) + ', `change` = ' + pool.escape(data.setting) + ', `value` = ' + pool.escape(data.value) + ', `time` = ' + pool.escape(time()), function(err1) {
+	pool.query('INSERT INTO `users_changes` SET `userid` = ?, `change` = ?, `value` = ?, `time` = ?', [user.userid, data.setting, data.value, time()], function(err1) {
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -259,7 +259,7 @@ function profileSettings(user, socket, data){
 			return;
 		}
 	
-		pool.query('UPDATE `users` SET `' + data.setting + '` = ' + pool.escape(data.value) + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2){
+		pool.query('UPDATE `users` SET ?? = ? WHERE `userid` = ?', [data.setting, data.value, user.userid], function(err2){
 			if(err2) {
 				logger.error(err2);
 				writeError(err2);
@@ -307,7 +307,7 @@ function accountExclusion(user, socket, exclusion, recaptcha) {
 		
 		var time_exclusion = getTimeString(exclusion);
 		
-		pool.query('INSERT INTO `users_changes` SET `userid` = ' + pool.escape(user.userid) + ', `change` = ' + pool.escape("exclusion") + ', `value` = ' + pool.escape(time_exclusion) + ', `time` = ' + pool.escape(time()), function(err1) {
+		pool.query('INSERT INTO `users_changes` SET `userid` = ?, `change` = ?, `value` = ?, `time` = ?', [user.userid, "exclusion", time_exclusion, time()], function(err1) {
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -315,7 +315,7 @@ function accountExclusion(user, socket, exclusion, recaptcha) {
 				return;
 			}
 		
-			pool.query('UPDATE `users` SET `exclusion` = ' + pool.escape(time_exclusion) + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2){
+			pool.query('UPDATE `users` SET `exclusion` = ? WHERE `userid` = ?', [time_exclusion, user.userid], function(err2){
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -369,7 +369,7 @@ function resendVerifyProfile(user, socket, recaptcha, bypassrc = false){
 			return;
 		}
 		
-		pool.query('SELECT * FROM `link_keys` WHERE `type` = ' + pool.escape("verify_profile") + ' AND `userid` = ' + pool.escape(user.userid) + ' AND `used` = 0 AND `removed` = 0 AND (`expire` > ' + pool.escape(time()) + ' OR `expire` = -1) AND `created` > ' + pool.escape(time() - config.config_site.profile.cooldown_verify), function(err1, row1) {
+		pool.query('SELECT * FROM `link_keys` WHERE `type` = ? AND `userid` = ? AND `used` = 0 AND `removed` = 0 AND (`expire` > ? OR `expire` = -1) AND `created` > ?', ["verify_profile", user.userid, time(), time() - config.config_site.profile.cooldown_verify], function(err1, row1) {
 			if(err1) {
 				if(bypassrc) return;
 				logger.error(err1);
@@ -388,7 +388,7 @@ function resendVerifyProfile(user, socket, recaptcha, bypassrc = false){
 				return;
 			}
 			
-			pool.query('UPDATE `link_keys` SET `removed` = 1 WHERE `type` = ' + pool.escape("verify_profile") + ' AND `userid` = ' + pool.escape(user.userid) + ' AND `used` = 0 AND `removed` = 0 AND (`expire` > ' + pool.escape(time()) + ' OR `expire` = -1) AND `created` > ' + pool.escape(time() - 2 * 60), function(err2, row2) {
+			pool.query('UPDATE `link_keys` SET `removed` = 1 WHERE `type` = ? AND `userid` = ? AND `used` = 0 AND `removed` = 0 AND (`expire` > ? OR `expire` = -1) AND `created` > ?', ["verify_profile", user.userid, time(), time() - 2 * 60], function(err2, row2) {
 				if(err2) {
 					if(bypassrc) return;
 					logger.error(err2);
@@ -399,7 +399,7 @@ function resendVerifyProfile(user, socket, recaptcha, bypassrc = false){
 			
 				var verify_key = generateHexCode(32);
 				
-				pool.query('INSERT INTO `link_keys` SET `type` = ' + pool.escape("verify_profile") + ', `userid` = ' + pool.escape(user.userid) + ', `key` = ' + pool.escape(verify_key) + ', `expire` = -1, `created` = ' + pool.escape(time()), function(err3) {
+				pool.query('INSERT INTO `link_keys` SET `type` = ?, `userid` = ?, `key` = ?, `expire` = -1, `created` = ?', ["verify_profile", user.userid, verify_key, time()], function(err3) {
 					if(err3) {
 						if(bypassrc) return;
 						logger.error(err3);
@@ -443,7 +443,7 @@ function recoverAccount(socket, data, recaptcha){
 			return;
 		}
 		
-		pool.query('SELECT `email`, `userid`, `initialized` FROM `users` WHERE `email` = ' + pool.escape(data.username) + ' OR `username` = ' + pool.escape(data.username), function(err1, row1) {
+		pool.query('SELECT `email`, `userid`, `initialized` FROM `users` WHERE `email` = ? OR `username` = ?', [data.username, data.username], function(err1, row1) {
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -467,7 +467,7 @@ function recoverAccount(socket, data, recaptcha){
 				return;
 			}
 			
-			pool.query('UPDATE `link_keys` SET `removed` = 1 WHERE `type` = ' + pool.escape("reset_password") + ' AND `userid` = ' + pool.escape(row1[0].userid) + ' AND `used` = 0 AND `removed` = 0 AND (`expire` > ' + pool.escape(time()) + ' OR `expire` = -1)', function(err2) {
+			pool.query('UPDATE `link_keys` SET `removed` = 1 WHERE `type` = ? AND `userid` = ? AND `used` = 0 AND `removed` = 0 AND (`expire` > ? OR `expire` = -1)', ["reset_password", row1[0].userid, time()], function(err2) {
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -476,7 +476,7 @@ function recoverAccount(socket, data, recaptcha){
 				
 				var recover_key = generateHexCode(32);
 				
-				pool.query('INSERT INTO `link_keys` SET `type` = ' + pool.escape("reset_password") + ', `userid` = ' + pool.escape(row1[0].userid) + ', `key` = ' + pool.escape(recover_key) + ', `expire` = ' + pool.escape(time() + 10 * 60) + ', `created` = ' + pool.escape(time()), function(err3) {
+				pool.query('INSERT INTO `link_keys` SET `type` = ?, `userid` = ?, `key` = ?, `expire` = ?, `created` = ?', ["reset_password", row1[0].userid, recover_key, time() + 10 * 60, time()], function(err3) {
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);
@@ -557,7 +557,7 @@ function accountSettings(user, socket, data){
 				}
 			}
 			
-			pool.query('UPDATE `users` SET `verified` = ' + parseInt((parseInt(user.verified) == 1) ? ((user.email == data.email) ? 1 : 0) : 0) + ', `username` = ' + pool.escape(data.username) + ', `email` = ' + pool.escape(data.email) + ' WHERE `userid` = ' + pool.escape(user.userid), function(err3, row3) {
+			pool.query('UPDATE `users` SET `verified` = ?, `username` = ?, `email` = ? WHERE `userid` = ?', [parseInt((parseInt(user.verified) == 1) ? ((user.email == data.email) ? 1 : 0) : 0), data.username, data.email, user.userid], function(err3, row3) {
 				if(err3) {
 					logger.error(err3);
 					writeError(err3);
@@ -572,9 +572,13 @@ function accountSettings(user, socket, data){
 					return;
 				}
 				
-				if(user.username != data.username) pool.query('INSERT INTO `users_changes` SET `userid` = ' + pool.escape(user.userid) + ', `change` = ' + pool.escape('username') + ', `value` = ' + pool.escape(data.username) + ', `time` = ' + pool.escape(time()));
-				if(user.email != data.email) pool.query('INSERT INTO `users_changes` SET `userid` = ' + pool.escape(user.userid) + ', `change` = ' + pool.escape('email') + ', `value` = ' + pool.escape(data.email) + ', `time` = ' + pool.escape(time()));
-				
+				if (user.username !== data.username) {
+					pool.query('INSERT INTO `users_changes` SET `userid` = ?, `change` = ?, `value` = ?, `time` = ?', [user.userid, 'username', data.username, time()]);
+				}
+				if (user.email !== data.email) {
+					pool.query('INSERT INTO `users_changes` SET `userid` = ?, `change` = ?, `value` = ?, `time` = ?', [user.userid, 'email', data.email, time()]);
+				}
+								
 				socket.emit('message', {
 					type: 'success',
 					success: 'Your account has been saved!'
@@ -585,7 +589,7 @@ function accountSettings(user, socket, data){
 }
 
 function userUnsetRestriction(user, socket, data, callback) {
-	pool.query('SELECT * FROM `users_restrictions` WHERE `removed` = 0 AND `restriction` = ' + pool.escape(data.restriction) + ' AND (`expire` = -1 OR `expire` > ' + pool.escape(time()) + ') AND `userid` = ' + pool.escape(data.userid), function(err1, row1) {
+	pool.query('SELECT * FROM `users_restrictions` WHERE `removed` = 0 AND `restriction` = ? AND (`expire` = -1 OR `expire` > ?) AND `userid` = ?', [data.restriction, time(), data.userid], function(err1, row1) {
 		if(err1){
 			logger.error(err1);
 			writeError(err1);
@@ -600,7 +604,7 @@ function userUnsetRestriction(user, socket, data, callback) {
 			return;
 		}
 		
-		pool.query('UPDATE `users_restrictions` SET `removed` = 1 WHERE `removed` = 0 AND `restriction` = ' + pool.escape(data.restriction) + ' AND (`expire` = -1 OR `expire` > ' + pool.escape(time()) + ') AND `userid` = '+ pool.escape(data.userid), function(err2, row2){
+		pool.query('UPDATE `users_restrictions` SET `removed` = 1 WHERE `removed` = 0 AND `restriction` = ? AND (`expire` = -1 OR `expire` > ?) AND `userid` = ?', [data.restriction, time(), data.userid], function(err2, row2){
 			if(err2){
 				logger.error(err2);
 				writeError(err2);
@@ -641,7 +645,7 @@ function userSetRestriction(user, socket, data, callback) {
 		return;
 	}
 		
-	pool.query('SELECT `name` FROM `users` WHERE `userid` = ' + pool.escape(data.userid), function(err1, row1) {
+	pool.query('SELECT `name` FROM `users` WHERE `userid` = ?', [data.userid], function(err1, row1) {
 		if(err1){
 			logger.error(err1);
 			writeError(err1);
@@ -656,7 +660,7 @@ function userSetRestriction(user, socket, data, callback) {
 			return;
 		}
 		
-		pool.query('SELECT * FROM `users_restrictions` WHERE `removed` = 0 AND `restriction` = ' + pool.escape(data.restriction) + ' AND (`expire` = -1 OR `expire` > ' + pool.escape(time()) + ') AND `userid` = ' + pool.escape(data.userid), function(err2, row2) {
+		pool.query('SELECT * FROM `users_restrictions` WHERE `removed` = 0 AND `restriction` = ? AND (`expire` = -1 OR `expire` > ?) AND `userid` = ?', [data.restriction, time(), data.userid], function(err2, row2) {
 			if(err2){
 				logger.error(err2);
 				writeError(err2);
@@ -671,7 +675,7 @@ function userSetRestriction(user, socket, data, callback) {
 				return;
 			}
 			
-			pool.query('INSERT INTO `users_restrictions` SET `userid` = ' + pool.escape(data.userid) + ', `restriction` = ' + pool.escape(data.restriction) + ', `reason` = ' + pool.escape(data.reason) + ', `byuserid` = '+ pool.escape(user.userid) + ', `expire` = ' + pool.escape(time_restriction) + ', `time` = '+ pool.escape(time()), function(err3){
+			pool.query('INSERT INTO `users_restrictions` SET `userid` = ?, `restriction` = ?, `reason` = ?, `byuserid` = ?, `expire` = ?, `time` = ?', [data.userid, data.restriction, data.reason, user.userid, time_restriction, time()], function(err3){
 				if(err3){
 					logger.error(err3);
 					writeError(err3);
@@ -773,7 +777,7 @@ function sendCoins(user, socket, userid, amount, recaptcha){
 				return;
 			}
 			
-			pool.query('SELECT `name`, `exclusion`, `verified`, `initialized` FROM `users` WHERE `userid` = ' + pool.escape(userid), function(err2, row2) {
+			pool.query('SELECT `name`, `exclusion`, `verified`, `initialized` FROM `users` WHERE `userid` = ?', [userid], function(err2, row2) {
 				if(err2){
 					logger.error(err2);
 					writeError(err2);
@@ -817,7 +821,7 @@ function sendCoins(user, socket, userid, amount, recaptcha){
 					return;
 				}
 				
-				pool.query('INSERT INTO `users_transfers` SET `from_userid` = ' + pool.escape(user.userid) + ', `to_userid` = ' + pool.escape(userid) + ', `amount` = ' + amount + ', `time` = ' + pool.escape(time()), function(err3){
+				pool.query('INSERT INTO `users_transfers` SET `from_userid` = ?, `to_userid` = ?, `amount` = ?, `time` = ?', [user.userid, userid, amount, time()], function(err3){
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);
@@ -825,9 +829,9 @@ function sendCoins(user, socket, userid, amount, recaptcha){
 						return;
 					}
 					
-					pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('sent_coins') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
+					pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'sent_coins', -amount, time()]);
 					
-					pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err4){
+					pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err4){
 						if(err4) {
 							logger.error(err4);
 							writeError(err4);
@@ -842,9 +846,9 @@ function sendCoins(user, socket, userid, amount, recaptcha){
 						
 						getBalance(user.userid);
 						
-						pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(userid) + ', `service` = ' + pool.escape('received_coins') + ', `amount` = ' + amount + ', `time` = ' + pool.escape(time()));
+						pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [userid, 'received_coins', amount, time()]);
 						
-						pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount + ' WHERE `userid` = ' + pool.escape(userid), function(err5){
+						pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [amount, userid], function(err5){
 							if(err5) {
 								logger.error(err5);
 								writeError(err5);

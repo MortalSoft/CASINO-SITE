@@ -41,7 +41,7 @@ function cryptoHandler(user, socket, request) {
 			trx.splice(iii, 1);
 			fs.writeFileSync('./crypto_withdraw.json', JSON.stringify(trx));
 
-			pool.query('UPDATE `users` SET `balance` = `balance` + ' + parseFloat(t.amount_calculated) + ', `available` = `available` + ' + t.amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err5) {
+			pool.query('UPDATE `users` SET `balance` = `balance` + ?, `available` = `available` + ? WHERE `userid` = ?', [parseFloat(t.amount_calculated), t.amount, user.userid], function(err5) {
 				if(err5) {
 					logger.error(err5);
 					writeError(err5);
@@ -110,7 +110,7 @@ function cryptoHandler(user, socket, request) {
 		        return;
 		      }
 		      
-		      pool.query('INSERT INTO `crypto_transactions` SET `type` = ' + pool.escape('withdraw') + ', `userid` = ' + pool.escape(t.userid) + ', `address` = ' + pool.escape(t.address) + ', `status` = ' + pool.escape(result6.status) + ', `currency` = ' + pool.escape(result6.coin) + ', `amount` = ' + t.amount + ', `value` = ' + parseFloat(result6.amountf) + ', `exchange` = ' + exchange + ', `time` = ' + pool.escape(result6.time_created), function(err7) {
+			  pool.query('INSERT INTO `crypto_transactions` SET `type` = ?, `userid` = ?, `address` = ?, `status` = ?, `currency` = ?, `amount` = ?, `value` = ?, `exchange` = ?, `time` = ?', ['withdraw', t.userid, t.address, result6.status, result6.coin, t.amount, parseFloat(result6.amountf), exchange, result6.time_created], function(err7) {
 		        if(err7) {
 		          logger.error(err7);
 		          writeError(err7);
@@ -232,7 +232,7 @@ function checkCoinpaymentsTransactionsByOne(transaction){
 						var exchange = currency_amount[currency];
 						var amount_calculated = getFormatAmount(exchange * value);
 						
-						pool.query('UPDATE `crypto_transactions` SET `inspected` = 1, `amount` = ' + amount_calculated + ', `exchange` = ' + exchange + ' WHERE `txnid` = ' + pool.escape(txnid), function(err1) {
+						pool.query('UPDATE `crypto_transactions` SET `inspected` = 1, `amount` = ?, `exchange` = ? WHERE `txnid` = ?', [amount_calculated, exchange, txnid], function(err1) {
 							if(err1) {
 								logger.error(err1);
 								writeError(err1);
@@ -241,8 +241,8 @@ function checkCoinpaymentsTransactionsByOne(transaction){
 								return;
 							}
 							
-							pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape(currency.toLowerCase() + '_deposit') + ', `amount` = ' + amount_calculated + ', `time` = ' + pool.escape(time()));
-							pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount_calculated + ', `deposit_count` = `deposit_count` + 1, `deposit_total` = `deposit_total` + ' + amount_calculated + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2) {
+							pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, currency.toLowerCase() + '_deposit', amount_calculated, time()]);
+							pool.query('UPDATE `users` SET `balance` = `balance` + ?, `deposit_count` = `deposit_count` + 1, `deposit_total` = `deposit_total` + ? WHERE `userid` = ?', [amount_calculated, amount_calculated, user.userid], function(err2) {
 								if(err2) {
 									logger.error(err2);
 									writeError(err2);
@@ -252,7 +252,7 @@ function checkCoinpaymentsTransactionsByOne(transaction){
 								}
 								
 								//AFFILIATES
-								pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err3, row3) {
+								pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ? GROUP BY referral_uses.referral', [user.userid], function(err3, row3) {
 									if(err3) {
 										logger.error(err3);
 										writeError(err3);
@@ -264,11 +264,12 @@ function checkCoinpaymentsTransactionsByOne(transaction){
 									if(row3.length > 0) {
 										var commission_deposit = getFeeFromCommission(amount_calculated, getAffiliateCommission(getFormatAmount(row3[0].amount), 'deposit'));
 										
-										pool.query('INSERT INTO `referral_deposited` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row3[0].referral) + ', `amount` = ' + amount_calculated + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-										pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row3[0].referral));
+										pool.query('INSERT INTO `referral_deposited` SET `userid` = ?, `referral` = ?, `amount` = ?, `commission` = ?, `time` = ?', [user.userid, row3[0].referral, amount_calculated, commission_deposit, time()]);
+										pool.query('UPDATE `referral_codes` SET `available` = `available` + ? WHERE `userid` = ?', [commission_deposit, row3[0].referral]);
+
 									}
 							
-									pool.query('INSERT INTO `users_trades` SET `type` = ' + pool.escape(type) + ', `method` = ' + pool.escape("crypto") + ', `game` = ' + pool.escape(currency.toLowerCase()) + ', `userid` = ' + pool.escape(user.userid) + ', `amount` = ' + amount_calculated + ', `value` = ' + parseFloat(value) + ', `tradeid` = ' + parseInt(transaction.id) + ', `time` = ' + pool.escape(time()), function(err4){
+									pool.query('INSERT INTO `users_trades` SET `type` = ?, `method` = ?, `game` = ?, `userid` = ?, `amount` = ?, `value` = ?, `tradeid` = ?, `time` = ?', [type, "crypto", currency.toLowerCase(), user.userid, amount_calculated, parseFloat(value), parseInt(transaction.id), time()], function(err4) {
 										if(err4) {
 											logger.error(err4);
 											writeError(err4);
@@ -314,7 +315,7 @@ function checkCoinpaymentsTransactionsByOne(transaction){
 			} else resolve();
 		} else if(type == 'withdraw'){
 			if(status == 2){
-				pool.query('UPDATE `crypto_transactions` SET `inspected` = 1 WHERE `txnid` = ' + pool.escape(txnid), function(err1) {
+				pool.query('UPDATE `crypto_transactions` SET `inspected` = 1 WHERE `txnid` = ?', [txnid], function(err1) {
 					if(err1) {
 						logger.error(err1);
 						writeError(err1);
@@ -323,7 +324,7 @@ function checkCoinpaymentsTransactionsByOne(transaction){
 						return;
 					}
 					
-					pool.query('INSERT INTO `users_trades` SET `type` = ' + pool.escape(type) + ', `method` = ' + pool.escape("crypto") + ', `game` = ' + pool.escape(currency.toLowerCase()) + ', `userid` = ' + pool.escape(user.userid) + ', `amount` = ' + amount + ', `value` = ' + parseFloat(value) + ', `tradeid` = '+ parseInt(transaction.id) + ', `time` = ' + pool.escape(time()), function(err2){
+					pool.query('INSERT INTO `users_trades` SET `type` = ?, `method` = ?, `game` = ?, `userid` = ?, `amount` = ?, `value` = ?, `tradeid` = ?, `time` = ?', [type, "crypto", currency.toLowerCase(), user.userid, amount, parseFloat(value), parseInt(transaction.id), time()], function(err2){
 						if(err2) {
 							logger.error(err2);
 							writeError(err2);
@@ -332,7 +333,7 @@ function checkCoinpaymentsTransactionsByOne(transaction){
 							return;
 						}
 					
-						pool.query('UPDATE `users` SET `withdraw_count` = `withdraw_count` + 1, `withdraw_total` = `withdraw_total` + ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err3) {
+						pool.query('UPDATE `users` SET `withdraw_count` = `withdraw_count` + 1, `withdraw_total` = `withdraw_total` + ? WHERE `userid` = ?', [amount, user.userid], function(err3) {
 							if(err3) {
 								logger.error(err3);
 								writeError(err3);
@@ -371,7 +372,7 @@ function checkCoinpaymentsTransactionsByOne(transaction){
 					});
 				});
 			} else if(status < 0){
-				pool.query('UPDATE `crypto_transactions` SET `inspected` = 1 WHERE `txnid` = ' + pool.escape(txnid), function(err1) {
+				pool.query('UPDATE `crypto_transactions` SET `inspected` = 1 WHERE `txnid` = ?', [txnid], function(err1) {
 					if(err1) {
 						logger.error(err1);
 						writeError(err1);
@@ -380,9 +381,19 @@ function checkCoinpaymentsTransactionsByOne(transaction){
 						return;
 					}
 						
-					pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape(currency.toLowerCase() + '_withdraw_refund') + ', `amount` = ' + amount + ', `time` = ' + pool.escape(time()));
-					pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount + ', `available` = `available` + ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2) {
-						if(err2) {
+					pool.query('INSERT INTO `users_transactions` SET ?', {
+						userid: user.userid,
+						service: currency.toLowerCase() + '_withdraw_refund',
+						amount: amount,
+						time: time()
+					  }, function(err) {
+					  });
+
+					pool.query('UPDATE `users` SET ? WHERE `userid` = ?', [{
+  						balance: amount,
+  						available: amount
+					}, user.userid], function(err2) {
+							if(err2) {
 							logger.error(err2);
 							writeError(err2);
 							
@@ -593,8 +604,14 @@ function withdrawCurrency(user, socket, currency, amount, address, recaptcha){
 				
 					// comment these if u want to remove manual withdrawals
 					if(IS_MANUAL_WITHDRAWAL) {
-						pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape(currency.toLowerCase() + '_withdraw') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
-						pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ', `available` = `available` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err5) {
+						pool.query('INSERT INTO `users_transactions` SET ?', {
+							userid: user.userid,
+							service: currency.toLowerCase() + '_withdraw',
+							amount: -amount,
+							time: time()
+						  }, function(err) {
+						  });
+						  pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ', `available` = `available` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err5) {
 							if(err5) {
 								logger.error(err5);
 								writeError(err5);
@@ -644,8 +661,13 @@ function withdrawCurrency(user, socket, currency, amount, address, recaptcha){
 								return;
 							}
 							
-							pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape(currency.toLowerCase() + '_withdraw') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
-							pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ', `available` = `available` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err5) {
+							pool.query('INSERT INTO `users_transactions` SET ?', {
+								userid: user.userid,
+								service: currency.toLowerCase() + '_withdraw',
+								amount: -amount,
+								time: time()
+							});
+							  pool.query('UPDATE `users` SET `balance` = `balance` - ?, `available` = `available` - ? WHERE `userid` = ?', [amount, amount, user.userid], function(err5) {
 								if(err5) {
 									logger.error(err5);
 									writeError(err5);
@@ -669,7 +691,20 @@ function withdrawCurrency(user, socket, currency, amount, address, recaptcha){
 										return;
 									}
 									
-									pool.query('INSERT INTO `crypto_transactions` SET `type` = ' + pool.escape('withdraw') + ', `userid` = ' + pool.escape(user.userid) + ', `name` = ' + pool.escape(user.name) + ', `avatar` = ' + pool.escape(user.avatar) + ', `xp` = ' + pool.escape(user.xp) + ', `address` = ' + pool.escape(address) + ', `status` = ' + pool.escape(result6.status) + ', `currency` = ' + pool.escape(result6.coin) + ', `amount` = ' + amount + ', `value` = ' + parseFloat(result6.amountf) + ', `exchange` = ' + exchange + ', `time` = ' + pool.escape(result6.time_created), function(err7) {
+									pool.query('INSERT INTO `crypto_transactions` SET ?', {
+										type: 'withdraw',
+										userid: user.userid,
+										name: user.name,
+										avatar: user.avatar,
+										xp: user.xp,
+										address: address,
+										status: result6.status,
+										currency: result6.coin,
+										amount: amount,
+										value: parseFloat(result6.amountf),
+										exchange: exchange,
+										time: result6.time_created
+									  }, function(err7) {
 										if(err7) {
 											logger.error(err7);
 											writeError(err7);
@@ -713,7 +748,7 @@ function generateCurrencyAddress(recaptcha, currency, user, socket){
 			return;
 		}
 		
-		pool.query('SELECT * FROM `crypto_addresses` WHERE `userid` = ' + pool.escape(user.userid) + ' AND `currency` = ' + pool.escape(currency), function(err1, row1) {
+		pool.query('SELECT * FROM `crypto_addresses` WHERE `userid` = ? AND `currency` = ?', [user.userid, currency], function(err1, row1) {
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -740,7 +775,7 @@ function generateCurrencyAddress(recaptcha, currency, user, socket){
 					return;
 				}
 				
-				pool.query('INSERT INTO `crypto_addresses` SET `address` = ' + pool.escape(result2.address) + ', `currency` = ' + pool.escape(currency.toUpperCase()) + ', `userid` = ' + pool.escape(user.userid) + ', `time` = ' + pool.escape(time()), function(err3, row3) {
+				pool.query('INSERT INTO `crypto_addresses` SET `address` = ?, `currency` = ?, `userid` = ?, `time` = ?', [result2.address, currency.toUpperCase(), user.userid, time()], function(err3, row3) {
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);

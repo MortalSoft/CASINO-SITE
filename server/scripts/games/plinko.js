@@ -84,8 +84,12 @@ function plinkoGame_bet(user, socket, amount, color){
 		
 		pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(amount) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(user.userid));
 		pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-		pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('plinko_bet') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
-		
+		pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err2, result) {
+			if (err2) {
+				console.error("Error updating user balance:", err2);
+			}
+		});
+				
 		pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2) {
 			if(err2) {
 				logger.error(err2);
@@ -95,7 +99,7 @@ function plinkoGame_bet(user, socket, amount, color){
 			}
 			
 			//AFFILIATES
-			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err3, row3) {
+			pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err2) {
 				if(err3) {
 					logger.error(err3);
 					writeError(err3);

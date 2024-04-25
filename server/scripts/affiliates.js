@@ -9,7 +9,7 @@ function affiliates_collectAvailable(user, socket, recaptcha){
 			return;
 		}
 		
-		pool.query('SELECT * FROM `referral_codes` WHERE `userid` = ' + pool.escape(user.userid), function(err1, row1){
+		pool.query('SELECT * FROM `referral_codes` WHERE `userid` = ?', [user.userid], function(err1, row1){
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -37,7 +37,7 @@ function affiliates_collectAvailable(user, socket, recaptcha){
 				return;
 			}
 			
-			pool.query('UPDATE `referral_codes` SET `collected` = `collected` + ' + available + ', `available` = `available` - ' + available + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2){
+			pool.query('UPDATE `referral_codes` SET `collected` = `collected` + ?, `available` = `available` - ? WHERE `userid` = ?', [available, available, user.userid], function(err2){
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -45,9 +45,9 @@ function affiliates_collectAvailable(user, socket, recaptcha){
 					return;
 				}
 			
-				pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('affiliates_available') + ', `amount` = ' + available + ', `time` = ' + pool.escape(time()));
+				pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'affiliates_available', available, time()]);
 				
-				pool.query('UPDATE `users` SET `balance` = `balance` + ' + available + ' WHERE `userid` = ' + pool.escape(user.userid), function(err3) {
+				pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [available, user.userid], function(err3) {
 					if(err3) {
 						logger.error(err3);
 						writeError(err3);

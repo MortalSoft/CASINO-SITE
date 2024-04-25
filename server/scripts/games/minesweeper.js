@@ -136,10 +136,21 @@ function minesweeperGame_bet(user, socket, amount, bombs){
 			return;
 		}
 		
-		pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-		pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('minesweeper_bet') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
-
-		pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2, row2) {
+		pool.query('UPDATE `users` SET `xp` = `xp` + ? WHERE `userid` = ?', [getXpByAmount(amount), user.userid], function(err) {
+			if (err) {
+				console.error("Error updating user XP:", err);
+			} else {
+				getLevel(user.userid);
+			}
+		});
+		
+		pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'minesweeper_bet', -amount, time], function(err) {
+			if (err) {
+				console.error("Error inserting into users_transactions:", err);
+			}
+		});
+		
+		pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err2, row2) {
 			if(err2) {
 				logger.error(err2);
 				writeError(err2);
@@ -148,7 +159,7 @@ function minesweeperGame_bet(user, socket, amount, bombs){
 			}
 			
 			//AFFILIATES
-			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err3, row3) {
+			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ?', [user.userid], function(err3, row3) {
 				if(err3) {
 					logger.error(err3);
 					writeError(err3);
@@ -159,8 +170,23 @@ function minesweeperGame_bet(user, socket, amount, bombs){
 				if(row3.length > 0 && should_refferals_count_wager) {
 					var commission_deposit = getFeeFromCommission(amount, getAffiliateCommission(getFormatAmount(row3[0].amount), 'bet'));
 					
-					pool.query('INSERT INTO `referral_wagered` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row3[0].referral) + ', `amount` = ' + amount + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-					pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row3[0].referral));
+					pool.query('INSERT INTO `referral_wagered` SET ?', {
+						userid: user.userid,
+						referral: row3[0].referral,
+						amount: amount,
+						commission: commission_deposit,
+						time: time()
+					}, function(err1) {
+						if (err1) {
+							console.error("Error inserting into referral_wagered:", err1);
+						} else {
+							pool.query('UPDATE `referral_codes` SET `available` = `available` + ? WHERE `userid` = ?', [commission_deposit, row3[0].referral], function(err2) {
+								if (err2) {
+									console.error("Error updating referral_codes:", err2);
+								}
+							});
+						}
+					});					
 				}
 			
 				var minesweeperGame = minesweeperGame_generateBombs(bombs);
@@ -168,7 +194,19 @@ function minesweeperGame_bet(user, socket, amount, bombs){
 				var secret = makeCode(16);
 				var hash = sha256(secret + '-' + minesweeperGame.join(''));
 				
-				pool.query('INSERT INTO `minesweeper_bets` SET `userid` = ' + pool.escape(user.userid) + ', `name` = '+pool.escape(user.name) + ', `avatar` = ' + pool.escape(user.avatar) + ', `xp` = ' + parseInt(user.xp) + ', `amount` = ' + amount + ', `amount_bombs` = ' + bombs + ', `bombs` = ' + pool.escape(minesweeperGame.join('/')) + ', `value` = ' + pool.escape(minesweeperGame.join('')) + ', `secret` = ' + pool.escape(secret) + ', `hash` = ' + pool.escape(hash) + ', `time` = '+ pool.escape(time()), function(err4, row4) {
+				pool.query('INSERT INTO `minesweeper_bets` SET ?', {
+					userid: user.userid,
+					name: user.name,
+					avatar: user.avatar,
+					xp: parseInt(user.xp),
+					amount: amount,
+					amount_bombs: bombs,
+					bombs: minesweeperGame.join('/'),
+					value: minesweeperGame.join(''),
+					secret: secret,
+					hash: hash,
+					time: time()
+				}, function(err4, row4) {
 					if(err4) {
 						logger.error(err4);
 						writeError(err4);
@@ -244,10 +282,23 @@ function minesweeperGame_cashout(user, socket){
 	
 	var winning = getFormatAmount(minesweeperGame_userBets[user.userid]['total']);
 	
-	pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - minesweeperGame_userBets[user.userid]['amount'])) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(user.userid));
-	pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('minesweeper_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
+	pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(getFormatAmount(winning - minesweeperGame_userBets[user.userid].amount)), user.userid], function(err1) {
+		if (err1) {
+			console.error("Error updating users:", err1);
+		}
+	});
 	
-	pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(user.userid), function(err1) {
+	pool.query('INSERT INTO `users_transactions` SET ?', {
+		userid: user.userid,
+		service: 'minesweeper_win',
+		amount: winning,
+		time: time()
+	}, function(err2) {
+		if (err2) {
+			console.error("Error inserting into users_transactions:", err2);
+		}
+	});
+	pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, user.userid], function(err1) {
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -262,8 +313,12 @@ function minesweeperGame_cashout(user, socket){
 			bombs: minesweeperGame_userBets[user.userid]['bombs']
 		});
 		
-		pool.query('UPDATE `minesweeper_bets` SET `route` = ' + pool.escape(minesweeperGame_userBets[user.userid]['route'].join('/')) + ', `win` = ' + winning + ', `ended` = 1, `cashout` = 1 WHERE `id` = ' + pool.escape(minesweeperGame_userBets[user.userid]['id']));
-	
+		pool.query('UPDATE `minesweeper_bets` SET `route` = ?, `win` = ?, `ended` = 1, `cashout` = 1 WHERE `id` = ?', [minesweeperGame_userBets[user.userid]['route'].join('/'), winning, minesweeperGame_userBets[user.userid]['id']], function(err) {
+			if (err) {
+				console.error("Error updating minesweeper_bets:", err);
+			}
+		});
+			
 		var history = {
 			id: minesweeperGame_userBets[user.userid]['id'], 
 			user: {
@@ -371,8 +426,12 @@ function minesweeperGame_bomb(user, socket, bomb){
 			bombs: minesweeperGame_userBets[user.userid]['bombs']
 		});
 		
-		pool.query('UPDATE `minesweeper_bets` SET `route` = ' + pool.escape(minesweeperGame_userBets[user.userid]['route'].join('/')) + ', `ended` = 1 WHERE `id` = ' + pool.escape(minesweeperGame_userBets[user.userid]['id']));
-	
+		pool.query('UPDATE `minesweeper_bets` SET `route` = ?, `ended` = 1 WHERE `id` = ?', [minesweeperGame_userBets[user.userid]['route'].join('/'), minesweeperGame_userBets[user.userid]['id']], function(err) {
+			if (err) {
+				console.error("Error updating minesweeper_bets:", err);
+			}
+		});
+			
 		minesweeperGame_userBets[user.userid]['ended'] = true;
 		minesweeperGame_countBets[user.userid] = 0;
 		
@@ -413,15 +472,27 @@ function minesweeperGame_bomb(user, socket, bomb){
 			amount: sumWin
 		});
 		
-		pool.query('UPDATE `minesweeper_bets` SET `route` = ' + pool.escape(minesweeperGame_userBets[user.userid]['route'].join('/')) + ' WHERE `id` = ' + pool.escape(minesweeperGame_userBets[user.userid]['id']));
-		
+		pool.query('UPDATE `minesweeper_bets` SET `route` = ? WHERE `id` = ?', [minesweeperGame_userBets[user.userid]['route'].join('/'), minesweeperGame_userBets[user.userid]['id']], function(err) {
+			if (err) {
+				console.error("Error updating minesweeper_bets:", err);
+			}
+		});		
+
 		if(minesweeperGame_userBets[user.userid]['amount_bombs'] + minesweeperGame_userBets[user.userid]['route'].length >= 25){
 			var winning = getFormatAmount(minesweeperGame_userBets[user.userid]['total']);
 			
-			pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - minesweeperGame_userBets[user.userid]['amount'])) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(user.userid));
-			pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('minesweeper_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
-			
-			pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(user.userid), function(err, row) {
+			pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(getFormatAmount(winning - minesweeperGame_userBets[user.userid]['amount'])), user.userid], function(err1) {
+    			if (err1) {
+       				 console.error("Error updating users:", err1);
+    			} else {
+       				pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'minesweeper_win', winning, time()], function(err2) {
+            			if (err2) {
+                			console.error("Error inserting into users_transactions:", err2);
+            			}
+        			});
+   				}
+			});
+			pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, user.userid], function(err, row) {
 				if(err) {
 					logger.error(err);
 					writeError(err);
@@ -436,8 +507,12 @@ function minesweeperGame_bomb(user, socket, bomb){
 					bombs: minesweeperGame_userBets[user.userid]['bombs']
 				});
 				
-				pool.query('UPDATE `minesweeper_bets` SET `route` = ' + pool.escape(minesweeperGame_userBets[user.userid]['route'].join('/')) + ', `win` = ' + winning + ', `ended` = 1, `cashout` = 1 WHERE `id` = ' + pool.escape(minesweeperGame_userBets[user.userid]['id']));
-			
+				pool.query('UPDATE `minesweeper_bets` SET `route` = ?, `win` = ?, `ended` = 1, `cashout` = 1 WHERE `id` = ?', [minesweeperGame_userBets[user.userid]['route'].join('/'), winning, minesweeperGame_userBets[user.userid]['id']], function(err, result) {
+					if (err) {
+						console.error("Error updating minesweeper_bets:", err);
+					}
+				});
+							
 				var history = {
 					id: minesweeperGame_userBets[user.userid]['id'],
 					user: {

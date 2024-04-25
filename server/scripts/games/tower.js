@@ -104,10 +104,17 @@ function towerGame_bet(user, socket, amount){
 			return;
 		}
 		
-		pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-		pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('tower_bet') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
+		pool.query('UPDATE `users` SET `xp` = `xp` + ?, WHERE `userid` = ?', [getXpByAmount(amount), user.userid], function(){
+			getLevel(user.userid);
+		});
 		
-		pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2, row2) {
+		pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'tower_bet', -amount, time()], function(err) {
+			if (err) {
+				console.error("Error inserting into users_transactions:", err);
+			}
+		});
+
+		pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err2, row2) {
 			if(err2) {
 				logger.error(err2);
 				writeError(err2);
@@ -115,7 +122,7 @@ function towerGame_bet(user, socket, amount){
 				return;
 			}
 			
-			//AFFILIATES
+		
 			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err3, row3) {
 				if(err3) {
 					logger.error(err3);
@@ -127,8 +134,17 @@ function towerGame_bet(user, socket, amount){
 				if(row3.length > 0 && should_refferals_count_wager) {
 					var commission_deposit = getFeeFromCommission(amount, getAffiliateCommission(getFormatAmount(row3[0].amount), 'bet'));
 					
-					pool.query('INSERT INTO `referral_wagered` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row3[0].referral) + ', `amount` = ' + amount + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-					pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row3[0].referral));
+					pool.query('INSERT INTO `referral_wagered` SET `userid` = ?, `referral` = ?, `amount` = ?, `commission` = ?, `time` = ?', [user.userid, row3[0].referral, amount, commission_deposit, time()], function(err1) {
+						if (err1) {
+							console.error("Error inserting into referral_wagered:", err1);
+						}
+					});
+					
+					pool.query('UPDATE `referral_codes` SET `available` = `available` + ? WHERE `userid` = ?', [commission_deposit, row3[0].referral], function(err2) {
+						if (err2) {
+							console.error("Error updating referral_codes:", err2);
+						}
+					});
 				}
 			
 				var toweGame = towerGame_generateGame();
@@ -136,7 +152,8 @@ function towerGame_bet(user, socket, amount){
 				var secret = makeCode(16);
 				var hash = sha256(secret + '-' + toweGame.join(''));
 				
-				pool.query('INSERT INTO `tower_bets` SET `userid` = ' + pool.escape(user.userid) + ', `name` = ' + pool.escape(user.name) + ', `avatar` = ' + pool.escape(user.avatar) + ', `xp` = ' + parseInt(user.xp) + ', `secret` = ' + pool.escape(secret) + ', `hash` = ' + pool.escape(hash) + ', `value` = ' + pool.escape(toweGame.join('')) + ', `amount` = ' + amount + ', `time` = ' + pool.escape(time()), function(err4, row4) {
+				pool.query('INSERT INTO `tower_bets` SET `userid` = ?, `name` = ?, `avatar` = ?, `xp` = ?, `secret` = ?, `hash` = ?, `value` = ?, `amount` = ?, `time` = ?', [user.userid, user.name, user.avatar, parseInt(user.xp), secret, hash, toweGame.join(''), amount, time()], function(err4, row4) {
+
 					if(err4) {
 						logger.error(err4);
 						writeError(err4);
@@ -233,9 +250,13 @@ function towerGame_cashout(user, socket){
 			type: 'tower',
 			command: 'secret',
 			secret: towerGame_userBets[user.userid]['secret']
-		});
+		});	
 		
-		pool.query('UPDATE `tower_bets` SET `route` = ' + pool.escape(towerGame_userBets[user.userid]['route'].join('/')) + ', `win` = ' + winning + ', `cashout` = 1, `ended` = 1 WHERE `id` = ' + pool.escape(towerGame_userBets[user.userid]['id']));
+		pool.query('UPDATE `tower_bets` SET `route` = ?, `win` = ?, `cashout` = 1, `ended` = 1 WHERE `id` = ?', [towerGame_userBets[user.userid]['route'].join('/'), winning, towerGame_userBets[user.userid]['id']], function(err, result) {
+    		if (err) {
+        		console.error("Error updating tower_bets:", err);
+    		}
+		});
 		
 		var history = {
 			id: towerGame_userBets[user.userid]['id'], 
@@ -350,7 +371,11 @@ function towerGame_stage(user, socket, stage, button){
 	if(towerGame_userBets[user.userid]['buttons'][towerGame_userBets[user.userid]['route'].length] == button){
 		towerGame_userBets[user.userid]['route'].push(button);
 		
-		pool.query('UPDATE `tower_bets` SET `route` = ' + pool.escape(towerGame_userBets[user.userid]['route'].join('/')) + ', `ended` = 1 WHERE `id` = ' + pool.escape(towerGame_userBets[user.userid]['id']));
+		pool.query('UPDATE `tower_bets` SET `route` = ?, `ended` = 1 WHERE `id` = ?', [towerGame_userBets[user.userid]['route'].join('/'), towerGame_userBets[user.userid]['id']], function(err) {
+			if (err) {
+				console.error('Error occurred while updating tower_bets:', err);
+			}
+		});		
 		
 		socket.emit('message', {
 			type: 'tower',
@@ -394,8 +419,11 @@ function towerGame_stage(user, socket, stage, button){
 	} else {
 		towerGame_userBets[user.userid]['route'].push(button);
 		
-		pool.query('UPDATE `tower_bets` SET `route` = ' + pool.escape(towerGame_userBets[user.userid]['route'].join('/')) + ' WHERE `id` = '+pool.escape(towerGame_userBets[user.userid]['id']));
-
+		pool.query('UPDATE `tower_bets` SET `route` = ? WHERE `id` = ?', [towerGame_userBets[user.userid]['route'].join('/'), towerGame_userBets[user.userid]['id']], function(err, result) {
+			if (err) {
+				console.error("Error updating tower_bets:", err);
+			}
+		});
 		socket.emit('message', {
 			type: 'tower',
 			command: 'result_stage',
@@ -408,10 +436,18 @@ function towerGame_stage(user, socket, stage, button){
 		if(towerGame_userBets[user.userid]['route'].length >= 10){
 			var winning = getFormatAmount(towerGame_generateAmounts(towerGame_userBets[user.userid]['amount'])[towerGame_userBets[user.userid]['route'].length - 1]);
 			
-			pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - towerGame_userBets[user.userid]['amount'])) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(user.userid));
-			pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('tower_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
-			
-			pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(user.userid), function(err1) {
+			pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(getFormatAmount(winning - towerGame_userBets[user.userid]['amount'])), user.userid], function(err1, result1) {
+				if (err1) {
+					console.error("Error updating user's available balance:", err1);
+				} else {
+					pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'tower_win', winning, time()], function(err2, result2) {
+						if (err2) {
+							console.error("Error inserting user transaction:", err2);
+						} 
+					});
+				}
+			});
+			pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, user.userid], function(err1, result1) {
 				if(err1) {
 					logger.error(err1);
 					writeError(err1);
@@ -432,8 +468,12 @@ function towerGame_stage(user, socket, stage, button){
 					secret: towerGame_userBets[user.userid]['secret']
 				});
 				
-				pool.query('UPDATE `tower_bets` SET `route` = ' + pool.escape(towerGame_userBets[user.userid]['route'].join('/')) + ', `win` = ' + winning + ', `cashout` = 1, `ended` = 1 WHERE `id` = ' + pool.escape(towerGame_userBets[user.userid]['id']));
-				
+				pool.query('UPDATE `tower_bets` SET `route` = ?, `win` = ?, `cashout` = 1, `ended` = 1 WHERE `id` = ?', [towerGame_userBets[user.userid]['route'].join('/'), winning, towerGame_userBets[user.userid]['id']], function(err, result) {
+					if (err) {
+						console.error("Error updating tower bet:", err);
+					}
+				});		
+						
 				var history = {
 					id: towerGame_userBets[user.userid]['id'],
 					user: {

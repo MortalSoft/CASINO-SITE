@@ -11,7 +11,7 @@ var rain_userWinnings = {};
 
 rain_checkGame();
 function rain_checkGame(){
-	pool.query('SELECT * FROM `rain_history` WHERE `ended` = 0', function(err1, row1) {
+	pool.query('SELECT * FROM `rain_history` WHERE `ended` = ?', [0], function(err1, row1) {
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -29,7 +29,7 @@ function rain_checkGame(){
 				timeout: null
 			}
 			
-			pool.query('SELECT * FROM `rain_bets` WHERE `id_rain` = ' + parseInt(row1[0].id), function(err2, row2) {
+			pool.query('SELECT * FROM `rain_bets` WHERE `id_rain` = ?', [parseInt(row1[0].id)], function(err2, row2) {
 				if(err2) {
 					logger.error(err2);
 					writeError(err2);
@@ -73,7 +73,7 @@ function rain_createGame(){
 	
 	var time_roll = getRandomInt(config.config_site.rain.timeout_interval.min, config.config_site.rain.timeout_interval.max);
 	
-	pool.query('INSERT INTO `rain_history` SET `amount` = ' + amount + ', `time_roll` = ' + pool.escape(time() + time_roll) + ', `time_create` = ' + pool.escape(time()), function(err1, row1) {
+	pool.query('INSERT INTO `rain_history` SET `amount` = ?, `time_roll` = ?, `time_create` = ?', [amount, time() + time_roll, time()], function(err1, row1) {
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -101,7 +101,7 @@ function rain_rollGame(){
 	
 	clearTimeout(rain_game.timeout);
 	
-	pool.query('UPDATE `rain_history` SET `time_roll` = ' + pool.escape(time()) + ' WHERE `id` = ' + parseInt(rain_game.id), function(err1, row1){
+	pool.query('UPDATE `rain_history` SET `time_roll` = ? WHERE `id` = ?', [time(), parseInt(rain_game.id)], function(err1, row1){
 		if(err1) {
 			logger.error(err1);
 			writeError(err1);
@@ -144,7 +144,7 @@ function rain_rollGame(){
 			setTimeout(function(){
 				rain_game.status = 'ended';
 				
-				pool.query('UPDATE `rain_history` SET `ended` = 1 WHERE `id` = ' + parseInt(rain_game.id), function(err2){
+				pool.query('UPDATE `rain_history` SET `ended` = 1 WHERE `id` = ?', [parseInt(rain_game.id)], function(err2){
 					if(err2) {
 						logger.error(err2);
 						writeError(err2);
@@ -166,15 +166,15 @@ function rain_rollGame(){
 					for(var bet in rain_userWinnings){
 						var amount = getFormatAmount(rain_userWinnings[bet] * 0.01);
 						
-						pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(bet) + ', `service` = ' + pool.escape('rain_win') + ', `amount` = ' + amount + ', `time` = ' + pool.escape(time()));
-						pool.query('UPDATE `users` SET `balance` = `balance` + ' + amount + ' WHERE `userid` = ' + pool.escape(bet), function(err3){
+						pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [bet, 'rain_win', amount, time()]);
+						pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [amount, bet], function(err3){
 							if(err3) {
 								logger.error(err3);
 								writeError(err3);
 								return;
 							}
 							
-							pool.query('UPDATE `rain_bets` SET `winning` = ' + amount + ' WHERE `id` = ' + pool.escape(rain_userBets[bet].id));
+							pool.query('UPDATE `rain_bets` SET `winning` = ? WHERE `id` = ?', [amount, rain_userBets[bet].id]);
 							
 							var text_message = 'Congratulations! You have receive ' + getFormatAmountString(amount) + ' coins from rain.';
 							otherMessages(text_message, io.sockets.in(bet), false);
@@ -258,7 +258,7 @@ function rain_joinGame(user, socket, recaptcha){
 		var min_ticket = parseInt(rain_game.last_ticket + 1);
 		var max_ticket = parseInt(level + rain_game.last_ticket);
 		
-		pool.query('INSERT INTO `rain_bets` SET `userid` = ' + pool.escape(user.userid) + ', `level` = ' + parseInt(level) + ', `tickets` = ' + pool.escape(min_ticket + '-' + max_ticket) + ', `id_rain` = ' + parseInt(rain_game.id) + ', `time` = ' + pool.escape(time()), function(err1, row1){
+		pool.query('INSERT INTO `rain_bets` SET `userid` = ?, `level` = ?, `tickets` = ?, `id_rain` = ?, `time` = ?', [user.userid, parseInt(level), min_ticket + '-' + max_ticket, parseInt(rain_game.id), time()], function(err1, row1){
 			if(err1) {
 				logger.error(err1);
 				writeError(err1);
@@ -266,7 +266,7 @@ function rain_joinGame(user, socket, recaptcha){
 				return;
 			}
 			
-			pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('rain_join') + ', `amount` = 0, `time` = ' + pool.escape(time()));
+			pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'rain_join', 0, time()]);
 			
 			rain_userBets[user.userid] = {
 				id: row1.insertId,
@@ -330,7 +330,7 @@ function rain_tipGame(user, socket, amount){
 			return;
 		}
 	
-		pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2) {
+		pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err2) {
 			if(err2) {
 				logger.error(err2);
 				writeError(err2);
@@ -338,9 +338,9 @@ function rain_tipGame(user, socket, amount){
 				return;
 			}
 			
-			pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('rain_tip') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
+			pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'rain_tip', -amount, time()]);
 		
-			pool.query('UPDATE `rain_history` SET `amount` = `amount` + ' + amount + ' WHERE `id` = ' + pool.escape(rain_game.id), function(err3) {
+			pool.query('UPDATE `rain_history` SET `amount` = `amount` + ? WHERE `id` = ?', [amount, rain_game.id], function(err3) {
 				if(err3) {
 					logger.error(err3);
 					writeError(err3);
@@ -350,7 +350,7 @@ function rain_tipGame(user, socket, amount){
 				
 				rain_game.amount += amount;
 		
-				pool.query('INSERT INTO `rain_tips` SET `userid` = ' + pool.escape(user.userid) + ', `amount` = ' + amount + ', `id_rain` = ' + parseInt(rain_game.id) + ', `time` = ' + pool.escape(time()), function(err4) {
+				pool.query('INSERT INTO `rain_tips` SET `userid` = ?, `amount` = ?, `id_rain` = ?, `time` = ?', [user.userid, amount, parseInt(rain_game.id), time()], function(err4) {
 					if(err4) {
 						logger.error(err4);
 						writeError(err4);

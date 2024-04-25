@@ -105,10 +105,21 @@ function diceGame_bet(user, socket, amount, chance, mode, slow){
 			return;
 		}
 		
-		pool.query('UPDATE `users` SET `xp` = `xp` + ' + getXpByAmount(amount) + ' WHERE `userid` = ' + pool.escape(user.userid), function(){ getLevel(user.userid); });
-		pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('dice_bet') + ', `amount` = ' + (-amount) + ', `time` = ' + pool.escape(time()));
-	
-		pool.query('UPDATE `users` SET `balance` = `balance` - ' + amount + ' WHERE `userid` = ' + pool.escape(user.userid), function(err2) {
+		pool.query('UPDATE `users` SET `xp` = `xp` + ? WHERE `userid` = ?', [getXpByAmount(amount), user.userid], function(err) {
+			if (err) {
+	  			console.error("Error updating user's experience points:", err);
+			} else {
+	 			getLevel(user.userid);
+			}
+  		});
+  
+		pool.query('INSERT INTO `users_transactions` SET `userid` = ?, `service` = ?, `amount` = ?, `time` = ?', [user.userid, 'dice_bet', -amount, time], function(err) {
+			if (err) {
+	 		 console.error("Error inserting dice bet transaction:", err);
+			}
+  		});
+  
+		pool.query('UPDATE `users` SET `balance` = `balance` - ? WHERE `userid` = ?', [amount, user.userid], function(err2) {
 			if(err2) {
 				logger.error(err2);
 				writeError(err2);
@@ -117,7 +128,7 @@ function diceGame_bet(user, socket, amount, chance, mode, slow){
 			}
 			
 			//AFFILIATES
-			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ' + pool.escape(user.userid) + ' GROUP BY referral_uses.referral', function(err3, row3) {
+			pool.query('SELECT COALESCE(SUM(referral_deposited.amount), 0) AS `amount`, referral_uses.referral FROM `referral_uses` LEFT JOIN `referral_deposited` ON referral_uses.referral = referral_deposited.referral WHERE referral_uses.userid = ? GROUP BY referral_uses.referral', [user.userid], function(err3, row3) {
 				if(err3) {
 					logger.error(err3);
 					writeError(err3);
@@ -128,8 +139,15 @@ function diceGame_bet(user, socket, amount, chance, mode, slow){
 				if(row3.length > 0 && should_refferals_count_wager) {
 					var commission_deposit = getFeeFromCommission(amount, getAffiliateCommission(getFormatAmount(row3[0].amount), 'bet'));
 					
-					pool.query('INSERT INTO `referral_wagered` SET `userid` = ' + pool.escape(user.userid) + ', `referral` = ' + pool.escape(row3[0].referral) + ', `amount` = ' + amount + ', `commission` = ' + commission_deposit + ', `time` = ' + pool.escape(time()));
-					pool.query('UPDATE `referral_codes` SET `available` = `available` + ' + commission_deposit + ' WHERE `userid` = ' + pool.escape(row3[0].referral));
+					pool.query('INSERT INTO `referral_wagered` SET ?', {
+						userid: user.userid,
+						referral: row3[0].referral,
+						amount: amount,
+						commission: commission_deposit,
+						time: time
+					  });
+					  
+					  pool.query('UPDATE `referral_codes` SET `available` = `available` + ? WHERE `userid` = ?', [commission_deposit, row3[0].referral]);					  
 				}
 		
 				var nrRoll_1 = getRandomInt(0, 9);
@@ -169,13 +187,34 @@ function diceGame_bet(user, socket, amount, chance, mode, slow){
 				if(winBet){
 					winning = getFormatAmount(multipler * amount);
 					
-					pool.query('UPDATE `users` SET `available` = `available` + ' + getAvailableAmount(getFormatAmount(winning - amount)) + ' WHERE `deposit_count` > 0 AND `userid` = ' + pool.escape(user.userid));
-					
-					pool.query('INSERT INTO `users_transactions` SET `userid` = ' + pool.escape(user.userid) + ', `service` = ' + pool.escape('dice_win') + ', `amount` = ' + winning + ', `time` = ' + pool.escape(time()));
-					pool.query('UPDATE `users` SET `balance` = `balance` + ' + winning + ' WHERE `userid` = ' + pool.escape(user.userid));
+					pool.query('UPDATE `users` SET `available` = `available` + ? WHERE `deposit_count` > 0 AND `userid` = ?', [getAvailableAmount(getFormatAmount(winning - amount)), user.userid]);
+
+					pool.query('INSERT INTO `users_transactions` SET ?', {
+  						userid: user.userid,
+  						service: 'dice_win',
+  						amount: winning,
+  						time: time
+					});
+
+					pool.query('UPDATE `users` SET `balance` = `balance` + ? WHERE `userid` = ?', [winning, user.userid]);
 				}
 				
-				pool.query('INSERT INTO `dice_bets` SET `userid` = ' + pool.escape(user.userid) + ', `avatar` = ' + pool.escape(user.avatar) + ', `name` = ' + pool.escape(user.name) + ', `xp` = ' + parseInt(user.xp) + ', `multiplier` = ' + multipler + ', `number` = ' + gameNumber + ', `amount` = ' + amount + ', `type` = ' + pool.escape(mode) + ', `win` = ' + winning + ', `roll` = ' + rollDice + ', `chance` = ' + chance + ', `secret` = ' + pool.escape(secret) + ', `hash` = ' + pool.escape(hash) + ', `time` = ' + pool.escape(time()), function(err4, row4) {
+				pool.query('INSERT INTO `dice_bets` SET ?', {
+					userid: user.userid,
+					avatar: user.avatar,
+					name: user.name,
+					xp: parseInt(user.xp),
+					multiplier: multipler,
+					number: gameNumber,
+					amount: amount,
+					type: mode,
+					win: winning,
+					roll: rollDice,
+					chance: chance,
+					secret: secret,
+					hash: hash,
+					time: time
+				  }, function(err4, row4) {
 					if(err4) {
 						logger.debug(err4);
 						writeError(err4);
