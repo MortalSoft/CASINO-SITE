@@ -1,0 +1,33 @@
+To commit changes to a GitHub repository and integrate it with WordPress, follow these steps:
+
+### Step 1: Set Up Your Local Environment
+1. **Clone the Repository**: If you haven't already, clone your GitHub repository to your local machine.
+git clone https://github.com/socials-hostfx/CASINO-SITE.git
+   cd CASINO-SITE
+2. **Make Your Changes**: Make the necessary changes to your code or add new files. This could involve integrating your casino features into the WordPress theme or plugin.
+
+### Step 2: Prepare for Commit
+1. **Check the Status**: See which files have been modified.
+git status
+2. **Stage Your Changes**: Add the files you want to commit.
+git add .
+or specify individual files:
+git add path/to/your/file.php
+### Step 3: Commit Your Changes
+1. **Commit with a Message**: Commit your changes with a descriptive message.
+git commit -m "Integrate casino features into WordPress"
+### Step 4: Push Changes to GitHub
+1. **Push Your Changes**: Send your commits to the GitHub repository.
+git push origin main
+Replace  `main`  with your branch name if you are using a different one.
+
+### Step 5: Integration with WordPress
+1. **Activate the Theme or Plugin**: If you are developing a theme or plugin, make sure to activate it in the WordPress admin panel.
+2. **Test the Integration**: Visit your WordPress site to ensure that the new features are working as expected.
+
+### Additional Tips
+- **Branching**: Consider creating a new branch for your changes if you are working on a feature or fix.
+git checkout -b feature/casino-integration
+- **Pull Requests**: If you are collaborating with others, you might want to create a pull request on GitHub after pushing your branch.
+
+If you have any specific questions or need further assistance with any of these steps, feel free to ask!
