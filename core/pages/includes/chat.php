@@ -359,22 +359,6 @@
 							</a>
 						</div>
 						<div class="header-menu-button">
-							<a href="<?php echo $site['root'];?>jackpot">
-								<div class="header-side-button flex items-center <?php if($paths[0] == 'jackpot') echo 'active';?>">
-									<img src="<?php echo $site['root'];?>template/img/new_icons/Jackpot.png">
-									<div class="ml-1">Jackpot</div>
-								</div>
-							</a>
-						</div>
-						<div class="header-menu-button">
-							<a href="<?php echo $site['root'];?>coinflip">
-								<div class="header-side-button flex items-center <?php if($paths[0] == 'coinflip') echo 'active';?>">
-									<img src="<?php echo $site['root'];?>template/img/new_icons/coinflip.png">
-									<div class="ml-1">Coinflip</div>
-								</div>
-							</a>
-						</div>
-						<div class="header-menu-button">
 							<a href="<?php echo $site['root'];?>dice">
 								<div class="header-side-button flex items-center <?php if($paths[0] == 'dice') echo 'active';?>">
 									<img src="<?php echo $site['root'];?>template/img/new_icons/Dice.png">
