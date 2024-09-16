@@ -70,8 +70,6 @@
     <a href="/plinko"><img src="<?php echo $site['root'];?>template/img/home/Plinko.png" alt="" /></a>
     <a href="/tower"><img src="<?php echo $site['root'];?>template/img/home/Towers.png" alt="" /></a>
     <a href="/minesweeper"><img src="<?php echo $site['root'];?>template/img/home/Mines.png" alt="" /></a>
-    <a href="/coinflip"><img src="<?php echo $site['root'];?>template/img/home/Coinflip.png" alt="" /></a>
-    <a href="/jackpot"><img src="<?php echo $site['root'];?>template/img/home/Jackpot.png" alt="" /></a>
     <a href="/roulette"><img src="<?php echo $site['root'];?>template/img/home/Roulette.png" alt="" /></a>
 
   </div>
